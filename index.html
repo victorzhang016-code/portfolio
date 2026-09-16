@@ -600,7 +600,7 @@ function openItem(id){
     }
     const icn=p[4]||null;
     return `<div class="frow" onclick="openPage('${p[0]}','${p[1]} · ${p[2]}','${p[0]}','${id}',${i})">
-      <img src="${icn?('assets/'+icn+'.png'):('renders/'+p[0]+'.png')}" style="${icn?'width:46px;height:46px;object-fit:contain;border-radius:9px;':''}" onerror="this.style.visibility='hidden'">
+      <img src="${icn?('assets/'+icn+'.png'):('renders/'+p[0]+'.jpg')}" style="${icn?'width:46px;height:46px;object-fit:contain;border-radius:9px;':''}" onerror="this.style.visibility='hidden'">
       <div><div class="nm">${p[1]}</div><div class="ds">${c.name}</div></div>
       <div class="pg">${p[2]}</div>
     </div>`;
