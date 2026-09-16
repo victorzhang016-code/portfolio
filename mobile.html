@@ -83,6 +83,8 @@ button{font:inherit;border:none;background:none;color:inherit;touch-action:manip
   border:1.5px solid rgba(242,240,232,.7);color:#F2F0E8;font-size:14px;letter-spacing:.24em;
   background:rgba(14,35,80,.35);backdrop-filter:blur(4px);cursor:pointer;}
 .enter-btn:active{background:rgba(242,240,232,.18);}
+.preload-state{min-height:16px;margin-top:8px;font-size:10.5px;letter-spacing:.08em;color:rgba(242,240,232,.52);text-align:center;}
+.preload-state.ready{color:rgba(242,240,232,.78);}
 @keyframes ttspin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 @keyframes ttpulse{0%,100%{box-shadow:0 0 0 0 rgba(242,240,232,.28);}50%{box-shadow:0 0 22px 7px rgba(242,240,232,.4);}}
 @keyframes ttlure{0%,100%{filter:drop-shadow(0 0 0 rgba(242,240,232,0));}50%{filter:drop-shadow(0 0 9px rgba(242,240,232,.7));}}
@@ -239,7 +241,8 @@ button{font:inherit;border:none;background:none;color:inherit;touch-action:manip
   .cover-role{grid-column:1;grid-row:4;}
   .cover-credo{grid-column:1;grid-row:5;margin-top:8px;font-size:12px;}
   .enter-btn{grid-column:1;grid-row:6;margin-top:12px;justify-self:center;}
-  .tt-wrap{grid-column:2;grid-row:1 / 7;width:min(42vh,220px);margin:0 auto;}
+  .preload-state{grid-column:1;grid-row:7;margin-top:3px;}
+  .tt-wrap{grid-column:2;grid-row:1 / 8;width:min(42vh,220px);margin:0 auto;}
   .app-grid{grid-template-columns:repeat(8,1fr);gap:10px 4px;padding-top:14px;}
   .app-ico img{width:48px;height:48px;}
   .dock-wrap{padding-top:4px;}
@@ -264,7 +267,8 @@ html.is-phone-landscape .cover-name{grid-column:1;grid-row:3;font-size:17px;}
 html.is-phone-landscape .cover-role{grid-column:1;grid-row:4;}
 html.is-phone-landscape .cover-credo{grid-column:1;grid-row:5;margin-top:8px;font-size:12px;}
 html.is-phone-landscape .enter-btn{grid-column:1;grid-row:6;margin-top:12px;justify-self:center;}
-html.is-phone-landscape .tt-wrap{grid-column:2;grid-row:1 / 7;width:min(42vh,220px);margin:0 auto;}
+html.is-phone-landscape .preload-state{grid-column:1;grid-row:7;margin-top:3px;}
+html.is-phone-landscape .tt-wrap{grid-column:2;grid-row:1 / 8;width:min(42vh,220px);margin:0 auto;}
 html.is-phone-landscape .app-grid{grid-template-columns:repeat(8,1fr);gap:10px 4px;padding-top:14px;}
 html.is-phone-landscape .app-ico img{width:48px;height:48px;}
 html.is-phone-landscape .dock-wrap{padding-top:4px;}
@@ -310,6 +314,7 @@ html.is-phone-landscape .art-gallery{grid-template-columns:repeat(3,1fr);}
     </div>
     <div class="cover-credo">Think, Passion, Brave and Love.</div>
     <button id="enterBtn" class="enter-btn">进入</button>
+    <div id="preloadState" class="preload-state">正在准备作品…</div>
   </div>
   <audio id="bgm" src="assets/music/t21.m4a" loop preload="none"></audio>
 </div>
@@ -845,12 +850,52 @@ function openThemeSheet(){
   });
 }
 
-/* ═══════════════════════ 预热首屏（性能） ═══════════════════════ */
-function warmAll(){
-  const targets=['c1-a-product','c2-a-product','c3-a-product','work-elysium','p02-about','p25-letter'];
-  const run=()=>targets.forEach((s,i)=>setTimeout(()=>fetchArticle(s),i*150));
-  if('requestIdleCallback' in window)requestIdleCallback(run,{timeout:1200});else setTimeout(run,300);
+/* ═══════════════════════ 封面阶段全量预加载（HTML + 高清预览 + 正文图片） ═══════════════════════ */
+const PRELOAD_IMAGE_CACHE=new Map();
+let PRELOAD_ALL_PROMISE=null;
+function preloadImage(src,priority='low'){
+  if(!src)return Promise.resolve();
+  if(PRELOAD_IMAGE_CACHE.has(src))return PRELOAD_IMAGE_CACHE.get(src);
+  const job=new Promise(resolve=>{
+    const img=new Image();img.decoding='async';
+    try{img.fetchPriority=priority;}catch(e){}
+    const done=()=>{try{img.decode?.().catch(()=>{});}catch(e){}resolve();};
+    img.onload=done;img.onerror=resolve;img.src=src;
+  });
+  PRELOAD_IMAGE_CACHE.set(src,job);return job;
 }
+function warmAll(){
+  if(PRELOAD_ALL_PROMISE)return PRELOAD_ALL_PROMISE;
+  const state=document.getElementById('preloadState');
+  const critical=['c1-a-product','c2-a-product','c3-a-product','p02-about','p25-letter','work-elysium'];
+  const all=[...new Set([
+    'p02-about','p25-letter',
+    ...APPS.filter(a=>a.kind==='case').flatMap(a=>a.pages.map(p=>p[0])),
+    ...OTHERWORK.map(w=>w.slug)
+  ])];
+  const queue=[...critical,...all.filter(s=>!critical.includes(s))];
+  let done=0;
+  const update=()=>{if(state){state.textContent=`正在准备作品 ${done} / ${queue.length}`;state.classList.toggle('ready',done===queue.length);}};
+  update();
+  let cursor=0;
+  async function worker(){
+    while(cursor<queue.length){
+      const i=cursor++,slug=queue[i],priority=i<critical.length?'high':'low';
+      const data=await fetchArticle(slug);
+      const urls=[`assets/mobile-preview/${slug}.webp`,...data.images];
+      await Promise.all(urls.map(src=>preloadImage(src,priority)));
+      done++;update();
+    }
+  }
+  const staticAssets=['assets/wechat-qr.png','assets/p25-thanks-bg.webp',...Array.from({length:6},(_,i)=>`assets/wp/wp${i+1}.jpg`)];
+  staticAssets.forEach(src=>preloadImage(src,'low'));
+  PRELOAD_ALL_PROMISE=Promise.all(Array.from({length:4},worker)).then(()=>{
+    if(state){state.textContent='作品已准备好';state.classList.add('ready');}
+  });
+  return PRELOAD_ALL_PROMISE;
+}
+// 不等进入桌面：封面出现即开始并发预加载
+warmAll();
 </script>
 </body>
 </html>

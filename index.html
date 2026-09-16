@@ -915,6 +915,12 @@ function fitWall(){
   document.querySelectorAll('#wallpaper iframe').forEach(f=>{f.style.transform=`translate(-50%,-50%) scale(${s})`;});
 }
 window.addEventListener('resize',fitWall); fitWall();
+
+/* 封面阶段即预热全部案例，不再等进入桌面 */
+setTimeout(()=>{
+  warmPage('p02-about','high');warmPage('p25-letter','low');
+  CASES.forEach((c,i)=>setTimeout(()=>warmCase(c.id),i*100));
+},120);
 </script>
 </body>
 </html>
