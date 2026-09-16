@@ -346,7 +346,13 @@ window.addEventListener('resize',queueViewportSync,{passive:true});
 window.addEventListener('orientationchange',queueViewportSync,{passive:true});
 try{screen.orientation?.addEventListener('change',queueViewportSync);}catch(e){}
 try{visualViewport?.addEventListener('resize',queueViewportSync,{passive:true});}catch(e){}
+document.addEventListener('fullscreenchange',()=>{try{screen.orientation?.unlock();}catch(e){}queueViewportSync();});
 syncMobileViewport();
+async function enterMobileFullscreen(){
+  try{if(!document.fullscreenElement&&document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen({navigationUI:'hide'});}catch(e){}
+  try{screen.orientation?.unlock();}catch(e){}
+  queueViewportSync();
+}
 
 /* ═══════════════════════ 数据 ═══════════════════════ */
 const APPS=[
@@ -413,6 +419,7 @@ function sfx(n){
     }
   });
   document.getElementById('enterBtn').addEventListener('click',()=>{
+    enterMobileFullscreen();
     sfx('Boot');
     try{audio.pause();}catch(e){}
     cover.classList.add('leaving');
