@@ -56,14 +56,17 @@ button{font:inherit;border:none;background:none;color:inherit;touch-action:manip
   overflow:hidden;background:var(--warm);box-shadow:0 0 0 1.5px rgba(32,35,35,.25),inset 0 0 0 5px rgba(242,240,232,.32);}
 .tt-label img{width:100%;height:100%;object-fit:cover;object-position:50% 62%;transform:scale(1.35);filter:grayscale(1) contrast(1.18);}
 .tt-hole{position:absolute;left:50%;top:50%;width:9%;height:9%;transform:translate(-50%,-50%);border-radius:50%;background:#0E2350;}
-.tt-glow{position:absolute;left:50%;top:50%;width:128%;height:128%;transform:translate(-50%,-50%);border-radius:50%;
-  border:1.5px solid rgba(242,240,232,.55);opacity:0;pointer-events:none;transition:opacity .5s ease;}
-#cover.playing .tt-glow{opacity:1;animation:ttpulse 3.2s ease-in-out infinite;}
+.tt-glow{position:absolute;inset:-14%;border-radius:50%;border:1.5px solid rgba(242,240,232,.5);opacity:0;pointer-events:none;transition:opacity .5s ease;}
+.tt-glow::before,.tt-glow::after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(242,240,232,.35);}
+.tt-glow::before{inset:-17%;}.tt-glow::after{inset:-36%;}
+#cover.playing .tt-glow{opacity:1;animation:ttpulse 3.6s ease-in-out infinite;}
+#cover.playing .tt-glow::before{animation:ttpulse 3.6s .45s ease-in-out infinite;}
+#cover.playing .tt-glow::after{animation:ttpulse 3.6s .9s ease-in-out infinite;}
 .tt-arm{position:absolute;right:-8%;top:-6%;width:56%;height:56%;transform-origin:100% 0%;transform:rotate(50deg);
   transition:transform .9s cubic-bezier(.32,.78,.24,1);cursor:pointer;z-index:5;
   filter:drop-shadow(0 3px 5px rgba(0,0,0,.4));}
 .tt-arm::before{content:"";position:absolute;inset:-18px;}
-.tt-arm:not(.down){animation:ttlure 2.2s ease-in-out infinite;}
+.tt-arm:not(.down):not(.touched){animation:ttlure 2.2s ease-in-out infinite;}
 .tt-arm.down{transform:rotate(-15deg);}
 .arm-rod{position:absolute;right:0;top:0;width:100%;height:5px;border-radius:3px;
   background:linear-gradient(#f7f8f6,#b9bdc4 60%,#83888f);}
@@ -85,7 +88,7 @@ button{font:inherit;border:none;background:none;color:inherit;touch-action:manip
 /* ═══════════ 移动桌面 ═══════════ */
 #home{position:fixed;inset:0;z-index:1;display:none;flex-direction:column;background:#0d0e11;}
 #home.show{display:flex;}
-#homeWallpaper{position:absolute;inset:0;background-size:cover;background-position:center;transition:background-image .5s ease;}
+#homeWallpaper{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity .36s ease;}
 .menubar{position:relative;z-index:20;flex:none;display:flex;align-items:center;padding:0 14px;gap:8px;
   height:calc(44px + var(--sat));padding-top:var(--sat);font-size:13px;color:#000;
   background:repeating-linear-gradient(0deg,transparent 0px,transparent 1.5px,rgba(255,255,255,.55) 1.5px,rgba(255,255,255,.55) 4px),
@@ -126,8 +129,10 @@ button{font:inherit;border:none;background:none;color:inherit;touch-action:manip
 .hd-mid{flex:1;min-width:0;text-align:center;overflow:hidden;}
 .hd-title{font-size:14.5px;font-weight:700;color:#1c1c1e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .hd-page{font-size:11px;color:rgba(0,0,0,.45);margin-top:1px;}
-.ext-link{flex:none;font-size:11.5px;color:#2359D1;padding:0 8px;min-height:44px;display:flex;align-items:center;
-  white-space:nowrap;}
+.ext-link{flex:none;font-size:12px;color:#fff;padding:0 11px;min-height:36px;display:flex;align-items:center;
+  white-space:nowrap;background:var(--cobalt);border-radius:999px;text-decoration:none;font-weight:700;box-shadow:0 2px 8px rgba(35,89,209,.28);}
+.article-cta{display:flex;align-items:center;justify-content:space-between;min-height:48px;margin:0 0 18px;padding:0 16px;border-radius:12px;background:var(--cobalt);color:#fff;text-decoration:none;font-size:15px;font-weight:700;box-shadow:0 7px 18px rgba(35,89,209,.22);}
+.article-cta:active{opacity:.78;}
 .sheet-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y;
   position:relative;background:#F5F4EF;}
 .sheet-body.grid-body,.sheet-body.ipod-body,.sheet-body.contact-body{padding:0;}
@@ -186,6 +191,7 @@ button{font:inherit;border:none;background:none;color:inherit;touch-action:manip
   background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.06);margin-bottom:16px;}
 .contact-card .qr{width:168px;height:168px;object-fit:contain;border-radius:10px;}
 .contact-card .c-label{margin-top:12px;font-size:13.5px;color:rgba(0,0,0,.55);letter-spacing:.04em;}
+.qr-save{margin-top:14px;min-height:44px;padding:0 18px;border-radius:11px;background:var(--cobalt);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;text-decoration:none;}
 .contact-row{display:flex;align-items:center;gap:12px;padding:16px;border-radius:14px;background:#fff;
   box-shadow:0 4px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.06);margin-bottom:12px;}
 .c-ic{font-size:22px;width:38px;text-align:center;flex:none;}
@@ -201,9 +207,12 @@ button{font:inherit;border:none;background:none;color:inherit;touch-action:manip
 .ipod-frame{width:100%;height:100%;border:none;background:transparent;}
 
 /* ═══ 主题 / 桌面切换 ═══ */
-.theme-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px;}
-.theme-th{aspect-ratio:16/10;border-radius:10px;background-size:cover;background-position:center;
-  border:2px solid transparent;box-shadow:0 2px 8px rgba(0,0,0,.18);cursor:pointer;}
+.theme-auto{margin:16px 16px 0;min-height:50px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,.08);display:flex;align-items:center;padding:0 14px;font-size:14px;font-weight:700;}
+.theme-auto .state{margin-left:auto;color:var(--cobalt);}
+.theme-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px 16px 16px;}
+.theme-th{position:relative;aspect-ratio:16/10;border-radius:10px;background-size:cover;background-position:center;
+  border:2px solid transparent;box-shadow:0 2px 8px rgba(0,0,0,.18);cursor:pointer;overflow:hidden;}
+.theme-th span{position:absolute;left:0;right:0;bottom:0;padding:18px 8px 7px;background:linear-gradient(transparent,rgba(0,0,0,.72));color:#fff;font-size:11px;}
 .theme-th.sel{border-color:var(--cobalt);}
 .theme-foot{padding:8px 16px 28px;text-align:center;}
 .theme-foot a{color:var(--cobalt);font-size:13.5px;font-weight:700;text-decoration:none;}
@@ -255,11 +264,11 @@ button{font:inherit;border:none;background:none;color:inherit;touch-action:manip
     <div class="cover-role">AI 产品经理 · Builder</div>
     <div class="tt-wrap">
       <div class="tt-disc" id="ttDisc">
+        <div class="tt-glow"></div>
         <div class="tt-grooves"></div>
         <div class="tt-label"><img src="assets/gloves.jpg" alt="" loading="eager"><div class="tt-hole"></div></div>
         <div class="tt-reflect"></div>
       </div>
-      <div class="tt-glow"></div>
       <div class="tt-arm" id="ttArm" role="button" aria-label="播放或暂停 Aruarian Dance">
         <div class="arm-rod"><span class="arm-head"></span></div>
         <div class="arm-piv"></div>
@@ -339,6 +348,7 @@ function sfx(n){
   const audio=document.getElementById('bgm');
   let playing=false;
   arm.addEventListener('click',()=>{
+    arm.classList.add('touched');
     if(!playing){
       playing=true;
       cover.classList.add('playing');
@@ -348,6 +358,7 @@ function sfx(n){
     }else{
       playing=false;
       cover.classList.remove('playing');
+      arm.classList.remove('down');
       disc.classList.remove('spinning'); // animation-play-state:paused 会原地冻结当前旋转角度
       audio.pause();
     }
@@ -362,6 +373,7 @@ function sfx(n){
     home.style.display='flex';
     requestAnimationFrame(()=>home.classList.add('show'));
     tickClock();setInterval(tickClock,10000);
+    startWallpaperAuto();
     warmAll();
   });
 })();
@@ -439,7 +451,8 @@ function sanitizeInline(el){
     node.childNodes.forEach(n=>{
       if(n.nodeType===3){out+=n.textContent;}
       else if(n.nodeType===1){
-        if(INLINE_ALLOW.has(n.tagName))out+='<'+n.tagName.toLowerCase()+'>'+walk(n)+'</'+n.tagName.toLowerCase()+'>';
+        if(n.tagName==='BR')out+='<br>';
+        else if(INLINE_ALLOW.has(n.tagName))out+='<'+n.tagName.toLowerCase()+'>'+walk(n)+'</'+n.tagName.toLowerCase()+'>';
         else out+=walk(n);
       }
     });
@@ -450,8 +463,8 @@ function sanitizeInline(el){
 function isContentImage(img){
   const src=img.getAttribute('src')||'';
   if(!src||src.startsWith('data:'))return false;
-  if(/icon-|logo|signature|\.ico(?:$|\?)/i.test(src))return false;
-  if(img.closest('.brand,.top,.sign,.social,.foot,.tr,.si,.bd'))return false;
+  if(/icon-|logo|signature|victor-face|\/dev\/|\.ico(?:$|\?)/i.test(src))return false;
+  if(img.closest('.brand,.top,.sign,.social,.foot,.tr,.si,.bd,.orbit,.dev,.center'))return false;
   if(/\bic\b/.test(img.className||''))return false;
   return true;
 }
@@ -460,7 +473,7 @@ function parseArticle(html,slug){
   const titleEl=doc.querySelector('h1, .name');
   let title=titleEl?sanitizeInline(titleEl):slug;
   title=title.replace(/<br\s*\/?>/gi,' ').trim();
-  const sel='h1,h2,h3,.eyebrow,.lead,.cn,.desc,.bcap,p';
+  const sel='h1,h2,h3,.eyebrow,.lead,.cn,.desc,.bcap,.vk,.vd,.loop,.quote,.q,.llab,.tt2,.ph,.en,.big,.stat,p';
   const nodes=[...doc.querySelectorAll(sel)];
   const seenEls=[];
   const seenText=new Set();
@@ -478,8 +491,11 @@ function parseArticle(html,slug){
     else if(n.classList.contains('eyebrow'))cls='eyebrow';
     else if(n.classList.contains('lead'))cls='lead';
     else if(n.classList.contains('cn'))cls='cn';
-    else if(n.classList.contains('desc'))cls='desc';
-    else if(n.classList.contains('bcap'))cls='bcap';
+    else if(n.classList.contains('desc')||n.classList.contains('vd')||n.classList.contains('bcap'))cls='desc';
+    else if(n.classList.contains('vk')||n.classList.contains('tt2')||n.classList.contains('llab'))cls='h3';
+    else if(n.classList.contains('loop')||n.classList.contains('quote')||n.classList.contains('q'))cls='lead';
+    else if(n.classList.contains('ph')||n.classList.contains('en'))cls='eyebrow';
+    else if(n.classList.contains('big')||n.classList.contains('stat'))cls='bcap';
     blocks.push({cls,html:sanitizeInline(n)});
   });
   const images=[...doc.querySelectorAll('img[src]')].filter(isContentImage)
@@ -552,7 +568,14 @@ function openReader(opts){
     body.scrollTop=0;
     fetchArticle(pages[idx].slug).then(data=>{
       body.innerHTML='';
-      body.appendChild(renderArticle(data));
+      const article=renderArticle(data);
+      if(opts.extLink){
+        const cta=document.createElement('a');
+        cta.className='article-cta';cta.href=opts.extLink.url;cta.target='_blank';cta.rel='noopener noreferrer';
+        cta.innerHTML='<span>'+opts.extLink.label+'</span><span>打开产品 ↗</span>';
+        article.insertBefore(cta,article.querySelector('.art-title'));
+      }
+      body.appendChild(article);
     });
     if(pages[idx+1])fetchArticle(pages[idx+1].slug);
     if(pages[idx-1])fetchArticle(pages[idx-1].slug);
@@ -632,6 +655,7 @@ function openContactSheet(){
     <div class="contact-card">
       <img class="qr" src="assets/wechat-qr.png" loading="lazy" decoding="async" alt="微信二维码">
       <div class="c-label">微信 · 扫码添加</div>
+      <a class="qr-save" href="assets/wechat-qr.png" download="Victor-微信二维码.png">保存二维码</a>
     </div>
     <div class="contact-row">
       <div class="c-ic">✉️</div>
@@ -678,22 +702,41 @@ document.getElementById('zoomOverlay').addEventListener('click',function(){this.
 
 /* ═══════════════════════ 主题 / 壁纸（从 assets-manifest.txt 自动识别） ═══════════════════════ */
 let WALLPAPERS=[];
+let wallpaperIndex=0,wallpaperTimer=null,autoWallpaper=true;
+const WALL_NAMES=['空想与浪漫','云端净土','飞旋乐章','交汇的庇护所','极乐迪斯科','月相人生'];
 function applyWallpaper(i){
   const w=WALLPAPERS[i];if(!w)return;
-  document.getElementById('homeWallpaper').style.backgroundImage=`url('${w.url}')`;
-  WALLPAPERS.forEach((_,j)=>{});
-  document.querySelectorAll('.theme-th').forEach((el,j)=>el.classList.toggle('sel',j===i));
+  wallpaperIndex=i;
+  const el=document.getElementById('homeWallpaper');
+  // 双帧淡换，避免背景瞬间跳变
+  el.style.opacity='.25';
+  setTimeout(()=>{el.style.backgroundImage=`url('${w.url}')`;el.style.backgroundPosition=w.pos||'center';el.style.opacity='1';},180);
+  document.querySelectorAll('.theme-th').forEach((th,j)=>th.classList.toggle('sel',j===i&&!autoWallpaper));
 }
+function startWallpaperAuto(){
+  autoWallpaper=true;clearInterval(wallpaperTimer);
+  wallpaperTimer=setInterval(()=>applyWallpaper((wallpaperIndex+1)%WALLPAPERS.length),9000);
+  const state=document.querySelector('.theme-auto .state');if(state)state.textContent='开启';
+  document.querySelectorAll('.theme-th').forEach(th=>th.classList.remove('sel'));
+}
+function stopWallpaperAuto(){
+  autoWallpaper=false;clearInterval(wallpaperTimer);
+  const state=document.querySelector('.theme-auto .state');if(state)state.textContent='关闭';
+  document.querySelectorAll('.theme-th').forEach((th,j)=>th.classList.toggle('sel',j===wallpaperIndex));
+}
+function toggleWallpaperAuto(){autoWallpaper?stopWallpaperAuto():startWallpaperAuto();sfx('MenuItemClick');}
 async function loadWallpapers(){
   let files=[];
   try{
     const res=await fetch('assets-manifest.txt',{cache:'force-cache'});
     const txt=await res.text();
-    files=[...new Set([...txt.matchAll(/assets\/wp\/(wp\d+\.(?:jpg|jpeg|png|webp))/gi)].map(m=>m[1]))];
+    files=[...new Set([...txt.matchAll(/assets\/wp\/(wp\d+\.(?:jpg|jpeg|png|webp))/gi)].map(m=>m[1]))].slice(0,6);
   }catch(e){}
-  if(!files.length)files=['wp1.jpg','wp2.jpg','wp3.jpg','wp4.jpg','wp5.jpg','wp6.jpg','wp7.jpg'];
+  if(!files.length)files=['wp1.jpg','wp2.jpg','wp3.jpg','wp4.jpg','wp5.jpg','wp6.jpg'];
   files.sort((a,b)=>(parseInt(a.match(/\d+/)[0])||0)-(parseInt(b.match(/\d+/)[0])||0));
-  WALLPAPERS=files.map(f=>({file:f,url:'assets/wp/'+f}));
+  WALLPAPERS=[{file:'victor-blue',name:'Victor Blue',url:'assets/p25-thanks-bg.webp'}].concat(
+    files.map((f,i)=>({file:f,name:WALL_NAMES[i]||('主题 '+(i+1)),url:'assets/wp/'+f}))
+  );
   applyWallpaper(0);
 }
 loadWallpapers();
@@ -704,14 +747,15 @@ function openThemeSheet(){
   sheet.querySelector('.close').addEventListener('click',()=>closeSheet(sheet));
   sheet.querySelector('.back').addEventListener('click',()=>closeSheet(sheet));
   const body=sheet.querySelector('.sheet-body');
-  body.innerHTML=`<div class="theme-grid" id="themeGrid"></div>
+  body.innerHTML=`<button class="theme-auto" type="button"><span>幻灯片自动切换</span><span class="state">${autoWallpaper?'开启':'关闭'}</span></button>
+    <div class="theme-grid" id="themeGrid"></div>
     <div class="theme-foot"><a href="./index.html?desktop=1">切换到桌面版 →</a></div>`;
+  body.querySelector('.theme-auto').addEventListener('click',toggleWallpaperAuto);
   const g=document.getElementById('themeGrid');
-  g.innerHTML=WALLPAPERS.map((w,i)=>`<div class="theme-th" data-i="${i}" style="background-image:url('${w.url}')"></div>`).join('');
+  g.innerHTML=WALLPAPERS.map((w,i)=>`<div class="theme-th ${!autoWallpaper&&i===wallpaperIndex?'sel':''}" data-i="${i}" style="background-image:url('${w.url}')"><span>${w.name}</span></div>`).join('');
   g.querySelectorAll('.theme-th').forEach(el=>{
-    el.addEventListener('click',()=>{sfx('Click');applyWallpaper(+el.dataset.i);});
+    el.addEventListener('click',()=>{sfx('Click');stopWallpaperAuto();applyWallpaper(+el.dataset.i);});
   });
-  applyWallpaper(WALLPAPERS.findIndex(w=>document.getElementById('homeWallpaper').style.backgroundImage.includes(w.file))||0);
 }
 
 /* ═══════════════════════ 预热首屏（性能） ═══════════════════════ */
