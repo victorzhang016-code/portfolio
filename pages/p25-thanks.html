@@ -2,57 +2,109 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>P.25 · 写在最后</title>
+<title>p28 · 结语</title>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html,body{width:1600px;height:900px;overflow:hidden;}
-  body{
-    position:relative;
-    color:#F2F0E8;
-    background:radial-gradient(ellipse 90% 86% at 58% 42%,#2859A4 0%,#173C78 48%,#0D2858 100%);
-    font-family:"Noto Sans CJK SC","PingFang SC",sans-serif;
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1600px; height: 900px; overflow: hidden; }
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* blue night radial gradient (same as cover) */
+    background: radial-gradient(ellipse 80% 70% at 50% 50%, #1E4B8F 0%, #153A75 45%, #0E2A5A 100%);
+    color: #F2F0E8;
   }
-  body::before{
-    content:"";position:absolute;inset:0;pointer-events:none;opacity:.2;
-    background-image:url("../assets/grain-fine.png");background-size:300px 300px;mix-blend-mode:overlay;
+
+  /* Very faint ripple arc (blue night rule: only on blue pages, extremely subtle) */
+  body::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(242,240,232,0.06);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
   }
-  .page{position:relative;z-index:1;width:1180px;margin:0 auto;padding-top:48px;}
-  .eyebrow{font-size:12px;letter-spacing:.32em;color:rgba(242,240,232,.48);margin-bottom:18px;}
-  h1{font-family:"Noto Serif CJK SC","Songti SC",serif;font-size:46px;line-height:1.2;font-weight:700;letter-spacing:.04em;margin-bottom:20px;}
-  .rule{width:100%;height:1px;background:rgba(242,240,232,.18);margin-bottom:20px;}
-  .letter{font-family:"Noto Serif CJK SC","Songti SC",serif;font-size:18.5px;line-height:1.62;letter-spacing:.018em;color:rgba(242,240,232,.9);}
-  .letter p{margin-bottom:10px;}
-  .letter strong{font-weight:700;color:#fff;}
-  .closing{margin-top:12px;padding-top:12px;border-top:1px solid rgba(242,240,232,.18);display:flex;align-items:flex-end;justify-content:space-between;}
-  .belief{font-family:Georgia,"Noto Serif CJK SC",serif;font-size:18px;font-style:italic;color:rgba(242,240,232,.72);}
-  .signature{width:126px;opacity:.82;}
+  body::after {
+    content: '';
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    border-radius: 50%;
+    border: 1px solid rgba(242,240,232,0.03);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  /* ── Center content ── */
+  .center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    z-index: 2;
+    position: relative;
+  }
+
+  .thanks-label {
+    font-size: 13.5px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(242,240,232,0.45);
+    margin-bottom: 32px;
+  }
+
+  .motto {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 30px;
+    color: #F2F0E8;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  .signature {
+    margin-top: 40px;
+    width: 150px;
+    opacity: 0.7;
+    /* white signature on blue background: no blend needed */
+  }
+
+  /* ── Bottom facts ── */
+  .bottom-facts {
+    position: absolute;
+    bottom: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12.5px;
+    letter-spacing: 0.2em;
+    color: rgba(242,240,232,0.55);
+    z-index: 2;
+    white-space: nowrap;
+  }
 </style>
-<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<style>@page{size:1600px 1000px;margin:0;}html,body{margin:0!important;}</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
 </head>
 <body>
-  <main class="page">
-    <div class="eyebrow">A LETTER TO THE TEAM I HOPE TO JOIN</div>
-    <h1>写在最后</h1>
-    <div class="rule"></div>
 
-    <article class="letter">
-      <p>我是 Victor，一名 AI 产品经理。从中厂、大厂到 AI 初创，我接受过专业的产品思维训练，也实打实做了几年 AI 产品，和大模型一同飞速成长着。我有良好的教育背景，也有不少能证明自己优秀的履历——但这些是我身上最不值一提的东西。</p>
+  <!-- Center content -->
+  <div class="center">
+    <div class="motto">Think, Passion, Brave and Love.</div>
+    <img class="signature" src="../assets/signature-white.png" alt="Victor 签名">
+  </div>
 
-      <p>优秀的人有太多，但我知道自己不仅优秀，而且特别。在 AI 可以放大一切的时代，“特别”来自一个人不可复制的生命经验。我在高密度的教育和工作环境里成长，吸收了认真、负责、系统性思维与持续创新，也一次次想办法跨越困难。这些素质成为我做产品的核心能力：用户调研、决策判断、Demo 验证、技术协作，以及把 AI 能力真正带给用户。</p>
+  <!-- Bottom facts -->
+  <div class="bottom-facts">张浩哲 Victor ｜ 2974898105@qq.com ｜ +86 18329189845 ｜ github.com/victorzhang016-code</div>
 
-      <p>我有良好的审美，这不仅来源于文学、电影、音乐和建筑，也来自多年设计实践。AI 时代大家都在强调 Taste，但我想再往前一步：<strong>品味的重要性不只在于选择，更在于创造。</strong>我曾用《银翼杀手》做叙事，把《极乐迪斯科》内化成排版风格。审美永远不只关乎视觉，它是一种价值判断。</p>
-
-      <p>与 AI Agent 的协作让我实现了关键突破。我每天使用不同的大模型与 Code Agent，也开发了基于衣物的个人审美档案 Wearlog，把前端、产品功能和后端安全都做成一个“有人味”的产品。我还把专业经验总结成 PRD 大师和 Victor Design 等 Skill，并将它们开源发布，持续维护真实作品。其中还有很多可以优化的地方，也正是我希望参与验证和改进的产品方向。</p>
-
-      <p>我想加入的，是一支<strong>高水平、踏实、有目标</strong>的团队。大家愿意把问题想清楚，也愿意把事情做扎实；尊重用户、尊重事实，能把判断落成产品，把承诺变成结果。它不必有某种特定的公司形态，成员也不必相似，但彼此可靠，对共同目标坦诚负责。团队里可以有热情而风格强烈的人，也应该有愿意长期做难事的人。我想和这样一群人一起，持续做出有价值、经得起时间检验的产品。</p>
-
-      <p>AGI 的终点永远都是关于人。经历了许多痛苦之后，我仍然坚守自己为人的信念：<strong>思考，热情，真诚，勇气和爱。</strong>我想和这样的团队一起，推动这场科技时代的文艺复兴。哦对了，可能你会说 OK COMPUTER 是 Radiohead 最伟大的专辑；如果让我夹带私货，我会选 In Rainbows。</p>
-    </article>
-
-    <div class="closing">
-      <div class="belief">Think, Passion, Brave and Love.</div>
-      <img class="signature" src="../assets/signature-white.png" alt="Victor 签名">
-    </div>
-  </main>
 </body>
 </html>
