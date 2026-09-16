@@ -1,0 +1,82 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>Wearlog · 产品</title>
+<style>
+:root{--ink:#1c1c1a;--paper:#d2ccbe;--card:#faf8f3;--accent:#c2410c;--sub:#6b6456;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--paper);color:var(--ink);
+ font-family:"Inter","Noto Sans CJK SC",ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+.stage{position:absolute;inset:0;padding:4.2% 5.4%;display:flex;flex-direction:column;}
+.top{display:flex;justify-content:space-between;align-items:center;flex:0 0 auto;
+ font-size:14px;letter-spacing:.1em;color:var(--sub);}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand img{width:38px;height:38px;border-radius:9px;}
+.brand b{font-size:16.5px;font-weight:700;letter-spacing:.02em;}
+.role{font-size:15px;color:var(--sub);}
+.role b{color:var(--accent);font-weight:700;}
+.body{flex:1 1 auto;display:grid;grid-template-columns:1fr 1.18fr;gap:48px;margin-top:24px;min-height:0;align-items:center;}
+.left{display:flex;flex-direction:column;justify-content:center;}
+.eyebrow{font-size:15px;letter-spacing:.22em;color:var(--accent);font-weight:700;}
+h1{margin-top:16px;font-family:"Playfair Display","Noto Serif CJK SC",serif;font-weight:900;font-size:54px;line-height:1.1;letter-spacing:.01em;}
+h1 em{font-style:italic;color:var(--accent);}
+.en{margin-top:14px;font-family:"Playfair Display",serif;font-style:italic;font-size:21px;color:var(--sub);}
+.desc{margin-top:20px;font-size:16.5px;line-height:1.8;color:rgba(28,28,26,.82);max-width:95%;}
+.desc b{font-weight:700;color:var(--ink);}
+.origin{margin-top:22px;display:flex;flex-direction:column;gap:0;}
+.o{display:flex;align-items:baseline;gap:14px;padding:11px 0;border-bottom:1px solid rgba(28,28,26,.14);}
+.o:last-child{border-bottom:none;}
+.o .no{font-family:"Playfair Display",serif;font-style:italic;font-size:17px;color:var(--accent);width:30px;flex-shrink:0;}
+.o .t{font-size:15.5px;line-height:1.55;color:rgba(28,28,26,.82);}
+.o .t b{font-weight:700;color:var(--ink);}
+.cta{margin-top:24px;display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;text-decoration:none;
+ padding:13px 24px;border-radius:999px;font-size:15px;font-weight:700;width:fit-content;}
+.cta small{font-weight:400;opacity:.85;font-size:12px;}
+.stack{margin-top:12px;font-size:12.5px;letter-spacing:.04em;color:var(--sub);}
+/* 右：真实产品界面 —— 主图 + 双小图，纸质感 */
+.shot{position:relative;height:100%;display:flex;flex-direction:column;gap:12px;justify-content:center;}
+.mainf{position:relative;width:100%;border-radius:6px;overflow:hidden;background:var(--card);
+ box-shadow:0 20px 48px rgba(60,50,30,.26),0 4px 12px rgba(60,50,30,.12);border:1px solid rgba(255,255,255,.7);flex:1.35 1 0;min-height:0;}
+.mainf img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+.subrow{display:flex;gap:12px;flex:1 1 0;min-height:0;}
+.subf{flex:1 1 0;position:relative;border-radius:6px;overflow:hidden;background:var(--card);
+ box-shadow:0 14px 36px rgba(60,50,30,.22),0 3px 10px rgba(60,50,30,.10);border:1px solid rgba(255,255,255,.7);}
+.subf img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+.tagchip{position:absolute;left:10px;bottom:10px;background:rgba(28,28,26,.78);color:#faf8f3;
+ font-size:11px;letter-spacing:.1em;padding:4px 10px;border-radius:999px;backdrop-filter:blur(4px);}
+.badge{position:absolute;top:-10px;right:16px;background:var(--ink);color:var(--paper);
+ font-size:12px;letter-spacing:.14em;padding:6px 13px;border-radius:999px;font-weight:600;z-index:3;}
+.foot{position:absolute;left:5.4%;bottom:2.2%;font-size:11.5px;letter-spacing:.18em;color:rgba(28,28,26,.45);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body><div class="stage">
+  <div class="top">
+    <div class="brand"><img src="../assets/icon-wearlog.png"><b>Wearlog 衣LOG</b></div>
+    <div class="role">我的角色 · <b>独立开发者 · 一人全栈</b></div>
+  </div>
+
+  <div class="body">
+    <div class="left">
+      <div class="eyebrow">WEARLOG.CN · 衣橱档案馆</div>
+      <h1>科技时代的<br><em>文艺复兴</em></h1>
+      <div class="en">Build something I use every day.</div>
+      <div class="desc">不是发现痛点，是先有<b>忍不住要记录的生活</b>——备忘录里写了多年的「模子の衣柜」，长成了一座 <b>101 件衣物的档案馆</b>：每件衣服一张档案卡，品牌、故事、搭配与颜色分析，线上可访问。</div>
+      <div class="origin">
+        <div class="o"><span class="no">01</span><span class="t"><b>复古 · 温暖 · 时尚的产品审美</b> —— 拟物材质、吊牌语言，每一处都调过</span></div>
+        <div class="o"><span class="no">02</span><span class="t"><b>档案</b> —— 品牌、购入故事、穿着记录，像藏品一样编号归档</span></div>
+        <div class="o"><span class="no">03</span><span class="t"><b>Best Match + 审美分析</b> —— 搭配成为可复用的判断，规律从记录里长出来</span></div>
+      </div>
+      <a class="cta" href="https://wearlog.cn" target="_blank">访问 Wearlog <small>· wearlog.cn →</small></a>
+      <div class="stack">React 19 · TypeScript · Supabase · Vercel · Tailwind v4 · Motion</div>
+    </div>
+
+    <div class="shot">
+      <div class="mainf"><img src="../assets/wl/archive-grid.jpg"><div class="tagchip">ARCHIVE · 衣橱档案</div></div>
+      <div class="subrow">
+        <div class="subf"><img src="../assets/wl/bestmatch.jpg"><div class="tagchip">BEST MATCH</div></div>
+        <div class="subf"><img src="../assets/wl/moodboard.jpg"><div class="tagchip">风格故事</div></div>
+      </div>
+      <div class="badge">REAL PRODUCT · 101 ITEMS</div>
+    </div>
+  </div>
+
+  <div class="foot">Wearlog 衣LOG · 个人全栈项目 · 产品 · 01 / 03</div>
+</div>
+</body></html>

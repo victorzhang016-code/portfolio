@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>P.13 Bonnie 3.0</title>
+<style>
+:root{--deep:#153A75;--cobalt:#2359D1;--paper:#F2F0E8;--ink:#202323;--warm:#DCCB80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:#2a5cc4;color:#fff;
+  font-family:"Noto Sans CJK SC",sans-serif;}
+/* 珠链同心圆：圆心在 68% / 12% */
+.rings{position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 68% 12%, transparent 0 130px, rgba(255,255,255,.5) 131px, transparent 133px),
+    radial-gradient(circle at 68% 12%, transparent 0 220px, rgba(255,255,255,.4) 221px, transparent 223px),
+    radial-gradient(circle at 68% 12%, transparent 0 330px, rgba(255,255,255,.32) 331px, transparent 333px),
+    radial-gradient(circle at 68% 12%, transparent 0 460px, rgba(255,255,255,.26) 461px, transparent 463px),
+    radial-gradient(circle at 68% 12%, transparent 0 610px, rgba(255,255,255,.2) 611px, transparent 613px);}
+/* 环上阶段标签：沿各环左侧弧线分布 */
+.st{position:absolute;font-size:13.5px;letter-spacing:.1em;background:#2a5cc4;padding:4px 10px;z-index:3;}
+.st b{font-family:"Noto Serif CJK SC",serif;font-weight:900;margin-right:8px;color:var(--warm);}
+.s1{left:calc(68% - 230px);top:calc(12% + 88px);}
+.s2{left:calc(68% - 330px);top:calc(12% + 175px);}
+.s3{left:calc(68% - 445px);top:calc(12% + 285px);}
+.s4{left:calc(68% - 585px);top:calc(12% + 415px);}
+.core{position:absolute;left:68%;top:12%;transform:translate(-50%,-50%);text-align:center;
+  width:110px;height:110px;border-radius:50%;background:var(--warm);color:var(--ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:15px;line-height:1.5;
+  box-shadow:0 0 0 6px rgba(220,203,128,.25), 0 0 40px rgba(220,203,128,.35);z-index:3;}
+/* 左：标题区 */
+.logo{position:absolute;left:5%;top:6%;font-size:22px;font-weight:900;}
+.apply{position:absolute;right:4%;top:5.5%;font-size:12.5px;letter-spacing:.14em;
+  background:#101114;color:#fff;padding:9px 18px;}
+h1{position:absolute;left:7%;top:38%;font-family:"Noto Serif CJK SC",serif;font-weight:900;
+  font-size:56px;line-height:1.25;max-width:46%;}
+.sub{position:absolute;left:7%;top:56%;max-width:40%;font-size:16px;line-height:1.9;color:rgba(255,255,255,.88);}
+.pill{position:absolute;left:7%;top:70%;background:#101114;color:#fff;font-size:13px;letter-spacing:.18em;
+  padding:13px 24px;}
+.guard{position:absolute;left:7%;bottom:6%;display:flex;gap:34px;font-size:12.5px;color:rgba(255,255,255,.75);}
+.guard b{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:19px;color:#fff;margin-right:7px;}
+/* 右下立像（day0 裁切）*/
+.statue{position:absolute;right:0;bottom:0;width:400px;height:760px;overflow:hidden;
+  -webkit-mask:linear-gradient(90deg,transparent,#000 22%);
+          mask:linear-gradient(90deg,transparent,#000 22%);}
+.statue img{width:100%;height:100%;object-fit:cover;object-position:78% 15%;
+  filter:grayscale(1) contrast(1.15) brightness(1.05);}
+.statue .ink{position:absolute;inset:0;background:#2a5cc4;mix-blend-mode:color;opacity:.55;}
+.foot{position:absolute;right:4%;bottom:6%;font-size:12px;letter-spacing:.18em;color:rgba(255,255,255,.6);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head><body>
+<div class="rings"></div>
+<div class="core"><span>决策层</span><span style="font-size:11px;font-weight:400">推 / 不推</span></div>
+<div class="st s1"><b>01</b>事件触发</div>
+<div class="st s2"><b>02</b>硬过滤</div>
+<div class="st s3"><b>03</b>向量召回</div>
+<div class="st s4"><b>04</b>决策层</div>
+
+<div class="logo">Bonnie 3.0</div>
+<div class="apply">机制详解</div>
+<h1>从「每日五条」到<br>对的那一刻，推一个</h1>
+<div class="sub">批量推送制造噪音；事件驱动的单条推送，制造一次值得开口的理由。低于质量门槛，宁可不推——不消耗用户对推送的信任。</div>
+<div class="pill">宁缺毋滥的实时匹配</div>
+<div class="guard">
+  <span><b>1 条</b>每次推送</span><span><b>5 条/日</b>上限</span><span><b>14 天</b>有效期</span><span><b>15 天</b>pair 冷却</span>
+</div>
+<div class="statue"><img src="../assets/day0-1.jpg" alt=""><div class="ink"></div></div>
+<div class="foot">P.13</div>
+</body></html>

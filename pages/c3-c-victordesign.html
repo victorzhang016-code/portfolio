@@ -1,0 +1,61 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>Wearlog · 延伸 · Victor Design</title>
+<style>
+:root{--red:#C0392B;--ink:#1a1614;--paper:#F3EEE4;--sub:#6b655c;--line:rgba(26,22,20,.12);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--paper);color:var(--ink);
+ font-family:"Noto Sans CJK SC",sans-serif;-webkit-font-smoothing:antialiased;}
+.stage{position:absolute;inset:0;padding:4.4% 5.4%;display:flex;flex-direction:column;}
+.top{display:flex;justify-content:space-between;align-items:center;flex:0 0 auto;
+ font-size:14px;letter-spacing:.12em;color:var(--sub);}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand img{width:34px;height:34px;border-radius:8px;}
+.brand b{font-size:15px;font-weight:700;color:var(--ink);}
+.cno{font-family:"Noto Serif CJK SC",serif;font-weight:900;letter-spacing:.28em;color:rgba(26,22,20,.4);}
+.body{flex:1 1 auto;display:grid;grid-template-columns:1.15fr 1fr;gap:44px;margin-top:22px;align-items:center;min-height:0;}
+.left{display:flex;flex-direction:column;justify-content:center;}
+.eyebrow{font-size:15px;letter-spacing:.2em;color:var(--red);font-weight:700;}
+h1{margin-top:14px;font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:52px;line-height:1.12;}
+h1 em{font-style:normal;color:var(--red);}
+.lead{margin-top:20px;font-size:17px;line-height:1.8;color:rgba(26,22,20,.8);max-width:96%;}
+.lead b{color:var(--ink);font-weight:700;}
+.flow{margin-top:22px;display:flex;flex-direction:column;gap:14px;}
+.fl{display:flex;gap:14px;align-items:baseline;}
+.fl .k{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:16px;color:var(--red);width:96px;flex-shrink:0;}
+.fl .v{font-size:15.5px;line-height:1.5;color:rgba(26,22,20,.8);}
+.fl .v b{color:var(--ink);font-weight:700;}
+.star{margin-top:22px;font-size:14px;letter-spacing:.02em;color:var(--sub);}
+.star a{color:var(--red);font-weight:700;text-decoration:underline;text-underline-offset:3px;}
+/* 右：推文成品图，完整展示不裁 */
+.gallery{display:flex;gap:16px;height:100%;align-items:center;justify-content:center;}
+.g{flex:1 1 0;border-radius:10px;overflow:hidden;box-shadow:0 20px 44px rgba(60,40,15,.22);border:1px solid var(--line);background:#fff;}
+.g img{width:100%;height:auto;display:block;}
+.g.tall{transform:translateY(-14px);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body><div class="stage">
+  <div class="top">
+    <div class="brand"><img src="../assets/icon-wearlog.png"><b>Wearlog 衣LOG</b></div>
+    <div class="cno">CASE 03 · 延伸 · 开源 Skill</div>
+  </div>
+
+  <div class="body">
+    <div class="left">
+      <div class="eyebrow">延伸 · 我的设计工作流，做成了一个 SKILL</div>
+      <h1>我的设计 Skill，<br><em>爆杀了所有巨头</em></h1>
+      <div class="lead">做 Wearlog 时那套「让 AI 长出品味」的方法，被我提炼成开源 Skill <b>Victor Design</b>——一套<b>证据驱动的跨载体视觉设计工作流</b>。</div>
+      <div class="flow">
+        <div class="fl"><span class="k">先学参考</span><span class="v">不从风格标签开始，先<b>学优秀的人做的活</b></span></div>
+        <div class="fl"><span class="k">再选手法</span><span class="v">每个设计动作都要<b>说得出因果与效果</b></span></div>
+        <div class="fl"><span class="k">母版交付</span><span class="v">HTML 母版 → 可编辑交付 → <b>三重审查把关</b></span></div>
+      </div>
+      <div class="star">这本作品集的视觉母版也由它辅助完成 · RedSkill 1k+ 收藏 · <a href="https://github.com/victorzhang016-code" target="_blank">github.com/victorzhang016-code</a></div>
+    </div>
+
+    <div class="gallery">
+      <div class="g"><img src="../assets/vd/p01.jpg"></div>
+      <div class="g tall"><img src="../assets/vd/p03.jpg"></div>
+      <div class="g"><img src="../assets/vd/p05.jpg"></div>
+    </div>
+  </div>
+</div>
+</body></html>

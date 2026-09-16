@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>P.22 两个 Skill</title>
+<style>
+:root{--deep:#153A75;--cobalt:#2359D1;--paper:#F2F0E8;--ink:#202323;--warm:#DCCB80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;color:var(--ink);
+  font-family:"Noto Sans CJK SC",sans-serif;
+  background:linear-gradient(160deg,#F2F0E8 0%,#EFEBDC 55%,#E8E2C8 100%);}
+.nav{position:absolute;left:0;right:0;top:0;height:9%;display:flex;align-items:center;
+  justify-content:space-between;padding:0 3.5%;font-size:13px;z-index:10;}
+.nav .l{font-weight:700;}
+.nav .r{color:rgba(32,35,35,.6);}
+/* 密集拼贴 y=9%→96% */
+.collage{position:absolute;left:0;right:0;top:9%;bottom:4%;padding:0 2.5%;
+  display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:14px;}
+.tile{background:#fff;overflow:hidden;box-shadow:0 8px 22px rgba(32,35,35,.14);display:flex;flex-direction:column;}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;}
+.tile.txt{padding:22px 22px;justify-content:center;}
+.tile.txt .k{font-size:11px;letter-spacing:.22em;color:var(--cobalt);font-weight:700;}
+.tile.txt .t{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:21px;margin:10px 0 8px;}
+.tile.txt .d{font-size:12.5px;line-height:1.75;color:rgba(32,35,35,.7);}
+.tile.txt .s{margin-top:14px;font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:24px;color:var(--cobalt);}
+.tile.txt .s span{font-family:"Noto Sans CJK SC",sans-serif;font-size:11px;font-weight:400;color:rgba(32,35,35,.55);}
+.w1{grid-column:1;grid-row:1;} .w2{grid-column:2;grid-row:1;}
+.w3{grid-column:3;grid-row:1;} .w4{grid-column:4;grid-row:1;}
+.w5{grid-column:1;grid-row:2;} .w6{grid-column:2;grid-row:2;}
+.w7{grid-column:3;grid-row:2;} .w8{grid-column:4;grid-row:2;}
+.foot{position:absolute;left:3.5%;bottom:1.5%;font-size:11.5px;letter-spacing:.12em;color:rgba(32,35,35,.55);z-index:10;}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head><body>
+<div class="nav"><span class="l">两个开源 Skill · 自己造工具，再给工具写文档</span>
+  <span class="r">GitHub 实数 · 2026-08-19</span></div>
+<div class="collage">
+  <div class="tile w1"><img src="../assets/work-ppt.jpg" alt=""></div>
+  <div class="tile txt w2"><span class="k">PRD 大师</span>
+    <div class="t">专业 PRD 流程<br>沉淀成 Skill</div>
+    <div class="d">需求卡、决策摘要、评审清单——一句话进入专业 PRD 流程。本文档的方法论部分由它辅助完成。</div>
+    <div class="s">16 <span>star · GitHub</span></div></div>
+  <div class="tile w3"><img src="../assets/work-poster-feld.jpg" alt=""></div>
+  <div class="tile txt w4"><span class="k">VICTOR DESIGN</span>
+    <div class="t">跨载体视觉设计<br>Skill</div>
+    <div class="d">证据驱动的海报、图文、演示与 UI 交付系统。这本作品集的视觉母版由它辅助完成。</div>
+    <div class="s">58 <span>star · GitHub</span></div></div>
+  <div class="tile txt w5"><span class="k">HAIL MARY</span>
+    <div class="t">实验项目</div>
+    <div class="d">第三个开源 Skill，持续迭代。</div>
+    <div class="s">23 <span>star · GitHub</span></div></div>
+  <div class="tile w6"><img src="../assets/work-ui-bonnie.jpg" alt=""></div>
+  <div class="tile w7"><img src="../assets/work-social-wearlog.jpg" alt=""></div>
+  <div class="tile txt w8"><span class="k">方法</span>
+    <div class="t">从工作里长出来的<br>工作流</div>
+    <div class="d">PRD 大师来自企业团队实践，Victor Design 来自多年个人设计实践——不是教程，是每天都在用的系统。</div></div>
+</div>
+<div class="foot">github.com/victorzhang016-code · P.22</div>
+</body></html>

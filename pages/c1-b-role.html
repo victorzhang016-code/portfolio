@@ -1,0 +1,124 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>小红书 · 我的成果</title>
+<style>
+:root{--red:#E8243E;--ink:#17181c;--paper:#F4F1EA;--sub:#6b6a64;--line:rgba(23,24,28,.12);--green:#1f9d57;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--paper);color:var(--ink);
+ font-family:"Noto Sans CJK SC",sans-serif;-webkit-font-smoothing:antialiased;}
+.stage{position:absolute;inset:0;padding:3.8% 5%;display:flex;flex-direction:column;
+ background:radial-gradient(1300px 700px at 100% -20%, rgba(232,36,62,.06), transparent 60%), var(--paper);}
+.top{display:flex;justify-content:space-between;align-items:center;flex:0 0 auto;
+ font-size:13px;letter-spacing:.14em;color:var(--sub);}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand img{width:34px;height:34px;border-radius:8px;}
+.brand b{font-size:15px;font-weight:700;color:var(--ink);}
+.cno{font-family:"Noto Serif CJK SC",serif;font-weight:900;letter-spacing:.28em;color:rgba(23,24,28,.4);}
+.eyebrow{flex:0 0 auto;margin-top:16px;font-size:14px;letter-spacing:.2em;color:var(--red);font-weight:700;}
+h1{flex:0 0 auto;margin-top:9px;font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:46px;line-height:1.06;}
+h1 em{font-style:normal;color:var(--red);}
+/* 主体：左工作量面板 + 右深案例 */
+.body{flex:1 1 auto;display:grid;grid-template-columns:0.82fr 1.35fr;gap:0;margin-top:24px;min-height:0;}
+/* 左：一个人扛起 —— 大数字 + 能力矩阵 */
+.left{padding-right:44px;border-right:1px solid var(--line);display:flex;flex-direction:column;}
+.llab{font-size:16px;letter-spacing:.16em;color:var(--sub);font-weight:700;}
+.big{margin-top:14px;display:flex;align-items:flex-end;gap:10px;}
+.big .n{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:118px;line-height:.82;color:var(--red);letter-spacing:-.02em;}
+.big .u{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:30px;color:var(--ink);padding-bottom:14px;}
+.bcap{margin-top:8px;font-size:16.5px;color:var(--sub);line-height:1.5;}
+.matrix{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.mi{display:flex;align-items:center;gap:10px;padding:13px 14px;border-radius:10px;background:#fff;border:1px solid var(--line);}
+.mi .d{width:8px;height:8px;border-radius:50%;flex-shrink:0;background:var(--red);}
+.mi.live .d{background:var(--green);}
+.mi.plan .d{background:rgba(23,24,28,.25);}
+.mi b{font-size:16px;font-weight:700;}
+.mi span{margin-left:auto;font-size:12.5px;color:var(--sub);}
+/* 右：云存储纵向流程带 */
+.right{padding-left:48px;display:flex;flex-direction:column;min-height:0;}
+.rhd{display:flex;align-items:center;gap:12px;}
+.rhd .badge{font-size:12px;letter-spacing:.06em;background:var(--green);color:#fff;padding:4px 12px;border-radius:999px;font-weight:700;}
+.rhd .tt{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:26px;}
+.rhd .sub{font-size:14px;color:var(--sub);margin-left:auto;}
+.track{margin-top:26px;flex:1 1 auto;position:relative;padding-left:36px;}
+.track::before{content:"";position:absolute;left:14px;top:8px;bottom:8px;width:2px;
+ background:linear-gradient(var(--red),rgba(232,36,62,.2));}
+.stg{position:relative;padding-bottom:24px;}
+.stg:last-child{padding-bottom:0;}
+.stg .node{position:absolute;left:-36px;top:0;width:30px;height:30px;border-radius:50%;
+ background:var(--paper);border:2.5px solid var(--red);color:var(--red);
+ font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;z-index:2;}
+.stg.last .node{background:var(--green);border-color:var(--green);color:#fff;}
+.stg .row{display:flex;align-items:baseline;gap:12px;}
+.stg .ph{font-size:14px;letter-spacing:.16em;color:var(--red);font-weight:700;}
+.stg.last .ph{color:var(--green);}
+.stg .tt2{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:24px;}
+.stg .desc{margin-top:7px;font-size:16px;line-height:1.55;color:rgba(23,24,28,.78);}
+.stg .desc b{color:var(--ink);font-weight:700;}
+.stg .desc em{font-style:normal;color:var(--red);font-weight:700;}
+.foot{flex:0 0 auto;margin-top:16px;display:flex;justify-content:space-between;align-items:center;
+ border-top:1px solid var(--line);padding-top:13px;font-size:11.5px;letter-spacing:.16em;color:rgba(23,24,28,.42);}
+.foot .hl{color:var(--sub);letter-spacing:.02em;font-size:13px;font-weight:500;}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body><div class="stage">
+  <div class="top">
+    <div class="brand"><img src="../assets/icon-xhs-hd.png"><b>小红书 Builder Hub</b></div>
+    <div class="cno">CASE 01 · 我的成果</div>
+  </div>
+
+  <div class="eyebrow">我的职责 · AI 产品 · 开发者端</div>
+  <h1>持续开放能力，<em>构建 AI 时代的基础设施</em></h1>
+
+  <div class="body">
+    <div class="left">
+      <div class="llab">我负责的开发者端全景</div>
+      <div class="big"><div class="n">7</div><div class="u">条能力线</div></div>
+      <div class="bcap">作为 owner 从 0 到 1，一个人多线并行——<b style="color:var(--ink)">云存储已落地、B 端链路已上线、审核透传已上线</b>。</div>
+      <div class="matrix">
+        <div class="mi live"><span class="d"></span><b>排行榜</b><span>已上线</span></div>
+        <div class="mi live"><span class="d"></span><b>云存储</b><span>已落地</span></div>
+        <div class="mi live"><span class="d"></span><b>模型 API</b><span>已落地</span></div>
+        <div class="mi live"><span class="d"></span><b>B 端链路</b><span>已上线</span></div>
+        <div class="mi live"><span class="d"></span><b>审核透传</b><span>已上线</span></div>
+        <div class="mi"><span class="d"></span><b>商业化试点</b><span>开拓中</span></div>
+        <div class="mi plan"><span class="d"></span><b>设备能力</b><span>规划中</span></div>
+        <div class="mi plan"><span class="d"></span><b>更多能力</b><span>持续</span></div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="rhd"><span class="badge">已落地</span><span class="tt">重点工作 · 小工具云存储与开放能力</span><span class="sub">我是 owner · 从 0 到 1 全程主导</span></div>
+      <div class="track">
+        <div class="stg">
+          <div class="node">1</div>
+          <div class="row"><span class="ph">需求</span><span class="tt2">用户急需什么</span></div>
+          <div class="desc">记账要换手机不丢数据、做个游戏想让好友上榜比一比——<b>没有云端存储，小工具就只能是一次性的玩具</b>。多设备互通与多人互动，是开发者周周在问的能力。</div>
+        </div>
+        <div class="stg">
+          <div class="node">2</div>
+          <div class="row"><span class="ph">难题</span><span class="tt2">一开放就撞合规</span></div>
+          <div class="desc">一旦开放后端能力，就要面对备案与合规。<em>若要求开发者人人去备案，就会毁掉“人人都能做、都能上传”的基石</em>——而这份积极性正是小工具最迷人的地方。</div>
+        </div>
+        <div class="stg">
+          <div class="node">3</div>
+          <div class="row"><span class="ph">破局</span><span class="tt2">合规性产品化</span></div>
+          <div class="desc">大量调研后，我把能力<b>严格封装成有限接口</b>：开发者拿到的是平台代管的能力，不碰基础设施。在满足合规的前提下，把能力安全地交给开发者和用户。</div>
+        </div>
+        <div class="stg">
+          <div class="node">4</div>
+          <div class="row"><span class="ph">推动</span><span class="tt2">拉通多方、推成落地</span></div>
+          <div class="desc">不只是提方案——我完成了与<b>研发、安全、GA</b>等各部门的对接与共识同步，把一个复杂方案<b>一步步推成真正可用的功能</b>。</div>
+        </div>
+        <div class="stg last">
+          <div class="node">✓</div>
+          <div class="row"><span class="ph">落地</span><span class="tt2">能力已开放</span></div>
+          <div class="desc"><b>云存储、排行榜能力已上线</b>，配官方模板——开发者无需懂后端，对话建表、开箱即用。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span class="hl">作为 owner 从 0 到 1 · 多条能力线已落地</span>
+    <span>小红书 Builder Hub · 我的成果 · 02 / 02</span>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>P.07 审核方案</title>
+<style>
+:root{--deep:#153A75;--cobalt:#2359D1;--paper:#F2F0E8;--ink:#202323;--warm:#DCCB80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--paper);color:var(--ink);
+  font-family:"Noto Sans CJK SC",sans-serif;}
+.fiber{position:fixed;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:multiply;z-index:60;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E");}
+/* 顶栏：左小字 / 右红字+菜单 */
+.nav{position:absolute;left:6%;right:6%;top:4%;display:flex;justify-content:space-between;
+  font-size:12.5px;letter-spacing:.1em;}
+.nav .l{color:rgba(32,35,35,.85);font-weight:600;}
+.nav .r{color:rgba(32,35,35,.75);}
+.nav .r b{color:#c0392b;font-weight:700;margin-right:22px;}
+/* 左大「拼贴」图版：F1–F5 卡片解剖 */
+.plate{position:absolute;left:6%;top:14%;width:56%;height:64%;background:#fff;
+  border:1.5px solid rgba(32,35,35,.35);padding:34px 38px;}
+.plate .pc{font-size:12px;letter-spacing:.24em;color:rgba(32,35,35,.5);margin-bottom:16px;}
+.f{display:grid;grid-template-columns:58px 176px 1fr;align-items:baseline;gap:0;
+  padding:11px 0;border-bottom:1px dashed rgba(32,35,35,.3);}
+.f:last-of-type{border-bottom:none;}
+.f.hot{background:rgba(35,89,209,.07);padding-left:10px;padding-right:10px;margin:0 -10px;}
+.f .fn{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:19px;color:var(--cobalt);}
+.f .ft{font-size:15px;font-weight:500;}
+.f .fd{font-size:12px;color:rgba(32,35,35,.6);line-height:1.5;}
+.plate .pnote{margin-top:14px;font-size:11.5px;color:rgba(32,35,35,.5);line-height:1.6;}
+/* 右文字栏 */
+.rtext{position:absolute;left:69%;top:14%;width:25%;font-size:13px;line-height:1.85;color:rgba(32,35,35,.8);}
+.rtext p{margin-bottom:16px;}
+.rtext .h{font-weight:700;margin:22px 0 8px;letter-spacing:.06em;}
+.rtext ol{margin-left:18px;}
+.rtext ol li{margin-bottom:7px;line-height:1.65;}
+.rtext .dim{color:rgba(32,35,35,.55);font-size:12px;}
+/* 左下档案注 */
+.note{position:absolute;left:6%;bottom:5%;font-size:12px;line-height:1.75;color:rgba(32,35,35,.75);}
+.note b{font-family:"Noto Serif CJK SC",serif;font-weight:900;}
+.foot{position:absolute;right:6%;bottom:5%;font-size:12px;letter-spacing:.18em;color:rgba(32,35,35,.4);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head><body>
+<div class="nav"><span class="l">审核外露 · 方案</span><span class="r"><b>F1–F5</b>产品机制 · 2026</span></div>
+
+<div class="plate">
+  <div class="pc">失败卡片 · 解剖</div>
+  <div class="f"><span class="fn">F1</span><span class="ft">原因类别</span><span class="fd">一眼定位问题域：内容 / 功能 / 安全 / 规范</span></div>
+  <div class="f"><span class="fn">F2</span><span class="ft">可读说明</span><span class="fd">用人话讲清哪里不行，不是兜底话术</span></div>
+  <div class="f"><span class="fn">F3</span><span class="ft">时间与版本</span><span class="fd">对应具体版本与时间，可对账可回溯</span></div>
+  <div class="f hot"><span class="fn">F4</span><span class="ft">申诉字段</span><span class="fd">同一处完成闭环，不新建申诉页</span></div>
+  <div class="f"><span class="fn">F5</span><span class="ft">失败性质</span><span class="fd">区分可修复 / 不可修复，别让人白忙</span></div>
+  <div class="pnote">另有一层「复制给 AI 助手的结构化上下文」，让修改直接发生在对话里。</div>
+</div>
+
+<div class="rtext">
+  <p>让驳回理由成为产品的一部分。审核侧给事实，平台侧做呈现——信息保真是信任的前提，文案不做二次加工。</p>
+  <p>该说的说透：哪一层信息、以什么顺序、在什么位置出现。不该说的一字不露：明确的风控细节不外露清单。</p>
+  <div class="h">三条决策</div>
+  <ol>
+    <li>审核侧给事实，平台侧做呈现</li>
+    <li>透明有边界，风控细节不外露</li>
+    <li>看驳回、提异议、改版本，闭环在原地完成</li>
+  </ol>
+  <div class="h dim">界面为方案示意，上线状态与口径以 Victor 确认为准。</div>
+</div>
+
+<div class="note"><b>1</b> 审核外露方案<br>状态：在途 · 类型：产品机制 · 范畴：B 端创作者体验</div>
+<div class="foot">P.07</div>
+</body></html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>P.03 目录 · Windows XP</title>
+<style>
+/* 全部数值取自 ryOS tokens.css [data-os-theme="xp"] */
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;font-family:Tahoma,"Noto Sans CJK SC",sans-serif;
+  background:url("../assets/p25-thanks-bg.png") center/cover;color:#000;}
+.dicons{position:fixed;left:24px;top:24px;display:flex;flex-direction:column;gap:24px;z-index:5;}
+.dicon{display:flex;flex-direction:column;align-items:center;width:96px;}
+.dicon img{width:42px;height:42px;filter:drop-shadow(1px 2px 2px rgba(0,0,0,.45));}
+.dicon span{margin-top:4px;font-size:11px;color:#fff;text-align:center;line-height:1.3;
+  text-shadow:1px 1px 2px rgba(0,0,0,.8);padding:1px 2px;}
+/* 窗口：bg #ece9d8，border 3px #0054e3，radius .5rem，shadow 0 4px 8px rgba(0,0,0,.25) */
+.win{position:fixed;left:50%;top:46%;transform:translate(-50%,-50%);width:940px;z-index:10;
+  background:#ece9d8;border:3px solid #0054e3;border-radius:8px 8px 0 0;
+  box-shadow:0 4px 8px rgba(0,0,0,.25), 0 14px 40px rgba(0,0,0,.3);overflow:hidden;}
+/* 标题栏：30px，gradient(#0058e6,#1941a5)，白字 */
+.wtitle{height:30px;display:flex;align-items:center;padding:0 8px;gap:7px;
+  background:linear-gradient(to bottom,#0058e6,#1941a5);
+  color:#fff;font-size:14px;font-weight:700;text-shadow:1px 1px 1px rgba(0,0,0,.4);}
+.wtitle img{width:18px;height:18px;}
+.wtitle .btns{margin-left:auto;display:flex;gap:2px;}
+.wtitle .btns i{width:21px;height:21px;border-radius:3px;border:1px solid rgba(255,255,255,.5);
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-style:normal;font-weight:700;color:#fff;}
+.wtitle .btns .nb{background:linear-gradient(#7ea7f2,#3a6fd8);}
+.wtitle .btns .cb{background:linear-gradient(#f0a080,#d8684a);}
+.wmenu{display:flex;gap:14px;padding:3px 10px;font-size:11px;background:#ece9d8;border-bottom:1px solid #aca899;}
+.wbody{background:#fff;padding:8px 12px;}
+.wrow{display:grid;grid-template-columns:40px 1fr 90px 250px;align-items:center;gap:12px;
+  padding:7px 6px;font-size:12.5px;}
+.wrow:hover{background:#316ac5;color:#fff;}
+.wrow img{width:32px;height:32px;}
+.wrow .pg{font-weight:700;text-align:right;}
+.wrow .ds{opacity:.72;font-size:11.5px;}
+.wstatus{display:flex;gap:5px;padding:3px 8px;font-size:11px;background:#ece9d8;border-top:1px solid #aca899;}
+.wstatus span{border:1px solid #aca899;padding:1px 10px;background:#f4f1e4;}
+/* 任务栏：gradient(#245edc 0%,#3f8cf3 9%,#245edc 18%,#245edc 92%,#1941a5) */
+.taskbar{position:fixed;left:0;right:0;bottom:0;height:30px;z-index:50;display:flex;align-items:stretch;
+  background:linear-gradient(to bottom,#245edc 0%,#3f8cf3 9%,#245edc 18%,#245edc 92%,#1941a5 100%);}
+.start{display:flex;align-items:center;gap:6px;margin:2px 6px 2px 0;padding:0 14px 0 8px;
+  background:linear-gradient(to bottom,#4c9f3c,#3e8e2f);color:#fff;font-weight:700;font-size:13px;
+  border-radius:0 10px 10px 0;font-style:italic;text-shadow:1px 1px 1px rgba(0,0,0,.4);}
+.start img{width:20px;height:20px;}
+.task{display:flex;align-items:center;gap:6px;margin:3px 2px;padding:0 12px;font-size:11px;color:#fff;
+  background:linear-gradient(to bottom,#5c9bf0,#3a7be0);border:1px solid rgba(255,255,255,.25);border-radius:3px;}
+.task.on{background:linear-gradient(to bottom,#2e5bd0,#1e46ac);}
+.task img{width:16px;height:16px;}
+.tray{margin-left:auto;display:flex;align-items:center;padding:0 12px;color:#fff;font-size:11px;
+  background:linear-gradient(to bottom,#1290e9,#0f7bd0);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head><body>
+<div class="dicons">
+  <div class="dicon"><img src="../assets/xp-folder.png"><span>01 小红书 · RedSkill</span></div>
+  <div class="dicon"><img src="../assets/xp-folder.png"><span>02 Bonjour!</span></div>
+  <div class="dicon"><img src="../assets/xp-folder.png"><span>03 Wearlog 衣LOG</span></div>
+  <div class="dicon"><img src="../assets/xp-folder.png"><span>04 Other Work</span></div>
+</div>
+<div class="win" style="display:none">
+  <div class="wtitle"><img src="../assets/xp-folder.png">目录 · INDEX — C:\作品集\2026
+    <div class="btns"><i class="nb">—</i><i class="nb">□</i><i class="cb">×</i></div></div>
+  <div class="wmenu"><span>文件(F)</span><span>编辑(E)</span><span>查看(V)</span><span>收藏(A)</span><span>工具(T)</span><span>帮助(H)</span></div>
+  <div class="wbody">
+    <div class="wrow"><img src="../assets/xp-folder.png"><span>小红书 · 小工具 / RedSkill</span><span class="pg">P.04–09</span><span class="ds">供给 · 审核外露 · 开放能力 · 商业化</span></div>
+    <div class="wrow"><img src="../assets/xp-folder.png"><span>Bonjour!</span><span class="pg">P.10–16</span><span class="ds">调研 · Bonnie 3.0 · Onboarding · 结果 · 活动</span></div>
+    <div class="wrow"><img src="../assets/xp-folder.png"><span>Wearlog 衣LOG</span><span class="pg">P.17–21</span><span class="ds">为什么做 · 产品 · 方法论 · 数据洞察</span></div>
+    <div class="wrow"><img src="../assets/xp-folder.png"><span>Other Work</span><span class="pg">P.22–24</span><span class="ds">Skill · 建筑 · 装置 · 公开文字</span></div>
+    <div class="wrow"><img src="../assets/xp-file.png"><span>关于我</span><span class="pg">P.02</span><span class="ds">张浩哲 Victor · AI 产品经理</span></div>
+    <div class="wrow"><img src="../assets/xp-file.png"><span>结语</span><span class="pg">P.25</span><span class="ds">Think, Passion, Brave and Love</span></div>
+  </div>
+  <div class="wstatus"><span>6 个对象</span><span>张浩哲 Victor · AI 产品作品集</span></div>
+</div>
+<div class="taskbar">
+  <div class="start"><img src="../assets/xp-folder.png">开始</div>
+  <div class="task on"><img src="../assets/xp-folder.png">目录 · INDEX</div>
+  <div class="task"><img src="../assets/xp-file.png">作品集 · 2026</div>
+  <div class="tray">15:27</div>
+</div>
+</body></html>

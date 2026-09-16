@@ -1,0 +1,114 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>Feld Playback</title>
+<style>
+:root{--paper:#F2F0E8;--warm:#DCCB80;--cobalt:#2359D1;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:#0b0c0e;color:var(--paper);
+ font-family:"Noto Sans CJK SC",sans-serif;-webkit-font-smoothing:antialiased;}
+.stage{position:absolute;inset:0;padding:4.2% 5%;
+ background:radial-gradient(1100px 640px at 78% -10%, rgba(35,89,209,.20), transparent 60%), #0b0c0e;}
+.top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:22px;}
+.kk{font-size:12px;letter-spacing:.3em;color:var(--warm);}
+h1{margin-top:8px;font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:44px;line-height:1.05;}
+.tr{text-align:right;font-size:11.5px;letter-spacing:.14em;color:rgba(242,240,232,.5);line-height:1.7;}
+.award{display:inline-block;background:linear-gradient(135deg,#E7C96B,#B8912E);color:#241a05;
+ font-weight:700;font-size:12px;padding:5px 13px;border-radius:999px;box-shadow:0 4px 14px rgba(184,145,46,.35);}
+.wrap{display:grid;grid-template-columns:1.55fr 1fr;gap:34px;align-items:start;}
+.player{border-radius:14px;overflow:hidden;background:#000;box-shadow:0 26px 60px rgba(0,0,0,.5);border:1px solid rgba(242,240,232,.1);}
+.player video{width:100%;height:560px;object-fit:contain;background:#000;display:block;}
+.info .tag{display:inline-block;border:1px solid rgba(220,203,128,.55);color:var(--warm);
+ border-radius:999px;padding:6px 15px;font-size:12.5px;letter-spacing:.05em;margin-bottom:18px;}
+.info h2{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:24px;line-height:1.4;margin-bottom:14px;}
+.info p{font-size:15px;line-height:1.9;color:rgba(242,240,232,.82);margin-bottom:16px;}
+.info .row{display:flex;gap:10px;padding:11px 0;border-top:1px solid rgba(242,240,232,.14);font-size:13.5px;}
+.info .row b{color:#fff;min-width:74px;font-weight:600;}
+.info .row span{color:rgba(242,240,232,.7);}
+.chips{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;}
+.chips span{border:1px solid rgba(242,240,232,.28);border-radius:999px;padding:5px 12px;font-size:12px;color:rgba(242,240,232,.75);}
+.foot{position:absolute;left:5%;bottom:2.4%;font-size:11px;letter-spacing:.18em;color:rgba(242,240,232,.4);}
+.foot2{position:absolute;right:5%;bottom:2.4%;font-size:11px;letter-spacing:.18em;color:rgba(242,240,232,.4);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body><div class="stage">
+  <div class="top">
+    <div><div class="kk">OTHER WORK · 演示</div><h1>Feld Playback</h1></div>
+    <div class="tr"><div class="award">★ 香港大学 · 优秀毕业设计</div><div style="margin-top:6px">视频演示 · 可播放</div></div>
+  </div>
+  <div class="wrap">
+    <div class="player">
+      <video src="../assets/work/feld/demo.mp4" controls playsinline preload="metadata"></video>
+    </div>
+    <div class="info">
+      <span class="tag">visionOS · 空间计算</span>
+      <h2>纯 AI 开发的 visionOS 空间标注系统</h2>
+      <p>香港大学毕业设计。一套运行在 visionOS 上的空间标注系统——在真实空间里就地标注、回放与协作，全流程由 AI 辅助开发完成。</p>
+      <div class="row"><b>类型</b><span>毕业设计 · 空间计算原型</span></div>
+      <div class="row"><b>平台</b><span>Apple visionOS</span></div>
+      <div class="row"><b>开发</b><span>纯 AI 协作开发</span></div>
+      <div class="row"><b>机构</b><span>香港大学</span></div>
+      <div class="chips"><span>visionOS</span><span>空间标注</span><span>AI 开发</span><span>交互原型</span></div>
+    </div>
+  </div>
+  <div class="foot">软件之前，我先做过空间</div>
+  <div class="foot2">Other Work — Feld Playback · 演示</div>
+</div><script>
+(function(){
+  // 收集同文件夹下的图
+  var cells=document.querySelectorAll('a.cell');
+  var groups={},order=[];
+  cells.forEach(function(a,i){
+    var href=a.getAttribute('href');
+    var folder=href.replace(/[^/]*$/,'');
+    if(!groups[folder]){groups[folder]=[];order.push(folder);}
+    var idx=parseInt((href.match(/(\d+)(\.\w+$)/)||[])[1])||i;
+    groups[folder].push({src:href,idx:idx,el:a});
+  });
+  Object.keys(groups).forEach(function(f){groups[f].sort(function(a,b){return a.idx-b.idx;});});
+
+  function openLB(folder,src){
+    var imgs=groups[folder];if(!imgs)return;
+    var cur=imgs.findIndex(function(x){return x.src===src;});
+    if(cur<0)cur=0;
+    var ov=document.createElement('div');
+    ov.style.cssText='position:fixed;inset:0;z-index:99999;background:rgba(8,9,12,.94);display:flex;align-items:center;justify-content:center;cursor:pointer;';
+    ov.onclick=function(e){if(e.target===ov)closeLB();};
+    var img=document.createElement('img');
+    img.style.cssText='max-width:92vw;max-height:90vh;object-fit:contain;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.6);';
+    img.src=imgs[cur].src;
+    ov.appendChild(img);
+    var btn=function(sym,dir){
+      var b=document.createElement('button');
+      b.textContent=sym;
+      b.style.cssText='position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.08);color:#fff;border:none;width:52px;height:72px;font-size:28px;cursor:pointer;z-index:100000;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:background .15s;';
+      b.onmouseenter=function(){b.style.background='rgba(255,255,255,.18)';};
+      b.onmouseleave=function(){b.style.background='rgba(255,255,255,.08)';};
+      b.onclick=function(e){e.stopPropagation();go(dir);};
+      b.style[dir<0?'left':'right']='24px';
+      ov.appendChild(b);
+    };
+    btn('‹',-1);btn('›',1);
+    var counter=document.createElement('div');
+    counter.style.cssText='position:fixed;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-size:14px;letter-spacing:.1em;';
+    ov.appendChild(counter);
+    function go(d){cur=(cur+d+imgs.length)%imgs.length;img.style.opacity='0';setTimeout(function(){img.src=imgs[cur].src;img.style.opacity='1';},120);upd();}
+    function upd(){counter.textContent=(cur+1)+' / '+imgs.length+' · '+imgs[cur].src.split('/').pop();}
+    upd();
+    img.style.transition='opacity .15s';
+    document.body.appendChild(ov);
+    function onKey(e){if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')go(-1);if(e.key==='ArrowRight')go(1);}
+    document.addEventListener('keydown',onKey);
+    ov._cleanup=function(){document.removeEventListener('keydown',onKey);};
+    ov._close=function(){if(ov._cleanup)ov._cleanup();document.body.removeChild(ov);};
+  }
+  function closeLB(){var ov=document.querySelector('div[style*="z-index:99999"]');if(ov&&ov._close)ov._close();}
+
+  cells.forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var href=a.getAttribute('href');
+      var folder=href.replace(/[^/]*$/,'');
+      openLB(folder,href);
+    });
+  });
+})();
+</script>
+</body></html>

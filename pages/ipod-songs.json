@@ -1,0 +1,179 @@
+{
+  "songs": [
+    {
+      "id": "t01",
+      "title": "21st Century Schizoid Man (Including \"Mirrors\")",
+      "artist": "King Crimson",
+      "src": "../assets/music/t01.m4a",
+      "lrc": "../assets/lrc/lrc_t01.txt"
+    },
+    {
+      "id": "t02",
+      "title": "Bones",
+      "artist": "Low Roar & Jófrieur",
+      "src": "../assets/music/t02.m4a",
+      "lrc": "../assets/lrc/lrc_t02.txt"
+    },
+    {
+      "id": "t03",
+      "title": "Color Your Night",
+      "artist": "Lotus Juice & 高橋あず美 (P3R)",
+      "src": "../assets/music/t03.m4a",
+      "lrc": "../assets/lrc/lrc_t03.txt"
+    },
+    {
+      "id": "t04",
+      "title": "Comfortably Numb",
+      "artist": "Pink Floyd",
+      "src": "../assets/music/t04.m4a",
+      "lrc": "../assets/lrc/lrc_t04.txt"
+    },
+    {
+      "id": "t05",
+      "title": "Dark Fantasy",
+      "artist": "Ye",
+      "src": "../assets/music/t05.m4a",
+      "lrc": "../assets/lrc/lrc_t05.txt"
+    },
+    {
+      "id": "t06",
+      "title": "Don't Be So Serious",
+      "artist": "Low Roar",
+      "src": "../assets/music/t06.m4a",
+      "lrc": "../assets/lrc/lrc_t06.txt"
+    },
+    {
+      "id": "t07",
+      "title": "Family Business",
+      "artist": "Kanye West",
+      "src": "../assets/music/t07.m4a",
+      "lrc": "../assets/lrc/lrc_t07.txt"
+    },
+    {
+      "id": "t08",
+      "title": "Feather",
+      "artist": "Nujabes & Cise Starr",
+      "src": "../assets/music/t08.m4a",
+      "lrc": "../assets/lrc/lrc_t08.txt"
+    },
+    {
+      "id": "t09",
+      "title": "High and Dry",
+      "artist": "Radiohead",
+      "src": "../assets/music/t09.m4a",
+      "lrc": "../assets/lrc/lrc_t09.txt"
+    },
+    {
+      "id": "t10",
+      "title": "Luv (sic) pt.2",
+      "artist": "Nujabes & Shing02",
+      "src": "../assets/music/t10.m4a",
+      "lrc": "../assets/lrc/lrc_t10.txt"
+    },
+    {
+      "id": "t11",
+      "title": "Luv(Sic)",
+      "artist": "Nujabes & Shing02",
+      "src": "../assets/music/t11.m4a",
+      "lrc": null
+    },
+    {
+      "id": "t12",
+      "title": "M800003E0S2b21wG65",
+      "artist": "Unknown",
+      "src": "../assets/music/t12.m4a",
+      "lrc": null
+    },
+    {
+      "id": "t13",
+      "title": "No Surprises",
+      "artist": "Radiohead",
+      "src": "../assets/music/t13.m4a",
+      "lrc": "../assets/lrc/lrc_t13.txt"
+    },
+    {
+      "id": "t14",
+      "title": "High Hopes",
+      "artist": "Pink Floyd",
+      "src": "../assets/music/t14.m4a",
+      "lrc": "../assets/lrc/lrc_t14.txt"
+    },
+    {
+      "id": "t15",
+      "title": "Weird Fishes / Arpeggi",
+      "artist": "Radiohead",
+      "src": "../assets/music/t15.m4a",
+      "lrc": "../assets/lrc/lrc_t15.txt"
+    },
+    {
+      "id": "t16",
+      "title": "Red Rock Riviera",
+      "artist": "Sea Power",
+      "src": "../assets/music/t16.m4a",
+      "lrc": "../assets/lrc/lrc_t16.txt"
+    },
+    {
+      "id": "t17",
+      "title": "Runaway",
+      "artist": "Ye & Pusha T",
+      "src": "../assets/music/t17.m4a",
+      "lrc": null
+    },
+    {
+      "id": "t18",
+      "title": "The Great Gig In The Sky",
+      "artist": "Pink Floyd",
+      "src": "../assets/music/t18.m4a",
+      "lrc": "../assets/lrc/lrc_t18.txt"
+    },
+    {
+      "id": "t19",
+      "title": "Want To Be Close -Reload-",
+      "artist": "高橋あず美 (P3R)",
+      "src": "../assets/music/t19.m4a",
+      "lrc": "../assets/lrc/lrc_t19.txt"
+    },
+    {
+      "id": "t20",
+      "title": "Whirling in Rags 8am",
+      "artist": "Sea Power",
+      "src": "../assets/music/t20.m4a",
+      "lrc": "../assets/lrc/lrc_t20.txt"
+    },
+    {
+      "id": "t21",
+      "title": "Aruarian Dance",
+      "artist": "Nujabes",
+      "src": "../assets/music/t21.m4a",
+      "lrc": "../assets/lrc/lrc_t21.txt"
+    },
+    {
+      "id": "t22",
+      "title": "丸ノ内サディスティック",
+      "artist": "椎名林檎",
+      "src": "../assets/music/t22.m4a",
+      "lrc": "../assets/lrc/lrc_t22.txt"
+    },
+    {
+      "id": "t23",
+      "title": "多分、風。",
+      "artist": "サカナクション",
+      "src": "../assets/music/t23.m4a",
+      "lrc": "../assets/lrc/lrc_t23.txt"
+    },
+    {
+      "id": "t24",
+      "title": "深海",
+      "artist": "刘森",
+      "src": "../assets/music/t24.m4a",
+      "lrc": "../assets/lrc/lrc_t24.txt"
+    },
+    {
+      "id": "t25",
+      "title": "讨厌红楼梦",
+      "artist": "陶喆",
+      "src": "../assets/music/t25.m4a",
+      "lrc": "../assets/lrc/lrc_t25.txt"
+    }
+  ]
+}

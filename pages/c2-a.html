@@ -1,0 +1,78 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>Bonjour · 概览</title>
+<style>
+:root{--deep:#153A75;--cobalt:#2359D1;--paper:#F2F0E8;--ink:#202323;--warm:#DCCB80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:#0d0e11;color:var(--paper);
+ font-family:"Noto Sans CJK SC",sans-serif;-webkit-font-smoothing:antialiased;}
+.stage{position:absolute;inset:0;
+ background:
+  radial-gradient(1200px 700px at 80% -14%, rgba(35,89,209,.30), transparent 60%),
+  radial-gradient(900px 600px at 4% 120%, rgba(21,58,117,.32), transparent 60%),
+  #0d0e11;}
+.grid{position:absolute;inset:0;opacity:.055;
+ background-image:linear-gradient(rgba(242,240,232,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(242,240,232,.6) 1px,transparent 1px);
+ background-size:56px 56px;}
+.top{position:absolute;left:6%;right:6%;top:5.2%;display:flex;justify-content:space-between;align-items:center;
+ font-size:12.5px;letter-spacing:.16em;color:rgba(242,240,232,.62);}
+.brand{display:flex;align-items:center;gap:14px;}
+.brand img{width:40px;height:40px;border-radius:9px;box-shadow:0 4px 14px rgba(0,0,0,.4);}
+.brand b{font-size:16px;color:var(--paper);font-weight:700;}
+.brand span{color:rgba(242,240,232,.5);}
+.cno{font-family:"Noto Serif CJK SC",serif;font-weight:900;letter-spacing:.28em;color:rgba(242,240,232,.5);}
+.kicker{position:absolute;left:6%;top:20%;font-size:13px;letter-spacing:.3em;color:var(--warm);}
+h1{position:absolute;left:5.6%;top:23.5%;font-family:"Noto Serif CJK SC",serif;font-weight:900;
+ font-size:66px;line-height:1.14;color:var(--paper);}
+h1 em{font-style:normal;color:var(--warm);}
+.lead{position:absolute;left:6%;top:49%;width:47%;font-size:18px;line-height:1.9;color:rgba(242,240,232,.86);}
+.lead b{color:#fff;font-weight:700;}
+.role{position:absolute;left:6%;top:71%;display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.role .lb{font-size:12px;letter-spacing:.2em;color:rgba(242,240,232,.5);margin-right:4px;}
+.chip{border:1px solid rgba(220,203,128,.5);color:var(--warm);border-radius:999px;padding:7px 16px;font-size:13.5px;}
+.cta{position:absolute;left:6%;top:83%;display:inline-flex;align-items:center;gap:12px;
+ background:var(--cobalt);color:#fff;text-decoration:none;padding:15px 26px;border-radius:999px;
+ font-size:15px;font-weight:700;box-shadow:0 12px 30px rgba(35,89,209,.4);transition:transform .15s, box-shadow .15s;}
+.cta:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(35,89,209,.5);}
+.cta small{font-weight:400;opacity:.8;font-size:12px;letter-spacing:.1em;}
+.mx{position:absolute;right:6%;top:24%;width:38%;border-left:1px solid rgba(242,240,232,.16);padding-left:44px;}
+.metric{padding:22px 0;border-bottom:1px solid rgba(242,240,232,.12);}
+.metric:last-child{border-bottom:none;}
+.metric .n{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:54px;line-height:1;color:#fff;}
+.metric .n i{font-style:normal;font-size:24px;color:var(--warm);margin-left:2px;}
+.metric .t{margin-top:8px;font-size:14px;color:rgba(242,240,232,.66);}
+.src{position:absolute;right:6%;top:90%;width:38%;padding-left:44px;font-size:11.5px;letter-spacing:.06em;color:rgba(242,240,232,.4);}
+.foot{position:absolute;left:6%;bottom:4.2%;font-size:11.5px;letter-spacing:.22em;color:rgba(242,240,232,.4);}
+.foot2{position:absolute;right:6%;bottom:4.2%;font-size:11.5px;letter-spacing:.22em;color:rgba(242,240,232,.4);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body>
+<div class="stage"><div class="grid"></div>
+  <div class="top">
+    <div class="brand"><img src="../assets/icon-bonjour-official.png"><b>Bonjour!</b><span>／ builder 社交 · AI 匹配社区</span></div>
+    <div class="cno">CASE 02</div>
+  </div>
+
+  <div class="kicker">AI 匹配 × 社区增长 · 明星 AI 初创</div>
+  <h1>把两个对的人<br>撮合成一次<em>对话</em></h1>
+  <p class="lead">Bonjour! 是约 <b>20 万</b>社区用户的 builder 社交网络，<b>Bonnie</b> 是其中的 AI 匹配 agent——不是信息流推荐，而是认真地把对的人推到彼此面前。我从实习生做到这个产品的<b>一号位</b>。</p>
+
+  <div class="role">
+    <span class="lb">MY ROLE</span>
+    <span class="chip">产品一号位</span>
+    <span class="chip">匹配机制</span>
+    <span class="chip">社区增长</span>
+    <span class="chip">活动策略</span>
+  </div>
+
+  <a class="cta" href="https://bonjour.bio/victor" target="_blank">访问 Bonjour! <small>· bonjour.bio →</small></a>
+
+  <div class="mx">
+    <div class="metric"><div class="n">20<i>万</i></div><div class="t">社区用户 · builder 社交网络</div></div>
+    <div class="metric"><div class="n">14→20<i>%+</i></div><div class="t">建联成功率（实验组 A/B）</div></div>
+    <div class="metric"><div class="n">~50<i>场</i></div><div class="t">一手用户访谈 · 驱动机制重构</div></div>
+  </div>
+  <div class="src">口径：建联成功率为实验组整体 A/B 结果 · 2026</div>
+
+  <div class="foot">BUILDER FINDS BUILDER</div>
+  <div class="foot2">Bonjour! — 概览 · 01</div>
+</div>
+</body></html>

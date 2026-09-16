@@ -1,0 +1,118 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>Bonjour · 我的成果</title>
+<style>
+:root{--blue:#2359D1;--ink:#1a1d21;--paper:#F5F3EE;--sub:#6b6a64;--line:rgba(26,29,33,.12);--green:#1a9e5c;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--paper);color:var(--ink);
+ font-family:"Noto Sans CJK SC",sans-serif;-webkit-font-smoothing:antialiased;}
+.stage{position:absolute;inset:0;padding:4% 5.4%;display:flex;flex-direction:column;
+ background:radial-gradient(1200px 620px at 96% -14%, rgba(35,89,209,.09), transparent 62%), var(--paper);}
+.top{display:flex;justify-content:space-between;align-items:center;flex:0 0 auto;
+ font-size:14px;letter-spacing:.12em;color:rgba(26,29,33,.5);}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand img{width:34px;height:34px;border-radius:8px;}
+.brand b{font-size:15px;font-weight:700;color:var(--ink);}
+.cno{font-family:"Noto Serif CJK SC",serif;font-weight:900;letter-spacing:.28em;color:rgba(26,29,33,.4);}
+.hero{flex:0 0 auto;margin-top:16px;}
+.eyebrow{font-size:16px;letter-spacing:.14em;color:var(--blue);font-weight:700;}
+h1{margin-top:9px;font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:44px;line-height:1.06;}
+h1 em{font-style:normal;color:var(--blue);}
+.body{flex:1 1 auto;display:grid;grid-template-columns:0.8fr 1.35fr;gap:0;margin-top:22px;min-height:0;}
+.left{padding-right:42px;border-right:1px solid var(--line);display:flex;flex-direction:column;}
+.llab{font-size:16px;letter-spacing:.12em;color:var(--sub);font-weight:700;}
+.big{margin-top:14px;display:flex;align-items:flex-end;gap:10px;}
+.big .n{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:110px;line-height:.82;color:var(--blue);letter-spacing:-.02em;}
+.big .u{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:28px;color:var(--ink);padding-bottom:14px;}
+.bcap{margin-top:8px;font-size:16px;color:var(--sub);line-height:1.5;}
+.bcap b{color:var(--ink);}
+.matrix{margin-top:auto;display:flex;flex-direction:column;gap:11px;}
+.mi{display:flex;align-items:center;gap:11px;padding:13px 15px;border-radius:10px;background:#fff;border:1px solid var(--line);}
+.mi .d{width:9px;height:9px;border-radius:50%;flex-shrink:0;background:var(--blue);}
+.mi b{font-size:16px;font-weight:700;}
+.mi span{margin-left:auto;font-size:12.5px;color:var(--sub);}
+.right{padding-left:46px;display:flex;flex-direction:column;min-height:0;position:relative;}
+.bonnie{position:absolute;right:0;bottom:0;width:186px;border-radius:14px;overflow:hidden;
+ box-shadow:0 18px 40px rgba(20,30,60,.2);border:1px solid var(--line);z-index:5;}
+.bonnie img{width:100%;display:block;object-fit:cover;}
+.bonnie .cap{padding:7px 9px;font-size:10.5px;color:var(--sub);text-align:center;background:#fff;letter-spacing:.03em;}
+.stg.last .desc{padding-right:200px;}
+.rhd{display:flex;align-items:center;gap:12px;}
+.rhd .badge{font-size:12px;letter-spacing:.06em;background:var(--blue);color:#fff;padding:4px 12px;border-radius:999px;font-weight:700;}
+.rhd .tt{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:26px;}
+.rhd .sub{font-size:14px;color:var(--sub);margin-left:auto;}
+.track{margin-top:26px;flex:1 1 auto;position:relative;padding-left:36px;}
+.track::before{content:"";position:absolute;left:14px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--blue),rgba(35,89,209,.2));}
+.stg{position:relative;padding-bottom:20px;}
+.stg:last-child{padding-bottom:0;}
+.stg .node{position:absolute;left:-36px;top:0;width:30px;height:30px;border-radius:50%;background:var(--paper);border:2.5px solid var(--blue);color:var(--blue);
+ font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;z-index:2;}
+.stg.last .node{background:var(--green);border-color:var(--green);color:#fff;}
+.stg .row{display:flex;align-items:baseline;gap:12px;}
+.stg .ph{font-size:14px;letter-spacing:.14em;color:var(--blue);font-weight:700;}
+.stg.last .ph{color:var(--green);}
+.stg .tt2{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:21px;}
+.stg .desc{margin-top:5px;font-size:15.5px;line-height:1.5;color:rgba(26,29,33,.76);}
+.stg .desc b{color:var(--ink);font-weight:700;}
+.stg .desc em{font-style:normal;color:var(--blue);font-weight:700;}
+.foot{flex:0 0 auto;margin-top:14px;display:flex;justify-content:space-between;align-items:center;
+ border-top:1px solid var(--line);padding-top:12px;font-size:11.5px;letter-spacing:.16em;color:rgba(26,29,33,.42);}
+.foot .hl{color:var(--sub);letter-spacing:.02em;font-size:13px;font-weight:500;}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body><div class="stage">
+  <div class="top">
+    <div class="brand"><img src="../assets/icon-bonjour-hd.png"><b>Bonjour!</b></div>
+    <div class="cno">CASE 02 · 我的成果</div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">我的职责 · 产品负责人</div>
+    <h1>把对的人，<em>推到彼此面前</em></h1>
+  </div>
+
+  <div class="body">
+    <div class="left">
+      <div class="llab">我负责的业务</div>
+      <div class="big"><div class="n">4</div><div class="u">条业务线</div></div>
+      <div class="bcap">作为产品负责人，<b>从 0 定义产品形态、carry 多条业务</b>。</div>
+      <div class="matrix">
+        <div class="mi"><span class="d"></span><b>AI Matching</b><span>核心</span></div>
+        <div class="mi"><span class="d"></span><b>Onboarding 优化</b><span>已上线</span></div>
+        <div class="mi"><span class="d"></span><b>BUiLD 2026 大会</b><span>全程主导</span></div>
+        <div class="mi"><span class="d"></span><b>找工地图 · 招聘</b><span>业务线</span></div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="bonnie"><img src="../assets/bj/bonnie-card.jpg"><div class="cap">Bonnie · 帮你找到 5 位新朋友</div></div>
+      <div class="rhd"><span class="badge">核心</span><span class="tt">重点工作 · AI Matching</span></div>
+      <div class="track">
+        <div class="stg">
+          <div class="node">1</div>
+          <div class="row"><span class="ph">访谈</span><span class="tt2">确定匹配逻辑</span></div>
+          <div class="desc">大量深度用户访谈，确定<b>时间地点实时匹配</b>，服务两个关键场景：<b>Coffee Chat</b> 与 <b>Cofounder Matching</b>。</div>
+        </div>
+        <div class="stg">
+          <div class="node">2</div>
+          <div class="row"><span class="ph">方案</span><span class="tt2">定 AI Matching 机制</span></div>
+          <div class="desc">以 <b>Profile Quality Index</b> 兜底质量，评分重点看<em>画像与叙事的一致性</em>；标签匹配 + <b>向量召回</b>，低于门槛宁可不推。</div>
+        </div>
+        <div class="stg">
+          <div class="node">3</div>
+          <div class="row"><span class="ph">实验</span><span class="tt2">A/B 推送验证</span></div>
+          <div class="desc">按数据判断需求，做 <b>A/B test</b> 逐步放量，用真实建联率检验每一次机制调整。</div>
+        </div>
+        <div class="stg last">
+          <div class="node">✓</div>
+          <div class="row"><span class="ph">结果</span><span class="tt2">建联率 14% → 20%+</span></div>
+          <div class="desc"><b>每 100 次推送，多 6 次真实建联</b>。同时带动了<b>用户留存与高质量 profile 比例</b>的提升。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span class="hl">一次真实的链接，胜过一百次推送</span>
+    <span>Bonjour! · 我的成果 · 02 / 03</span>
+  </div>
+</div>
+</body></html>

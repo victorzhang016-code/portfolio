@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>P.10 Bonjour!</title>
+<style>
+:root{--deep:#153A75;--cobalt:#2359D1;--paper:#F2F0E8;--ink:#202323;--warm:#DCCB80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--paper);color:var(--ink);
+  font-family:"Noto Sans CJK SC",sans-serif;}
+.fiber{position:fixed;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:multiply;z-index:1;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E");}
+/* 四角小字（Special Offer 语法）*/
+.c{position:absolute;font-size:13px;letter-spacing:.08em;color:rgba(32,35,35,.85);z-index:10;}
+.c.tl{left:56px;top:44px;font-weight:600;}
+.c.tr{right:56px;top:44px;color:rgba(32,35,35,.6);}
+.c.bl{left:56px;bottom:40px;color:rgba(32,35,35,.85);}
+.c.br{right:56px;bottom:40px;color:rgba(32,35,35,.6);}
+/* 唱片封套：两张海报斜放 */
+.sleeve1{position:absolute;right:180px;top:90px;width:520px;height:640px;transform:rotate(-7deg);
+  box-shadow:14px 20px 50px rgba(32,35,35,.28);z-index:2;}
+.sleeve1 img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;}
+.sleeve2{position:absolute;left:150px;top:180px;width:420px;height:520px;transform:rotate(5deg);
+  box-shadow:10px 16px 40px rgba(32,35,35,.24);z-index:1;}
+.sleeve2 img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;}
+/* 黑胶碟压在上面 */
+.vinyl{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%) rotate(4deg);width:560px;height:560px;
+  border-radius:50%;z-index:5;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 148px, rgba(0,0,0,0) 148px),
+    repeating-radial-gradient(circle at 50% 50%, #17181a 0 3px, #101114 3px 5px, #1d1e21 5px 6px);
+  box-shadow:0 24px 60px rgba(32,35,35,.4), inset 0 0 0 1px rgba(255,255,255,.06);}
+.vinyl::before{content:"";position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(from 210deg at 50% 50%, transparent 0deg, rgba(255,255,255,.16) 14deg, transparent 34deg,
+    transparent 160deg, rgba(255,255,255,.09) 180deg, transparent 200deg);}
+.vlabel{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:190px;height:190px;border-radius:50%;
+  background:var(--warm);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 0 0 1.5px rgba(32,35,35,.2), inset 0 0 10px rgba(120,95,30,.25);}
+.vlabel .t{font-family:"Noto Serif CJK SC",serif;font-style:italic;font-weight:900;font-size:30px;color:var(--ink);}
+.vlabel .s{font-size:11px;letter-spacing:.2em;color:rgba(32,35,35,.6);margin-top:8px;}
+.vhole{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:13px;height:13px;border-radius:50%;
+  background:var(--paper);box-shadow:inset 0 1px 2px rgba(0,0,0,.5);z-index:6;}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head><body>
+<div class="c tl">Bonjour!</div>
+<div class="c tr">AI 匹配与 builder 社区</div>
+<div class="c bl">CASE 02 · 2026</div>
+<div class="c br">P.10</div>
+<div class="sleeve2"><img src="../assets/ama.jpg" alt="AMA 海报"></div>
+<div class="sleeve1"><img src="../assets/day0-1.jpg" alt="BUiLD 2026"></div>
+<div class="vinyl">
+  <div class="vlabel"><span class="t">Bonjour!</span><span class="s">SIDE B · 33⅓</span></div>
+  <div class="vhole"></div>
+</div>
+<div class="fiber"></div>
+</body></html>

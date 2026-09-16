@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>P.02 关于我</title>
+<style>
+:root{--deep:#153A75;--cobalt:#2359D1;--paper:#F2F0E8;--ink:#202323;--warm:#DCCB80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--paper);font-family:"Noto Sans CJK SC",sans-serif;color:var(--ink);}
+.fiber{position:fixed;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:multiply;z-index:60;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E");}
+/* 左：BUiLD 2026 海报（带人脸）*/
+.photo{position:absolute;left:0;top:0;bottom:0;width:560px;overflow:hidden;}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:42% 18%;}
+.photo::after{content:"";position:absolute;inset:0;border-right:1.5px solid rgba(32,35,35,.3);}
+.photo .cap{position:absolute;left:20px;bottom:18px;color:#fff;font-size:12px;letter-spacing:.2em;text-shadow:0 1px 6px rgba(0,0,0,.6);}
+/* 右：档案 */
+.right{position:absolute;left:560px;right:0;top:0;bottom:0;padding:24px 72px 0;}
+.ck{font-size:15px;letter-spacing:.28em;color:rgba(32,35,35,.55);}
+.name{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:56px;margin-top:14px;display:flex;align-items:baseline;gap:20px;}
+.name .en{font-family:"Noto Sans CJK SC",sans-serif;font-weight:500;font-size:19px;letter-spacing:.22em;color:rgba(32,35,35,.6);}
+.sign{margin-top:14px;width:120px;opacity:.9;}
+.sign img{width:100%;mix-blend-mode:multiply;}
+.bio{margin-top:12px;max-width:760px;padding-bottom:14px;border-bottom:1px solid rgba(32,35,35,.18);}
+.bio p{font-size:17.5px;line-height:1.9;color:rgba(32,35,35,.8);margin-bottom:13px;}
+.bio p b{font-weight:700;color:var(--deep);}
+.bio .lead{font-family:"Noto Serif CJK SC",serif;font-size:19px;color:var(--deep);line-height:1.8;}
+.bio p.hero{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:26px;color:var(--deep);margin:20px 0;line-height:1.6;border-left:4px solid var(--cobalt);padding-left:16px;}
+/* 竖时间线 */
+.tl{margin-top:10px;position:relative;padding-left:30px;}
+.tl::before{content:"";position:absolute;left:3px;top:10px;bottom:12px;width:8px;background:rgba(35,89,209,.07);border-left:1px solid rgba(35,89,209,.18);border-right:1px solid rgba(35,89,209,.18);border-radius:6px;}
+.tl .it{position:relative;padding:6px 0;}
+.tl .it::before{content:"";position:absolute;left:-29px;top:16px;width:14px;height:14px;border-radius:50%;background:var(--cobalt);
+  box-shadow:0 0 0 2px var(--paper), 0 0 0 3.5px rgba(35,89,209,.5), 0 0 0 6px rgba(35,89,209,.22), 0 0 0 9px rgba(35,89,209,.10);}
+.tl .co{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:20px;display:inline;}
+.tl .ro{font-size:15.5px;color:rgba(32,35,35,.62);margin-left:12px;}
+.tl .cur2{color:var(--cobalt);font-style:italic;}
+.social{margin-top:10px;padding-top:12px;border-top:1px solid rgba(32,35,35,.18);display:flex;gap:26px;width:76%;}
+.si{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;}
+.si:hover .st span{color:#123a86;}
+.si svg{flex-shrink:0;}
+.si img.ic{height:22px;width:22px;object-fit:cover;border-radius:5px;}
+.si img{border-radius:5px;}
+.si .st{display:flex;flex-direction:column;}
+.si .st b{font-size:12.5px;letter-spacing:.08em;color:rgba(32,35,35,.55);}
+.si .st span{font-size:15.5px;font-weight:600;margin-top:2px;color:#2359D1;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1.5px;}
+.foot{position:absolute;left:632px;right:72px;bottom:26px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.18em;color:rgba(32,35,35,.45);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head><body>
+<div class="photo"><img src="../assets/day0-1.jpg" alt="BUiLD 2026"><div class="cap">BUiLD 2026 · 社区建造者活动</div></div>
+<div class="right">
+  <div class="ck">关于我 · ABOUT</div>
+  <div class="name">张浩哲 <span class="en">VICTOR</span></div>
+  <div class="sign"><img src="../assets/signature-black.png" alt="签名"></div>
+  <div class="bio">
+    <p class="lead">AI 产品经理。从中厂、大厂到 AI 初创，受过专业的产品思维训练，也实打实做了几年 AI 产品，和大模型一同飞速成长。</p>
+    <p class="hero">服务 Builder，理解 Builder，自己也在 Build。</p>
+    <p>我有良好的审美——来自文学、电影、音乐和建筑，也来自多年设计实践。我相信<b>品味不只在于选择，更在于创造</b>。认真、负责、系统性思维与持续创新，是我在高密度环境里长成、也是我做产品的核心能力。</p>
+  </div>
+  <div class="tl">
+    <div class="it"><span class="co">华中科技大学</span><span class="ro">建筑学（本科）</span></div>
+    <div class="it"><span class="co">香港大学</span><span class="ro">Innovation Design and Technology</span></div>
+    <div class="it"><span class="co">宝宝树</span><span class="ro">AI 产品经理（AIGC）</span></div>
+    <div class="it"><span class="co">Bonjour!</span><span class="ro">AI 产品负责人 · 明星 AI 初创</span></div>
+    <div class="it"><span class="co">小红书</span><span class="ro">AI 产品经理 · RedSkill & 小工具 · <i class="cur2">currently building</i></span></div>
+  </div>
+  <div class="social">
+    <a class="si" href="https://www.xiaohongshu.com/user/profile/5e2dbefe0000000001000f09" target="_blank">
+      <img class="ic" src="../assets/icon-xhs.png">
+      <div class="st"><b>小红书</b><span>喂喂维Victor</span></div>
+    </a>
+    <a class="si" href="https://space.bilibili.com/350884559" target="_blank">
+      <img class="ic" src="../assets/icon-bili.png">
+      <div class="st"><b>B站</b><span>蓝色有角Victor</span></div>
+    </a>
+    <a class="si" href="https://bonjour.bio/victor" target="_blank">
+      <img class="ic" src="../assets/icon-bonjour-official.png">
+      <div class="st"><b>Bonjour!</b><span>张浩哲 Victor</span></div>
+    </a>
+    <a class="si" href="https://github.com/victorzhang016-code" target="_blank">
+      <img class="ic" src="../assets/icon-github-white.png">
+      <div class="st"><b>GitHub</b><span>victorzhang016-code</span></div>
+    </a>
+  </div>
+</div>
+<div class="credo" style="position:absolute;right:72px;bottom:52px;font-family:Georgia,'Times New Roman','Noto Serif CJK SC',serif;font-style:italic;font-size:15px;color:rgba(32,35,35,.45);letter-spacing:.05em;">Think, Passion, Brave and Love.</div>
+<div class="foot"><span></span><span>P.02</span></div>
+<div class="fiber"></div>
+</body></html>

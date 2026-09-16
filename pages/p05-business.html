@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>P.05 业务与生态</title>
+<style>
+:root{--deep:#153A75;--cobalt:#2359D1;--paper:#F2F0E8;--ink:#202323;--warm:#DCCB80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:#0f1012;color:var(--paper);
+  font-family:"Noto Sans CJK SC",sans-serif;}
+/* R15-1：左上 项目名 + 案例名 */
+.brand{position:absolute;left:1.8%;top:3.4%;font-size:13px;color:rgba(242,240,232,.55);letter-spacing:.04em;}
+.brand .case{display:block;margin-top:8px;font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:17px;color:var(--paper);}
+/* 左 meta 栏（Role 列表）x≈1.8% y≈5.5% */
+.meta{position:absolute;left:1.8%;top:12%;font-size:12.5px;line-height:2.1;color:rgba(242,240,232,.55);}
+.meta .mk{color:rgba(242,240,232,.85);font-weight:600;}
+/* 中央声明 + 段落 x≈9% y≈12% */
+.state{position:absolute;left:9%;top:12%;width:36%;}
+.state h1{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:30px;line-height:1.5;}
+.state p{margin-top:20px;font-size:14.5px;line-height:1.9;color:rgba(242,240,232,.72);}
+.state p b{color:var(--paper);}
+.state .nums{margin-top:26px;font-size:13px;line-height:2.1;color:rgba(242,240,232,.6);}
+.state .nums b{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:17px;color:var(--warm);margin-right:8px;}
+.state .src{margin-top:18px;font-size:12px;color:rgba(242,240,232,.45);letter-spacing:.06em;}
+/* 右侧图版区 x≈52% y≈12% → 右 6% */
+.plate{position:absolute;left:52%;right:6%;top:12%;bottom:12%;overflow:hidden;}
+.plate img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%;
+  filter:grayscale(1) contrast(1.2) brightness(1.02);}
+.plate .ink{position:absolute;inset:0;background:#1D4B96;mix-blend-mode:color;}
+.plate .cap{position:absolute;left:0;bottom:-2px;transform:translateY(100%);padding-top:10px;
+  font-size:12px;letter-spacing:.18em;color:rgba(242,240,232,.5);}
+.foot{position:absolute;right:6%;bottom:3%;font-size:12px;letter-spacing:.18em;color:rgba(242,240,232,.4);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head><body>
+<div class="brand">小红书 · RedSkill<span class="case">业务与生态</span></div>
+<div class="meta"><span class="mk">负责</span><br>供需策略<br>审核外露<br>开放能力<br><span class="mk">时间</span><br>2026 · 在途</div>
+<div class="state">
+  <h1>两种供给，一个生态</h1>
+  <p>小工具是可运行的 Vibe Coding 应用，笔记内直接体验；Skill 是 Agent 加载的能力载体，对话式交付。二者共享同一条「发现—使用—再传播」链路——<b>他挂评论占 85.5%</b>，评论区是真实的二次传播通路。</p>
+  <div class="nums">
+    <div><b>3.12w</b>累计小工具 · 创作者 5,736 位</div>
+    <div><b>676.2w</b>累计使用用户 · 使用 5,993.1w 次</div>
+    <div><b>9.73w</b>累计 Skill · 使用用户 19.3w</div>
+  </div>
+  <div class="src">RedSkill Hub · 截至 2026-09-10</div>
+</div>
+<div class="plate">
+  <img src="../assets/gloves.jpg" alt="">
+  <div class="ink"></div>
+  <div class="cap">图版 01 ｜ GET HANDS DIRTY · 创作者精神</div>
+</div>
+<div class="foot">P.05</div>
+</body></html>

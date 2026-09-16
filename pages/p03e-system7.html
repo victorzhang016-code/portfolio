@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>P.03 目录 · System 7</title>
+<style>
+/* 全部数值取自 ryOS tokens.css [data-os-theme="system7"] */
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:url("../assets/p25-thanks-bg.png") center/cover;
+  font-family:"ChicagoKare","Noto Sans CJK SC",system-ui,sans-serif;color:#000;}
+/* 菜单栏：#fff，30px，黑边 2px */
+.s7bar{position:fixed;left:0;right:0;top:0;height:30px;z-index:50;display:flex;align-items:center;
+  padding:0 12px;gap:20px;background:#fff;border-bottom:2px solid #000;font-size:13px;}
+.s7bar .apple{font-size:15px;font-weight:900;}
+.s7bar .app{font-weight:700;}
+.s7bar .right{margin-left:auto;display:flex;gap:16px;align-items:center;font-size:12px;}
+/* 桌面图标（左上，黑框白底标签） */
+.dicons{position:fixed;left:24px;top:48px;display:flex;flex-direction:column;gap:22px;z-index:5;}
+.dicon{display:flex;flex-direction:column;align-items:center;width:92px;}
+.dicon img{width:40px;height:40px;image-rendering:pixelated;}
+.dicon span{margin-top:4px;font-size:11.5px;text-align:center;line-height:1.25;
+  background:#fff;border:1px solid #000;padding:1px 4px;}
+/* 窗口：#fff，方角，border 1px #000，shadow 2px 2px 0 rgba(0,0,0,.5) */
+.win{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:940px;z-index:10;
+  background:#fff;border:1px solid #000;box-shadow:2px 2px 0 rgba(0,0,0,.5);}
+/* 标题栏：24px，黑条纹 pattern linear-gradient(#000 50%, transparent 0)，标题居中白底 */
+.wtitle{position:relative;height:24px;display:flex;align-items:center;justify-content:center;
+  border-bottom:1px solid #000;
+  background:repeating-linear-gradient(to bottom,#fff 0 2px,#000 2px 3px);}
+.wtitle .t{background:#fff;padding:0 10px;font-size:14px;font-weight:700;}
+.wtitle .box{position:absolute;top:3px;width:16px;height:16px;background:#fff;border:1px solid #000;
+  display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;}
+.wtitle .box.l{left:4px;} .wtitle .box.r{right:4px;}
+.wlist{padding:8px 12px;background:#fff;}
+.wrow{display:grid;grid-template-columns:38px 1fr 90px 260px;align-items:center;gap:12px;
+  padding:7px 6px;font-size:13.5px;border-bottom:1px dashed #808080;}
+.wrow:last-child{border-bottom:none;}
+.wrow:hover{background:#000;color:#fff;}
+.wrow img{width:32px;height:32px;image-rendering:pixelated;}
+.wrow .pg{font-weight:700;text-align:right;}
+.wrow .ds{opacity:.75;font-size:12px;}
+.wstatus{display:flex;justify-content:space-between;padding:5px 12px;font-size:12px;
+  border-top:1px solid #000;background:#e3e3e3;}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head><body>
+<div class="s7bar">
+  <span class="apple"></span><span class="app">作品集</span>
+  <span>文件</span><span>编辑</span><span>查看</span><span>标签</span><span>特别</span>
+  <span class="right"><span>张浩哲 Victor</span><span>15:27</span></span>
+</div>
+<div class="dicons">
+  <div class="dicon"><img src="../assets/mac-classic-folder.png"><span>01 小红书 · RedSkill</span></div>
+  <div class="dicon"><img src="../assets/mac-classic-folder.png"><span>02 Bonjour!</span></div>
+  <div class="dicon"><img src="../assets/mac-classic-folder.png"><span>03 Wearlog 衣LOG</span></div>
+  <div class="dicon"><img src="../assets/mac-classic-folder.png"><span>04 Other Work</span></div>
+</div>
+<div class="win" style="display:none">
+  <div class="wtitle"><i class="box l">×</i><span class="t">目录 · INDEX</span><i class="box r">▢</i></div>
+  <div class="wlist">
+    <div class="wrow"><img src="../assets/mac-classic-folder.png"><span>小红书 · 小工具 / RedSkill</span><span class="pg">P.04–09</span><span class="ds">供给 · 审核外露 · 开放能力 · 商业化</span></div>
+    <div class="wrow"><img src="../assets/mac-classic-folder.png"><span>Bonjour!</span><span class="pg">P.10–16</span><span class="ds">调研 · Bonnie 3.0 · Onboarding · 结果 · 活动</span></div>
+    <div class="wrow"><img src="../assets/mac-classic-folder.png"><span>Wearlog 衣LOG</span><span class="pg">P.17–21</span><span class="ds">为什么做 · 产品 · 方法论 · 数据洞察</span></div>
+    <div class="wrow"><img src="../assets/mac-classic-folder.png"><span>Other Work</span><span class="pg">P.22–24</span><span class="ds">Skill · 建筑 · 装置 · 公开文字</span></div>
+    <div class="wrow"><img src="../assets/mac-documents-folder.png"><span>关于我</span><span class="pg">P.02</span><span class="ds">张浩哲 Victor · AI 产品经理</span></div>
+    <div class="wrow"><img src="../assets/mac-documents-folder.png"><span>结语</span><span class="pg">P.25</span><span class="ds">Think, Passion, Brave and Love</span></div>
+  </div>
+  <div class="wstatus"><span>6 个项目</span><span>作品集 · 2026</span></div>
+</div>
+</body></html>

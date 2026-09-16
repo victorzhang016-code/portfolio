@@ -1,0 +1,113 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>小红书 Builder Hub · AI Builder 的基础设施</title>
+<style>
+:root{--red:#FF2442;--ink:#1a1d21;--paper:#F7F5EF;--cobalt:#2359D1;--warm:#C8912E;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--paper);color:var(--ink);
+ font-family:"Noto Sans CJK SC",sans-serif;-webkit-font-smoothing:antialiased;}
+.stage{position:absolute;inset:0;padding:4.2% 5.2%;display:flex;flex-direction:column;
+ background:
+  radial-gradient(1100px 560px at 90% -8%, rgba(255,36,66,.10), transparent 60%),
+  radial-gradient(900px 520px at 2% 108%, rgba(35,89,209,.08), transparent 60%),
+  var(--paper);}
+.top{display:flex;justify-content:space-between;align-items:center;flex:0 0 auto;
+ font-size:13px;letter-spacing:.14em;color:rgba(26,29,33,.52);}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand img{width:36px;height:36px;border-radius:8px;}
+.brand b{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:.02em;}
+.role{font-size:12.5px;letter-spacing:.08em;color:rgba(26,29,33,.55);}
+.role b{color:var(--red);font-weight:700;}
+.body{flex:1 1 auto;display:grid;grid-template-columns:1.04fr 1fr;gap:48px;margin-top:22px;min-height:0;}
+.left{display:flex;flex-direction:column;min-height:0;}
+.eyebrow{font-size:15px;letter-spacing:.22em;color:var(--red);font-weight:700;}
+h1{margin-top:14px;font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:58px;line-height:1.1;letter-spacing:.005em;}
+h1 em{font-style:normal;color:var(--red);}
+.slogan{margin-top:18px;}
+.slogan .en{font-family:"Noto Serif CJK SC",serif;font-style:italic;font-size:24px;color:var(--cobalt);font-weight:700;}
+.slogan .cn{margin-top:10px;font-size:16px;line-height:1.75;color:rgba(26,29,33,.7);max-width:98%;}
+.chain{margin-top:26px;display:flex;flex-direction:column;gap:0;}
+.step{position:relative;padding:0 0 19px 40px;}
+.step:last-child{padding-bottom:0;}
+.step::before{content:"";position:absolute;left:12px;top:7px;bottom:-3px;width:2px;background:linear-gradient(var(--red),rgba(255,36,66,.15));}
+.step:last-child::before{display:none;}
+.step .dot{position:absolute;left:0;top:1px;width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;
+ font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(255,36,66,.35);}
+.step h3{font-family:"Noto Serif CJK SC",serif;font-size:20px;font-weight:900;}
+.step p{margin-top:4px;font-size:14px;line-height:1.65;color:rgba(26,29,33,.66);}
+.step b{color:var(--cobalt);}
+/* 数据 + 曲线 */
+.data{margin-top:auto;padding-top:20px;display:grid;grid-template-columns:1fr 1.15fr;gap:26px;align-items:end;}
+.stat .n{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:64px;line-height:.92;color:var(--red);letter-spacing:-.01em;}
+.stat .n .up{font-size:38px;color:#1a9e5c;margin-left:4px;}
+.stat .n2{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:44px;line-height:1;color:var(--ink);margin-top:14px;}
+.stat .n2 i{font-style:normal;font-size:34px;color:var(--red);}
+.stat .t{margin-top:7px;font-size:13px;color:rgba(26,29,33,.6);}
+.chart{position:relative;height:150px;border-left:2px solid rgba(26,29,33,.16);border-bottom:2px solid rgba(26,29,33,.16);}
+.chart .lbl{position:absolute;top:-4px;left:8px;font-size:12px;color:rgba(26,29,33,.5);letter-spacing:.04em;}
+.chart .lbl b{color:var(--red);}
+.chart svg{position:absolute;inset:0;width:100%;height:100%;}
+.chart .end{position:absolute;right:2px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px rgba(255,36,66,.2);}
+.wall{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;align-content:center;}
+.wall a{position:relative;border-radius:11px;overflow:hidden;box-shadow:0 14px 30px rgba(0,0,0,.18);
+ border:1px solid rgba(0,0,0,.06);display:block;aspect-ratio:3/4;}
+.wall a img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.wall a:hover img{transform:scale(1.05);}
+.wall .cap{position:absolute;left:0;right:0;bottom:0;padding:14px 9px 7px;font-size:10.5px;color:#fff;letter-spacing:.02em;
+ background:linear-gradient(transparent,rgba(0,0,0,.8));}
+.foot{position:absolute;right:5.2%;bottom:2.2%;font-size:11px;letter-spacing:.2em;color:rgba(26,29,33,.38);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body><div class="stage">
+  <div class="top">
+    <div class="brand"><img src="../assets/icon-xhs-hd.png"><b>Builder Hub — RedSkill／小工具</b></div>
+    <div class="role">我的角色 · <b>AI 产品经理 — 开发者端</b></div>
+  </div>
+
+  <div class="body">
+    <div class="left">
+      <div class="eyebrow">AI BUILDER 的基础设施</div>
+      <h1>AI Builder<br>在<em>小红书</em></h1>
+      <div class="slogan">
+        <span class="en">Build is cheap, sale is important.</span>
+        <div class="cn"><b>RedSkill</b>：开发者上传自己的 Skill，用户在笔记里复制链接给自己的 Agent 下载；<b>小工具</b>：开发者上传自己 Vibe Coding 的作品，用户在小红书内直接体验。开发者第一次能把自己的 AI 作品上传到小红书、直达亿级用户——「直通用户的 GitHub」是很多用户的自发解读。</div>
+      </div>
+
+      <div class="chain">
+        <div class="step"><div class="dot">1</div><h3>从 Builder 开始</h3><p>先触达开发者，再触达更广泛的、<b>日常生活里用 AI</b> 的人群。</p></div>
+        <div class="step"><div class="dot">2</div><h3>Skill 与小工具，两种供给</h3><p>Skill 是能力、小工具是产品；Skill 涌现<b>头部博主</b>，小工具打开即用。</p></div>
+        <div class="step"><div class="dot">3</div><h3>用户自发传播，快速普及</h3><p>靠社区自发传播，以<b>惊人速度</b>铺开——生态在高歌猛进。</p></div>
+      </div>
+
+      <div class="data">
+        <div class="stat">
+          <div class="n">+100<span class="up">w/天</span></div>
+          <div class="t">用户日增量级（仍在加速）</div>
+          <div class="n2">800<i>w+</i></div>
+          <div class="t">累计使用用户</div>
+        </div>
+        <div class="chart">
+          <div class="lbl">用户规模 · <b>一天涨一百万</b></div>
+          <svg viewBox="0 0 300 150" preserveAspectRatio="none">
+            <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="rgba(255,36,66,.28)"/><stop offset="1" stop-color="rgba(255,36,66,0)"/>
+            </linearGradient></defs>
+            <path d="M0,146 C90,142 150,130 200,96 C240,68 270,32 298,8 L298,150 L0,150 Z" fill="url(#g)"/>
+            <path d="M0,146 C90,142 150,130 200,96 C240,68 270,32 298,8" fill="none" stroke="#FF2442" stroke-width="3.5" stroke-linecap="round"/>
+          </svg>
+          <div class="end"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wall">
+      <a href="../assets/xhs/launch.jpg" target="_blank"><img src="../assets/xhs/launch.jpg"><div class="cap">全量上线</div></a>
+      <a href="../assets/xhs/vibecoding.jpg" target="_blank"><img src="../assets/xhs/vibecoding.jpg"><div class="cap">Vibecoding 大赛</div></a>
+      <a href="../assets/xhs/award.jpg" target="_blank"><img src="../assets/xhs/award.jpg"><div class="cap">RedSkill 大赏</div></a>
+      <a href="../assets/xhs/rank-minitool.jpg" target="_blank"><img src="../assets/xhs/rank-minitool.jpg"><div class="cap">小工具排行榜</div></a>
+      <a href="../assets/xhs/rank-skill.jpg" target="_blank"><img src="../assets/xhs/rank-skill.jpg"><div class="cap">RedSkill TOP100</div></a>
+      <a href="../assets/xhs/bestlist.jpg" target="_blank"><img src="../assets/xhs/bestlist.jpg"><div class="cap">必吃榜 · 社区共创</div></a>
+    </div>
+  </div>
+
+  <div class="foot">小红书 Builder Hub · RedSkill ／ 小工具 · 产品 · 01 / 02</div>
+</div>
+</body></html>

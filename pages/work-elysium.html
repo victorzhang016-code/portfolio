@@ -1,0 +1,101 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>Floating Elysium</title>
+<style>
+:root{--paper:#F2F0E8;--warm:#DCCB80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:#0b0c0e;color:var(--paper);
+ font-family:"Noto Sans CJK SC",sans-serif;-webkit-font-smoothing:antialiased;}
+.stage{position:absolute;inset:0;padding:3.4% 5% 3%;display:flex;flex-direction:column;
+ background:radial-gradient(1000px 600px at 50% -10%, rgba(35,89,209,.13), transparent 60%), #0b0c0e;}
+.top{display:flex;justify-content:space-between;align-items:flex-end;flex:0 0 auto;}
+.tl .kk{font-size:12px;letter-spacing:.3em;color:var(--warm);}
+.tl h1{margin-top:6px;font-family:"Noto Serif CJK SC","Source Han Serif SC","Songti SC","STSong","Noto Serif SC",serif;font-weight:900;font-size:36px;line-height:1.05;}
+.tl .k{margin-top:7px;font-size:12.5px;color:rgba(242,240,232,.6);letter-spacing:.08em;}
+.tr{text-align:right;font-size:11px;letter-spacing:.14em;color:rgba(242,240,232,.5);line-height:1.7;}
+.award{display:inline-block;background:linear-gradient(135deg,#E7C96B,#B8912E);color:#241a05;
+ font-weight:700;font-size:12px;letter-spacing:.01em;padding:5px 13px;border-radius:999px;
+ box-shadow:0 4px 14px rgba(184,145,46,.35);}
+.desc{flex:0 0 auto;margin:12px 0 14px;font-size:14px;line-height:1.65;color:rgba(242,240,232,.82);max-width:72%;
+ border-left:3px solid var(--warm);padding-left:13px;}
+.gallery{flex:1 1 auto;display:flex;flex-direction:column;gap:13px;min-height:0;}
+.gallery.g3{flex-direction:row;}
+.gallery.g3>.cell{flex:1.42 1 0;}
+.gallery.g3 .col{flex:1 1 0;display:flex;flex-direction:column;gap:13px;min-width:0;min-height:0;}
+.gallery.g3 .col .cell{flex:1 1 0;}
+.row{flex:1 1 0;display:flex;gap:13px;min-height:0;}
+.cell{flex:1 1 0;position:relative;border-radius:11px;overflow:hidden;background:#15171b;
+ border:1px solid rgba(242,240,232,.09);box-shadow:0 14px 32px rgba(0,0,0,.42);display:block;min-width:0;}
+.cell img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.cell:hover img{transform:scale(1.04);}
+.foot{flex:0 0 auto;margin-top:12px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.18em;color:rgba(242,240,232,.4);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body><div class="stage">
+  <div class="top">
+    <div class="tl"><div class="kk">OTHER WORK · 作品相册</div><h1>Floating Elysium</h1><span class="k">艺术 · eVolo 概念</span></div>
+    <div class="tr"><div class="award">★ eVolo 摩天楼竞赛 · Honorable Mention</div><div style="margin-top:6px">图片共 1 张 · 点图看大图</div></div>
+  </div>
+  <div class="desc">eVolo 高层建筑概念：把栖居托举到云端的乌托邦设想。</div>
+  <div class="gallery"><div class="row"><a class="cell" href="../assets/work/elysium/1.jpg" target="_blank"><img style="object-position:center" src="../assets/work/elysium/1.jpg"></a></div></div>
+  <div class="foot"><span>软件之前，我先做过空间</span><span>Other Work — Floating Elysium</span></div>
+</div><script>
+(function(){
+  // 收集同文件夹下的图
+  var cells=document.querySelectorAll('a.cell');
+  var groups={},order=[];
+  cells.forEach(function(a,i){
+    var href=a.getAttribute('href');
+    var folder=href.replace(/[^/]*$/,'');
+    if(!groups[folder]){groups[folder]=[];order.push(folder);}
+    var idx=parseInt((href.match(/(\d+)(\.\w+$)/)||[])[1])||i;
+    groups[folder].push({src:href,idx:idx,el:a});
+  });
+  Object.keys(groups).forEach(function(f){groups[f].sort(function(a,b){return a.idx-b.idx;});});
+
+  function openLB(folder,src){
+    var imgs=groups[folder];if(!imgs)return;
+    var cur=imgs.findIndex(function(x){return x.src===src;});
+    if(cur<0)cur=0;
+    var ov=document.createElement('div');
+    ov.style.cssText='position:fixed;inset:0;z-index:99999;background:rgba(8,9,12,.94);display:flex;align-items:center;justify-content:center;cursor:pointer;';
+    ov.onclick=function(e){if(e.target===ov)closeLB();};
+    var img=document.createElement('img');
+    img.style.cssText='max-width:92vw;max-height:90vh;object-fit:contain;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.6);';
+    img.src=imgs[cur].src;
+    ov.appendChild(img);
+    var btn=function(sym,dir){
+      var b=document.createElement('button');
+      b.textContent=sym;
+      b.style.cssText='position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.08);color:#fff;border:none;width:52px;height:72px;font-size:28px;cursor:pointer;z-index:100000;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:background .15s;';
+      b.onmouseenter=function(){b.style.background='rgba(255,255,255,.18)';};
+      b.onmouseleave=function(){b.style.background='rgba(255,255,255,.08)';};
+      b.onclick=function(e){e.stopPropagation();go(dir);};
+      b.style[dir<0?'left':'right']='24px';
+      ov.appendChild(b);
+    };
+    btn('‹',-1);btn('›',1);
+    var counter=document.createElement('div');
+    counter.style.cssText='position:fixed;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-size:14px;letter-spacing:.1em;';
+    ov.appendChild(counter);
+    function go(d){cur=(cur+d+imgs.length)%imgs.length;img.style.opacity='0';setTimeout(function(){img.src=imgs[cur].src;img.style.opacity='1';},120);upd();}
+    function upd(){counter.textContent=(cur+1)+' / '+imgs.length+' · '+imgs[cur].src.split('/').pop();}
+    upd();
+    img.style.transition='opacity .15s';
+    document.body.appendChild(ov);
+    function onKey(e){if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')go(-1);if(e.key==='ArrowRight')go(1);}
+    document.addEventListener('keydown',onKey);
+    ov._cleanup=function(){document.removeEventListener('keydown',onKey);};
+    ov._close=function(){if(ov._cleanup)ov._cleanup();document.body.removeChild(ov);};
+  }
+  function closeLB(){var ov=document.querySelector('div[style*="z-index:99999"]');if(ov&&ov._close)ov._close();}
+
+  cells.forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var href=a.getAttribute('href');
+      var folder=href.replace(/[^/]*$/,'');
+      openLB(folder,href);
+    });
+  });
+})();
+</script>
+</body></html>

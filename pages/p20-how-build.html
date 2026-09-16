@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>P.20 方法论</title>
+<style>
+:root{--deep:#153A75;--cobalt:#2359D1;--paper:#F2F0E8;--ink:#202323;--warm:#DCCB80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--paper);color:var(--ink);
+  font-family:"Noto Sans CJK SC",sans-serif;}
+.nav{position:absolute;left:0;right:0;top:0;height:12%;display:flex;align-items:center;
+  justify-content:space-between;padding:0 7%;font-size:14px;background:#fff;}
+.nav .word{font-weight:900;font-size:16px;}
+.nav .menu{display:flex;gap:36px;font-size:13.5px;color:rgba(32,35,35,.7);}
+/* 灰场 + 环形字章 */
+.field{position:absolute;left:0;right:0;top:12%;height:62%;background:#E7E5E0;display:flex;align-items:center;justify-content:center;}
+.stamp{width:340px;height:340px;position:relative;}
+.stamp svg{width:100%;height:100%;}
+.stamp .ctr{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;}
+.stamp .ctr .a{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:26px;}
+.stamp .ctr .b{margin-top:10px;font-size:11.5px;letter-spacing:.18em;color:rgba(32,35,35,.6);line-height:2;}
+/* 底部带 */
+.band{position:absolute;left:0;right:0;top:74%;bottom:0;background:#fff;display:flex;padding:4.5% 7% 0;}
+.band h1{width:38%;font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:30px;line-height:1.45;}
+.band .tx{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:8px 40px;font-size:13px;line-height:1.75;color:rgba(32,35,35,.78);}
+.band .tx div b{color:var(--deep);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head><body>
+<div class="nav"><div class="word">Wearlog · 怎么 Build 的</div>
+  <div class="menu"><span>方法论</span><span>工程判断</span><span>2026</span></div></div>
+<div class="field">
+  <div class="stamp">
+    <svg viewBox="0 0 340 340">
+      <defs><path id="cir" d="M170,170 m-118,0 a118,118 0 1,1 236,0 a118,118 0 1,1 -236,0"/></defs>
+      <circle cx="170" cy="170" r="132" fill="none" stroke="rgba(32,35,35,.25)" stroke-width="1"/>
+      <text style="font-size:17px;letter-spacing:5px;fill:#202323;font-weight:600">
+        <textPath href="#cir">AI 协作 · 方案审查 · 代码执行 · 前端审美 · 上下文管理 · 验收 ·</textPath>
+      </text>
+    </svg>
+    <div class="ctr"><div class="a">怎么 Build 的</div>
+      <div class="b">Claude Code<br>Codex<br>Kimi Code</div></div>
+  </div>
+</div>
+<div class="band">
+  <h1>一个人 + 三个 AI，<br>怎么把产品做完</h1>
+  <div class="tx">
+    <div><b>选模型</b> —— 方案审查 / 代码执行 / 前端审美，按阶段分工，不搞固定映射。</div>
+    <div><b>给约束</b> —— 「三不要」写进上下文：不要默认渐变、不要圆角卡片堆、不要假数据。</div>
+    <div><b>给参考</b> —— Figma 灵感版 + Pinterest 实拍，让 AI 看见「好」长什么样。</div>
+    <div><b>设计系统收口</b> —— 先定 design.md（色板/字级/组件），再长页面。</div>
+    <div><b>环境一致性</b> —— mock 到正式登录的迁移事故后：本地/预览/生产同构。</div>
+    <div><b>上下文即文档</b> —— CLAUDE.md / memory / 索引的维护，后来超过了代码本身。</div>
+  </div>
+</div>
+</body></html>

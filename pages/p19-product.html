@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>P.19 产品形态</title>
+<style>
+:root{--deep:#153A75;--cobalt:#2359D1;--paper:#F2F0E8;--ink:#202323;--warm:#DCCB80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:#141517;color:var(--paper);
+  font-family:"Noto Sans CJK SC",sans-serif;}
+/* 顶：logo 圆 + 汉堡 */
+.logo{position:absolute;left:9%;top:8%;width:52px;height:52px;border:1.5px solid rgba(242,240,232,.7);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:15px;}
+.burger{position:absolute;right:9%;top:9%;font-size:20px;letter-spacing:.1em;color:rgba(242,240,232,.7);}
+/* 大标题 */
+h1{position:absolute;left:9%;top:20%;font-weight:900;font-size:56px;letter-spacing:-.02em;}
+/* 双栏描述 */
+.d1{position:absolute;left:9%;top:34%;width:36%;font-size:14.5px;line-height:1.85;color:rgba(242,240,232,.75);}
+.d2{position:absolute;left:53%;top:34%;width:38%;font-size:14.5px;line-height:1.85;color:rgba(242,240,232,.75);}
+.d2 b{color:var(--warm);}
+/* 筛选行 */
+.fil{position:absolute;left:9%;top:45%;display:flex;gap:44px;align-items:baseline;font-size:14px;}
+.fil .fk{color:rgba(242,240,232,.5);}
+.fil span{border-bottom:1.5px solid rgba(242,240,232,.85);padding-bottom:3px;font-weight:500;}
+.fil span.off{border-bottom-color:rgba(242,240,232,.3);color:rgba(242,240,232,.55);font-weight:400;}
+/* 作品卡 2×2 */
+.cards{position:absolute;left:9%;right:9%;top:52%;bottom:14%;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:22px;}
+.cd{overflow:hidden;display:flex;flex-direction:column;}
+.cd .im{flex:1;overflow:hidden;border-radius:6px 6px 0 0;}
+.cd .im img{width:100%;height:100%;object-fit:cover;object-position:50% 0%;}
+.cd .cap{font-size:12px;color:rgba(242,240,232,.6);margin-top:9px;}
+.cd .cap b{color:rgba(242,240,232,.9);font-weight:600;margin-right:8px;}
+/* 底部条 */
+.bot{position:absolute;left:0;right:0;bottom:0;height:9%;background:#0d0e10;display:flex;align-items:center;
+  padding:0 9%;gap:40px;font-size:12.5px;color:rgba(242,240,232,.7);}
+.bot b{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:17px;color:var(--paper);margin-right:8px;}
+.bot .src{margin-left:auto;color:rgba(242,240,232,.45);letter-spacing:.1em;}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head><body>
+<div class="logo">衣</div>
+<div class="burger">≡</div>
+<h1>四个核心界面</h1>
+<div class="d1">一座衣柜的档案馆：每件衣服一张档案卡，搭配成为可复用的判断，规律从记录里长出来。</div>
+<div class="d2"><b>React 19 · TS · Vite · Tailwind v4 · Motion</b><br>Supabase · Vercel · Kimi relay ｜ wearlog.cn 线上可访问</div>
+<div class="fil"><span class="fk">界面：</span><span>Archive</span><span class="off">Best Match</span><span class="off">穿衣规律</span><span class="off">颜色分析</span></div>
+<div class="cards">
+  <div class="cd"><div class="im"><img src="../assets/wearlog-archive.jpg"></div><div class="cap"><b>01</b>Archive 衣橱</div></div>
+  <div class="cd"><div class="im"><img src="../assets/wearlog-bestmatch.png"></div><div class="cap"><b>02</b>Best Match 搭配</div></div>
+  <div class="cd"><div class="im"><img src="../assets/wearlog-rules.png"></div><div class="cap"><b>03</b>穿衣规律</div></div>
+  <div class="cd"><div class="im"><img src="../assets/wearlog-color.png"></div><div class="cap"><b>04</b>颜色分析</div></div>
+</div>
+<div class="bot"><span><b>84 次</b>Git 提交</span><span><b>约 8,000 行</b>代码</span><span><b>约 100 人</b>使用过</span><span class="src">WEARLOG.CN · P.19</span></div>
+</body></html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>P.08 关键取舍</title>
+<style>
+:root{--deep:#153A75;--cobalt:#2359D1;--paper:#F2F0E8;--ink:#202323;--warm:#DCCB80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:#101114;color:var(--paper);
+  font-family:"Noto Sans CJK SC",sans-serif;}
+/* R18-1：顶栏 y≈16% */
+.nav{position:absolute;left:0;right:0;top:0;height:16%;display:flex;align-items:center;
+  justify-content:space-between;padding:0 13.5%;font-size:13px;letter-spacing:.1em;}
+.nav .grp{display:flex;gap:44px;color:rgba(242,240,232,.6);}
+.nav .word{color:var(--paper);font-weight:600;}
+/* 白纸 x13.5%→86.5% y30%→底 */
+.sheet{position:absolute;left:13.5%;right:13.5%;top:30%;bottom:0;background:#EAE8E2;color:var(--ink);}
+/* 纸上两端：约束（安静小字栏） */
+.con{position:absolute;top:9%;width:21%;font-size:12.5px;line-height:1.85;color:rgba(32,35,35,.72);}
+.con .ck{font-size:11.5px;letter-spacing:.24em;color:rgba(32,35,35,.5);display:block;margin-bottom:12px;}
+.con b{color:var(--ink);}
+.con.l{left:5.5%;} .con.r{right:5.5%;text-align:left;}
+/* 立在纸上的深蓝「书」：方案 */
+.book{position:absolute;left:37%;top:7%;width:26%;bottom:0;background:var(--deep);color:var(--paper);
+  padding:30px 30px 0;box-shadow:10px 12px 28px rgba(21,58,117,.28);}
+.book .bk{font-size:11.5px;letter-spacing:.26em;color:var(--warm);}
+.book h3{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:22px;line-height:1.5;margin:12px 0 18px;}
+.ly{border-left:3px solid rgba(242,240,232,.7);padding:8px 0 8px 14px;margin-bottom:4px;
+  display:flex;justify-content:space-between;align-items:baseline;font-size:14px;}
+.ly .s{font-size:11px;color:rgba(242,240,232,.62);}
+.ly.core{background:rgba(35,89,209,.4);border-left-color:#fff;}
+.cn{margin:-2px 0 -2px 3px;height:16px;border-left:1.5px dashed rgba(242,240,232,.5);position:relative;}
+.cn span{position:absolute;left:8px;top:0;font-size:10px;color:rgba(242,240,232,.6);letter-spacing:.12em;}
+.gate{margin-top:14px;border-top:1px dashed rgba(242,240,232,.45);padding-top:11px;
+  font-size:11.5px;line-height:1.75;color:rgba(242,240,232,.8);}
+/* 标题压纸缘 */
+.q{position:absolute;left:5.5%;bottom:5%;font-family:"Noto Serif CJK SC",serif;font-weight:900;
+  font-size:24px;line-height:1.5;color:var(--ink);width:26%;}
+.foot{position:absolute;right:13.5%;top:18.5%;font-size:12px;letter-spacing:.18em;color:rgba(242,240,232,.45);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head><body>
+<div class="nav">
+  <div class="grp">小红书<span>RedSkill</span><span>开放能力</span></div>
+  <div class="word">关键取舍</div>
+</div>
+<div class="sheet">
+  <div class="con l"><span class="ck">创作者要能力</span>
+    没有这些，工具停在玩具：<br><br>
+    <b>01</b> 调用 AI 模型<br><b>02</b> 数据存储<br><b>03</b> 读取笔记上下文<br><b>04</b> 多人共享状态<br><br>
+    <span style="color:rgba(32,35,35,.5)">优先级来自访谈原声与作品反推。</span></div>
+  <div class="book">
+    <span class="bk">方案边界</span>
+    <h3>先 JSAPI Bridge，<br>后云托管</h3>
+    <div class="ly core"><span>小工具运行时</span><span class="s">纯前端沙箱</span></div>
+    <div class="cn"><span>逐项放行</span></div>
+    <div class="ly"><span>Bridge 白名单层</span><span class="s">审核通过才可调用</span></div>
+    <div class="cn"></div>
+    <div class="ly"><span>宿主能力层</span><span class="s">AI · 存储 · 上下文</span></div>
+    <div class="gate">不开放外部登录、支付与不可逆操作；每项能力单独过安全评审、可单独收回。<br>（能力边界为示意画法）</div>
+  </div>
+  <div class="con r"><span class="ck">平台要守住的</span>
+    开放不等于交出去：<br><br>
+    <b>01</b> 用户数据最小可用<br><b>02</b> 安全与审核一致性<br><b>03</b> 能力可回收可追责<br><b>04</b> 体验不劣化于原生<br><br>
+    <span style="color:rgba(32,35,35,.5)">「守」是长期开放的前提。</span></div>
+  <div class="q">能力开到什么程度，<br>生态既活得起，又守得住？</div>
+</div>
+<div class="foot">P.08</div>
+</body></html>

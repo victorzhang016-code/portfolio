@@ -1,0 +1,74 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>Wearlog · 方法与成就</title>
+<style>
+:root{--deep:#153A75;--cobalt:#2359D1;--paper:#F2F0E8;--ink:#202323;--warm:#B8912E;--amber:#C67A2E;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--paper);color:var(--ink);
+ font-family:"Noto Sans CJK SC",sans-serif;-webkit-font-smoothing:antialiased;}
+.stage{position:absolute;inset:0;padding:5.2% 6% 4%;}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;letter-spacing:.16em;color:rgba(32,35,35,.5);}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand img{width:34px;height:34px;border-radius:8px;}
+.brand b{font-size:14.5px;color:var(--ink);font-weight:700;}
+.cno{font-family:"Noto Serif CJK SC",serif;font-weight:900;letter-spacing:.28em;color:rgba(32,35,35,.42);}
+h1{margin-top:30px;font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:46px;line-height:1.15;}
+.sub{margin-top:12px;font-size:15.5px;color:rgba(32,35,35,.66);}
+.cols{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.panel{border:1px solid rgba(32,35,35,.16);border-radius:14px;padding:28px 30px;background:rgba(255,255,255,.5);}
+.panel.dark{background:#241a10;border:none;color:var(--paper);box-shadow:0 22px 50px rgba(60,40,15,.3);}
+.ptag{font-size:12px;letter-spacing:.26em;color:var(--amber);font-weight:700;}
+.panel.dark .ptag{color:#E0A85B;}
+.ph{margin-top:8px;font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:26px;line-height:1.3;}
+.item{margin-top:15px;padding-top:14px;border-top:1px dashed rgba(32,35,35,.22);}
+.panel.dark .item{border-top:1px dashed rgba(242,240,232,.22);}
+.item:first-of-type{border-top:none;}
+.item .k{font-size:15px;font-weight:700;color:var(--deep);}
+.panel.dark .item .k{color:#fff;}
+.item .d{margin-top:5px;font-size:13px;line-height:1.65;color:rgba(32,35,35,.66);}
+.panel.dark .item .d{color:rgba(242,240,232,.72);}
+.metrics{margin-top:20px;display:flex;gap:30px;}
+.mm .n{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:40px;line-height:1;color:#fff;}
+.mm .n i{font-style:normal;font-size:17px;color:#E0A85B;}
+.mm .t{margin-top:5px;font-size:12px;color:rgba(242,240,232,.6);}
+.chips{margin-top:18px;display:flex;flex-wrap:wrap;gap:9px;}
+.chips span{border:1px solid rgba(32,35,35,.28);border-radius:999px;padding:6px 13px;font-size:12.5px;color:rgba(32,35,35,.75);}
+.foot{position:absolute;left:6%;bottom:3.4%;font-size:11.5px;letter-spacing:.2em;color:rgba(32,35,35,.42);}
+.foot2{position:absolute;right:6%;bottom:3.4%;font-size:11.5px;letter-spacing:.2em;color:rgba(32,35,35,.42);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body>
+<div class="stage">
+  <div class="top">
+    <div class="brand"><img src="../assets/icon-wearlog.png"><b>Wearlog 衣LOG</b></div>
+    <div class="cno">CASE 03 · 方法与成就</div>
+  </div>
+
+  <h1>一个人 + 三个 AI，怎么把产品做完</h1>
+  <p class="sub">不靠「让 AI 自由发挥」——拟物材质、吊牌语言、设计系统，一处一处调出来。</p>
+
+  <div class="cols">
+    <div class="panel">
+      <div class="ptag">用什么方法 · 工程判断</div>
+      <div class="ph">把 AI 协作做成一套系统</div>
+      <div class="item"><div class="k">选模型 · 分阶段分工</div><div class="d">Claude Code / Codex / Kimi 按方案审查、代码执行、前端审美分工，不搞固定映射。</div></div>
+      <div class="item"><div class="k">给约束 · 给参考</div><div class="d">「三不要」写进上下文（不默认渐变、不圆角卡片堆、不假数据）；Figma 灵感版 + Pinterest 实拍让 AI 看见「好」。</div></div>
+      <div class="item"><div class="k">设计系统收口 · 环境一致性</div><div class="d">先定 design.md（色板/字级/组件）再长页面；本地 / 预览 / 生产同构。</div></div>
+      <div class="item"><div class="k">上下文即文档</div><div class="d">CLAUDE.md / memory / 索引的维护，后来超过了代码本身。</div></div>
+      <div class="chips"><span>AI 协作</span><span>前端审美</span><span>设计系统</span><span>上下文管理</span></div>
+    </div>
+
+    <div class="panel dark">
+      <div class="ptag">取得了哪些成就 · 结果</div>
+      <div class="ph">一款自己天天用的完整产品</div>
+      <div class="metrics">
+        <div class="mm"><div class="n">4<i>大</i></div><div class="t">核心界面上线</div></div>
+        <div class="mm"><div class="n">217<i>件</i></div><div class="t">真实档案 / 44 组搭配</div></div>
+      </div>
+      <div class="item"><div class="k">Archive · Best Match · 穿衣规律 · 颜色分析</div><div class="d">一座衣柜的档案馆，wearlog.cn 线上可访问，约 100 人真实使用过。</div></div>
+      <div class="item"><div class="k">审美 = 带上下文的关系模型</div><div class="d">审美不是标签——单品、颜色、场合、故事、材质彼此关联，这是产品 2.0 的方向。</div></div>
+    </div>
+  </div>
+
+  <div class="foot">私人习惯 · 做成有人味的产品</div>
+  <div class="foot2">Wearlog 衣LOG — 方法与成就 · 02</div>
+</div>
+</body></html>

@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>小红书 · 概览</title>
+<style>
+@font-face{font-family:'Noto Serif CJK SC';src:local('Noto Serif CJK SC');}
+:root{--deep:#153A75;--cobalt:#2359D1;--paper:#F2F0E8;--ink:#202323;--warm:#DCCB80;--red:#FF2442;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:#0d0e11;color:var(--paper);
+ font-family:"Noto Sans CJK SC",sans-serif;-webkit-font-smoothing:antialiased;}
+.stage{position:absolute;inset:0;
+ background:
+  radial-gradient(1200px 700px at 78% -12%, rgba(35,89,209,.28), transparent 60%),
+  radial-gradient(900px 600px at 6% 118%, rgba(21,58,117,.35), transparent 60%),
+  #0d0e11;}
+.grid{position:absolute;inset:0;opacity:.06;
+ background-image:linear-gradient(rgba(242,240,232,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(242,240,232,.6) 1px,transparent 1px);
+ background-size:56px 56px;}
+/* top bar */
+.top{position:absolute;left:6%;right:6%;top:5.2%;display:flex;justify-content:space-between;align-items:center;
+ font-size:12.5px;letter-spacing:.16em;color:rgba(242,240,232,.62);}
+.brand{display:flex;align-items:center;gap:14px;}
+.brand img{width:40px;height:40px;border-radius:9px;box-shadow:0 4px 14px rgba(0,0,0,.4);}
+.brand b{font-size:16px;letter-spacing:.02em;color:var(--paper);font-weight:700;}
+.brand span{color:rgba(242,240,232,.5);}
+.cno{font-family:"Noto Serif CJK SC",serif;font-weight:900;letter-spacing:.28em;color:rgba(242,240,232,.5);}
+/* left */
+.kicker{position:absolute;left:6%;top:20%;font-size:13px;letter-spacing:.3em;color:var(--warm);}
+h1{position:absolute;left:5.6%;top:23.5%;font-family:"Noto Serif CJK SC",serif;font-weight:900;
+ font-size:74px;line-height:1.12;letter-spacing:.01em;color:var(--paper);}
+h1 em{font-style:normal;color:var(--warm);}
+.lead{position:absolute;left:6%;top:47%;width:47%;font-size:18px;line-height:1.9;color:rgba(242,240,232,.86);}
+.lead b{color:#fff;font-weight:700;}
+.role{position:absolute;left:6%;top:70%;display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.role .lb{font-size:12px;letter-spacing:.2em;color:rgba(242,240,232,.5);margin-right:4px;}
+.chip{border:1px solid rgba(220,203,128,.5);color:var(--warm);border-radius:999px;
+ padding:7px 16px;font-size:13.5px;letter-spacing:.04em;}
+.cta{position:absolute;left:6%;top:82%;display:inline-flex;align-items:center;gap:12px;
+ background:var(--red);color:#fff;text-decoration:none;padding:15px 26px;border-radius:999px;
+ font-size:15px;font-weight:700;letter-spacing:.04em;box-shadow:0 12px 30px rgba(255,36,66,.35);
+ transition:transform .15s, box-shadow .15s;}
+.cta:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(255,36,66,.45);}
+.cta small{font-weight:400;opacity:.8;font-size:12px;letter-spacing:.1em;}
+/* right metrics */
+.mx{position:absolute;right:6%;top:22%;width:38%;border-left:1px solid rgba(242,240,232,.16);padding-left:44px;}
+.metric{padding:22px 0;border-bottom:1px solid rgba(242,240,232,.12);}
+.metric:last-child{border-bottom:none;}
+.metric .n{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:56px;line-height:1;color:#fff;}
+.metric .n i{font-style:normal;font-size:26px;color:var(--warm);margin-left:2px;}
+.metric .t{margin-top:8px;font-size:14px;color:rgba(242,240,232,.66);letter-spacing:.03em;}
+.src{position:absolute;right:6%;top:88%;width:38%;padding-left:44px;font-size:11.5px;letter-spacing:.06em;color:rgba(242,240,232,.4);}
+.foot{position:absolute;left:6%;bottom:4.2%;font-size:11.5px;letter-spacing:.22em;color:rgba(242,240,232,.4);}
+.foot2{position:absolute;right:6%;bottom:4.2%;font-size:11.5px;letter-spacing:.22em;color:rgba(242,240,232,.4);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body>
+<div class="stage"><div class="grid"></div>
+  <div class="top">
+    <div class="brand"><img src="../assets/icon-xhs.png"><b>小红书 · RedSkill</b><span>／ 小工具 · Skill 开放平台</span></div>
+    <div class="cno">CASE 01</div>
+  </div>
+
+  <div class="kicker">B 端 AI 创作生态 · 供给侧产品</div>
+  <h1>两种供给<br>一个<em>生态</em></h1>
+  <p class="lead"><b>小工具</b>是笔记里可直接运行的 Vibe Coding 应用，<b>Skill</b> 是 Agent 加载的能力载体。二者共享同一条「发现 — 使用 — 再传播」链路——这是我在小红书负责的供给侧战场。</p>
+
+  <div class="role">
+    <span class="lb">MY ROLE</span>
+    <span class="chip">供需策略</span>
+    <span class="chip">审核外露</span>
+    <span class="chip">开放能力</span>
+    <span class="chip">商业化判断</span>
+  </div>
+
+  <a class="cta" href="https://www.xiaohongshu.com/user/profile/5e2dbefe0000000001000f09" target="_blank">
+    进入小工具入口 <small>· 官方帖子 / 创作者主页 →</small></a>
+
+  <div class="mx">
+    <div class="metric"><div class="n">3.12<i>w</i></div><div class="t">累计小工具 · 创作者 5,736 位</div></div>
+    <div class="metric"><div class="n">676.2<i>w</i></div><div class="t">累计使用用户 · 使用 5,993.1w 次</div></div>
+    <div class="metric"><div class="n">9.73<i>w</i></div><div class="t">累计 Skill · 使用用户 19.3w</div></div>
+  </div>
+  <div class="src">数据源：RedSkill Hub · 截至 2026-09-10</div>
+
+  <div class="foot">GET HANDS DIRTY · 创作者精神</div>
+  <div class="foot2">小红书 · RedSkill ／ 小工具 — 概览 · 01</div>
+</div>
+</body></html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>P.01 封面</title>
+<style>
+  :root{ --deep:#153A75; --cobalt:#2359D1; --paper:#F2F0E8; --ink:#202323; --warm:#DCCB80; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1600px;height:900px;overflow:hidden;
+    background:radial-gradient(circle at 64% 46%, #3B6BC8 0%, #2650A6 32%, #173872 62%, #0E2350 100%);
+    font-family:"Noto Sans CJK SC",sans-serif;color:var(--paper);}
+  .fiber{position:fixed;inset:0;pointer-events:none;opacity:.3;z-index:9;
+    background-image:url("../assets/grain-fine.png");background-size:300px 300px;mix-blend-mode:overlay;}
+  /* 光环：由内向外波浪呼吸（播放感） */
+  .pulse{position:fixed;border-radius:50%;border:1.5px solid rgba(242,240,232,.55);z-index:1;pointer-events:none;
+    animation:ringpulse 3.6s ease-in-out infinite;}
+  .p1{width:496px;height:496px;left:calc(100% - 410px - 248px);top:calc(390px - 248px);animation-delay:0s;}
+  .p2{width:640px;height:640px;left:calc(100% - 410px - 320px);top:calc(390px - 320px);animation-delay:.45s;}
+  .p3{width:840px;height:840px;left:calc(100% - 410px - 420px);top:calc(390px - 420px);animation-delay:.9s;}
+  .p4{width:1100px;height:1100px;left:calc(100% - 410px - 550px);top:calc(390px - 550px);animation-delay:1.35s;}
+  .p5{width:1420px;height:1420px;left:calc(100% - 410px - 710px);top:calc(390px - 710px);animation-delay:1.8s;}
+  @keyframes ringpulse{
+    0%,100%{opacity:.12;border-color:rgba(242,240,232,.28);}
+    50%{opacity:.9;border-color:rgba(242,240,232,.7);}
+  }
+  .sketch{position:fixed;left:-30px;bottom:-70px;width:560px;z-index:1;opacity:.5;}
+  .sketch img{width:100%;-webkit-mask:radial-gradient(ellipse 78% 74% at 44% 56%,#000 34%,rgba(0,0,0,.45) 62%,transparent 86%);
+    mask:radial-gradient(ellipse 78% 74% at 44% 56%,#000 34%,rgba(0,0,0,.45) 62%,transparent 86%);}
+  .moon{position:fixed;right:180px;top:160px;width:460px;height:460px;border-radius:50%;z-index:2;overflow:hidden;
+    background:radial-gradient(circle at 40% 34%, #FFFEF8 0%, #F6F2E2 38%, #E2E8F5 64%, #B4C8E8 86%, #9DB8E2 100%);
+    box-shadow:0 0 70px 22px rgba(240,245,255,.3), 0 0 220px 110px rgba(110,150,225,.22);}
+  .grooves{position:absolute;inset:0;border-radius:50%;
+    background:repeating-radial-gradient(circle at 50% 50%, transparent 0 5px, rgba(70,95,140,.075) 5px 6px);
+    -webkit-mask:radial-gradient(circle, transparent 0 104px, #000 116px, #000 200px, rgba(0,0,0,.35) 220px, transparent 230px);
+            mask:radial-gradient(circle, transparent 0 104px, #000 116px, #000 200px, rgba(0,0,0,.35) 220px, transparent 230px);}
+  .disc-spin{position:absolute;inset:0;border-radius:50%;animation:spinC 9s linear infinite;}
+  @keyframes spinC{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  .mark{position:absolute;left:50%;top:34px;width:34px;height:7px;border-radius:4px;
+    background:rgba(21,58,117,.55);transform:translateX(-50%);}
+  .reflect{position:absolute;inset:-30px;border-radius:50%;mix-blend-mode:screen;filter:blur(3px);
+    background:conic-gradient(from 208deg at 50% 50%, transparent 0deg, rgba(255,255,255,.34) 16deg, transparent 40deg, transparent 158deg, rgba(255,255,255,.18) 178deg, transparent 200deg);}
+  .label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:172px;height:172px;border-radius:50%;
+    background:var(--warm);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 1.5px rgba(32,35,35,.22), inset 0 0 8px rgba(120,95,30,.28), inset 0 0 0 6px rgba(242,240,232,.35);
+    animation:spin 9s linear infinite;}
+  @keyframes spin{from{transform:translate(-50%,-50%) rotate(0deg);}to{transform:translate(-50%,-50%) rotate(360deg);}}
+  .label .photo{width:142px;height:142px;border-radius:50%;overflow:hidden;position:relative;}
+  .label .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 62%;transform:scale(1.35);filter:grayscale(1) contrast(1.2);}
+  .label .photo::after{content:"";position:absolute;inset:0;background:#1D4B96;mix-blend-mode:color;}
+  .label .hole{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:13px;height:13px;border-radius:50%;background:#0E2350;box-shadow:inset 0 1px 2px rgba(0,0,0,.5);z-index:2;}
+  .meta-top{position:fixed;left:104px;top:148px;z-index:5;font-size:18px;letter-spacing:.30em;color:rgba(242,240,232,.82);}
+  .dotted{position:fixed;left:98px;top:184px;z-index:5;font-weight:900;font-size:118px;letter-spacing:.02em;line-height:1;
+    background-image:radial-gradient(rgba(245,246,240,.96) 1.7px, rgba(245,246,240,.28) 2.1px, transparent 2.6px);
+    background-size:7px 7px;-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .meta-sub{position:fixed;left:104px;top:324px;z-index:5;display:flex;align-items:baseline;gap:16px;}
+  .meta-sub .name{font-family:"Noto Serif CJK SC",serif;font-weight:700;font-size:27px;letter-spacing:.1em;}
+  .meta-sub .en{font-size:15.5px;letter-spacing:.28em;color:rgba(242,240,232,.85);}
+  .meta-sub .role{font-size:15px;letter-spacing:.18em;color:rgba(242,240,232,.6);}
+  .sign{position:fixed;left:106px;top:356px;width:148px;z-index:5;opacity:.95;transform:rotate(-2deg);}
+  .sign img{width:100%;filter:drop-shadow(0 0 6px rgba(240,245,255,.35));}
+  .credo{position:fixed;left:104px;bottom:92px;z-index:5;font-family:"Noto Serif CJK SC",serif;font-style:italic;
+    font-size:19px;letter-spacing:.05em;color:rgba(242,240,232,.78);}
+  .year{position:fixed;right:104px;bottom:92px;z-index:5;font-size:13.5px;letter-spacing:.3em;color:rgba(242,240,232,.6);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body>
+  <div class="pulse p1"></div><div class="pulse p2"></div><div class="pulse p3"></div><div class="pulse p4"></div><div class="pulse p5"></div>
+  <div class="sketch"><img src="../assets/victor-lineart.png" alt=""></div>
+  <div class="moon">
+    <div class="disc-spin"><div class="grooves"></div><div class="mark"></div></div>
+    <div class="reflect"></div>
+    <div class="label"><div class="photo"><img src="../assets/gloves.jpg" alt=""></div><div class="hole"></div></div></div>
+  <div class="meta-top">Cowork with AI</div>
+  <div class="dotted">PORTFOLIO</div>
+  <div class="meta-sub"><span class="name">张浩哲</span><span class="en">Victor</span><span class="role">AI 产品经理 · Builder</span></div>
+  <div class="sign"><img src="../assets/signature-white.png" alt="签名"></div>
+  <div class="credo">Think, Passion, Brave and Love.</div>
+  <div class="year">2026</div>
+  <div class="fiber"></div>
+</body></html>

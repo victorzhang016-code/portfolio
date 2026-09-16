@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>P.12 调研</title>
+<style>
+:root{--deep:#153A75;--cobalt:#2359D1;--paper:#F2F0E8;--ink:#202323;--warm:#DCCB80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:#0d0e11;color:var(--paper);
+  font-family:"Noto Sans CJK SC",sans-serif;}
+.nav{position:absolute;left:0;right:0;top:0;height:15%;display:flex;align-items:center;
+  justify-content:space-between;padding:0 13.5%;font-size:13px;letter-spacing:.1em;}
+.nav .grp{display:flex;gap:44px;color:rgba(242,240,232,.55);}
+.nav .word{color:var(--paper);font-weight:600;}
+/* 三本卷宗（R17 书阵语法）*/
+.shelf{position:absolute;left:0;right:0;top:24%;height:52%;display:flex;justify-content:center;align-items:flex-start;gap:-20px;}
+.vol{width:340px;height:430px;background:#15161a;padding:30px 28px;position:relative;
+  box-shadow:12px 16px 40px rgba(0,0,0,.55), inset 0 0 0 1px rgba(242,240,232,.06);}
+.vol .t{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:30px;line-height:1.3;color:#fff;}
+.vol .v{font-family:"Noto Serif CJK SC",serif;font-weight:700;font-size:24px;color:var(--warm);margin-top:4px;}
+.vol ul{margin-top:22px;list-style:none;font-size:12.5px;line-height:2.0;color:rgba(242,240,232,.62);}
+.vol ul b{color:var(--warm);font-weight:400;}
+.vol .rm{position:absolute;right:22px;bottom:20px;font-size:11px;color:rgba(242,240,232,.4);letter-spacing:.1em;}
+.v1{transform:rotate(-4deg) translateY(18px);z-index:1;}
+.v2{transform:rotate(1.5deg);z-index:3;margin-left:-26px;}
+.v3{transform:rotate(4.5deg) translateY(26px);z-index:2;margin-left:-26px;}
+/* 判断句 */
+.verdict{position:absolute;left:0;right:0;bottom:9%;text-align:center;}
+.verdict .line{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:27px;line-height:1.6;}
+.verdict .line i{color:var(--warm);font-style:normal;}
+.verdict .sub{margin-top:12px;font-size:13px;letter-spacing:.14em;color:rgba(242,240,232,.5);}
+.foot{position:absolute;right:13.5%;top:17.5%;font-size:12px;letter-spacing:.18em;color:rgba(242,240,232,.45);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head><body>
+<div class="nav"><div class="grp">Bonjour!<span>一手洞察</span><span>调研</span></div><div class="word">先把人搞懂，再谈匹配</div></div>
+<div class="shelf">
+  <div class="vol v1">
+    <div class="t">用户访谈</div><div class="v">约 50 场</div>
+    <ul>
+      <li><b>「你为什么不再回复」</b></li>
+      <li>断点不在匹配对错</li>
+      <li>在于开口成本</li>
+      <li>真实用户的原声，<br>比任何画像都直接</li>
+    </ul>
+    <div class="rm">VOL.01</div>
+  </div>
+  <div class="vol v2">
+    <div class="t">YC 调研</div><div class="v">先摩擦，再匹配</div>
+    <ul>
+      <li><b>Co-founder Matching 拆解</b></li>
+      <li>写成调研报告</li>
+      <li>好的匹配产品</li>
+      <li>先制造有效摩擦，<br>再谈撮合效率</li>
+    </ul>
+    <div class="rm">VOL.02</div>
+  </div>
+  <div class="vol v3">
+    <div class="t">画像分析</div><div class="v">用户分层</div>
+    <ul>
+      <li><b>谁在被匹配</b></li>
+      <li>谁在建联，谁在流失</li>
+      <li>「匹配质量」第一次</li>
+      <li>成为可讨论的对象</li>
+    </ul>
+    <div class="rm">VOL.03</div>
+  </div>
+</div>
+<div class="verdict">
+  <div class="line">瓶颈不是算法不够聪明，是<i>「被推的人」没准备好</i>。</div>
+  <div class="sub">→ 这个判断直接长成 Bonnie 3.0 的机制（下一页）</div>
+</div>
+<div class="foot">P.12</div>
+</body></html>

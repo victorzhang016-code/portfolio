@@ -1,0 +1,69 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>小红书 · 延伸 · PRD 大师</title>
+<style>
+:root{--red:#E8243E;--ink:#141210;--sub:rgba(247,245,239,.62);--warm:#E0B75B;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:#111318;color:#F7F5EF;
+ font-family:"Noto Sans CJK SC",sans-serif;-webkit-font-smoothing:antialiased;}
+.stage{position:absolute;inset:0;padding:5% 6%;display:flex;flex-direction:column;
+ background:radial-gradient(1200px 640px at 88% -12%, rgba(232,36,62,.14), transparent 60%), #111318;}
+.top{display:flex;justify-content:space-between;align-items:center;flex:0 0 auto;
+ font-size:14px;letter-spacing:.12em;color:rgba(247,245,239,.5);}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand img{width:34px;height:34px;border-radius:8px;}
+.brand b{font-size:15px;font-weight:700;}
+.cno{font-family:"Noto Serif CJK SC",serif;font-weight:900;letter-spacing:.28em;color:rgba(247,245,239,.42);}
+.hero{flex:0 0 auto;margin-top:22px;}
+.eyebrow{font-size:16px;letter-spacing:.18em;color:var(--warm);font-weight:700;}
+h1{margin-top:12px;font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:52px;line-height:1.06;}
+h1 em{font-style:normal;color:var(--warm);}
+.sub{margin-top:16px;font-size:17px;line-height:1.7;color:rgba(247,245,239,.82);max-width:82%;}
+.sub b{color:#fff;font-weight:700;}
+.body{flex:1 1 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:30px;align-items:stretch;}
+.card{background:rgba(255,255,255,.045);border:1px solid rgba(247,245,239,.12);border-radius:14px;padding:28px 28px;display:flex;flex-direction:column;}
+.card .num{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:22px;color:var(--warm);}
+.card h3{margin-top:12px;font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:24px;line-height:1.3;}
+.card p{margin-top:12px;font-size:15px;line-height:1.75;color:rgba(247,245,239,.76);}
+.card p b{color:#fff;font-weight:700;}
+.card .foot{margin-top:auto;padding-top:16px;font-size:13px;color:var(--warm);font-weight:700;letter-spacing:.04em;}
+.gh{flex:0 0 auto;margin-top:26px;display:flex;justify-content:center;}
+.gh a{display:inline-flex;align-items:center;gap:12px;background:#fff;color:#111;text-decoration:none;
+ padding:16px 32px;border-radius:999px;font-size:16px;font-weight:700;box-shadow:0 14px 36px rgba(0,0,0,.4);transition:transform .15s;}
+.gh a:hover{transform:translateY(-2px);}
+.gh a svg{width:20px;height:20px;fill:#111;}
+.gh a small{font-weight:500;opacity:.55;font-size:13px;}
+.pagefoot{flex:0 0 auto;margin-top:20px;display:flex;justify-content:space-between;align-items:center;
+ border-top:1px solid rgba(247,245,239,.14);padding-top:14px;font-size:12px;letter-spacing:.16em;color:rgba(247,245,239,.45);}
+.pagefoot .hl{color:rgba(247,245,239,.7);letter-spacing:.02em;font-size:13.5px;font-weight:500;}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body><div class="stage">
+  <div class="top">
+    <div class="brand"><img src="../assets/icon-xhs-hd.png"><b>小红书 Builder Hub</b></div>
+    <div class="cno">CASE 01 · 延伸 · 开源 SKILL</div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">延伸 · 把工作流沉淀成开源 SKILL</div>
+    <h1>PRD 大师 <em>· PRD Master</em></h1>
+    <div class="sub">在企业团队里打磨出的<b>专业 PRD 工作流</b>，沉淀成一个开源 Skill——<b>一句话进入专业 PRD 流程</b>。这篇作品集里的 PRD 方法论部分，也由它辅助完成。</div>
+  </div>
+
+  <div class="body">
+    <div class="card"><div class="num">01</div><h3>挖需求</h3><p>把一句话需求拆到本质：<b>用户是谁、真实痛点、约束是什么</b>。先问对问题再谈方案，这一步省掉后面十次返工——<b>一开始就问对</b>，比什么都值钱。</p><div class="foot">问题先行</div></div>
+    <div class="card"><div class="num">02</div><h3>讲人话</h3><p>不堆术语、不写长篇。用<b>结论先行 + 依据 + 风险边界</b>的结构，让评审的人一眼看懂。写得让人读不下去的 PRD，本质上等于<b>没有写</b>。</p><div class="foot">精简可读</div></div>
+    <div class="card"><div class="num">03</div><h3>推飞书</h3><p>PRD 一键转成<b>飞书 / REDoc 文档</b>，定向编辑、评审即用——从本地草稿到团队交付无缝衔接，文档跟着需求<b>活到上线那一刻</b>。</p><div class="foot">落地闭环</div></div>
+  </div>
+
+  <div class="gh">
+    <a href="https://github.com/victorzhang016-code" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39s1.97.13 2.89.39c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.78 1.05.78 2.12v3.14c0 .3.21.66.8.55A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+      github.com/victorzhang016-code <small>· 开源可见</small>
+    </a>
+  </div>
+
+  <div class="pagefoot">
+    <span class="hl">每天都在用的系统</span>
+    <span>小红书 Builder Hub · 延伸 · PRD 大师 · 04 / 04</span>
+  </div>
+</div>
+</body></html>

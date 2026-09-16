@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>P.24 公开文字</title>
+<style>
+:root{--deep:#153A75;--cobalt:#2359D1;--paper:#F2F0E8;--ink:#202323;--warm:#DCCB80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:#fff;color:var(--ink);
+  font-family:"Noto Sans CJK SC",sans-serif;}
+.nav{position:absolute;left:0;right:0;top:0;height:10%;display:flex;align-items:center;
+  justify-content:space-between;padding:0 2.5%;font-size:13px;}
+.nav .l{font-weight:900;font-size:15px;letter-spacing:.06em;}
+.nav .r{display:flex;gap:10px;}
+.nav .r span{font-size:12px;padding:6px 14px;border-radius:999px;background:rgba(32,35,35,.07);color:rgba(32,35,35,.75);}
+.say{position:absolute;left:2.5%;top:12%;width:78%;font-weight:700;font-size:40px;line-height:1.5;
+  color:rgba(32,35,35,.38);}
+.say b{color:var(--ink);}
+.say i{font-style:normal;color:var(--cobalt);}
+/* 底部卡条 */
+.strip{position:absolute;left:0;right:0;bottom:0;height:46%;display:flex;gap:14px;padding:0 2.5%;}
+.card{flex:1;overflow:hidden;position:relative;}
+.card img{width:100%;height:100%;object-fit:cover;display:block;}
+.card .cap{position:absolute;left:14px;bottom:12px;font-size:11.5px;letter-spacing:.1em;color:#fff;
+  text-shadow:0 1px 6px rgba(0,0,0,.5);}
+.card.txt{background:#101114;color:var(--paper);padding:26px 24px;display:flex;flex-direction:column;justify-content:flex-end;}
+.card.txt .k{font-size:11px;letter-spacing:.24em;color:var(--warm);}
+.card.txt .t{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:21px;line-height:1.5;margin-top:10px;}
+.card.txt .d{margin-top:12px;font-size:12.5px;line-height:1.75;color:rgba(242,240,232,.7);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head><body>
+<div class="nav"><span class="l">WRITING · 公开文字</span>
+  <span class="r"><span>小红书发布</span><span>全文手写</span></span></div>
+<div class="say">把想清楚的事，写下来。<br><b>一篇写给 Kimi 的自荐信</b>，<b>一篇 VibeCoding 的完整复盘</b>——<br>都是<i>全文手写</i>。</div>
+<div class="strip">
+  <div class="card"><img src="../assets/kimi-p01.jpg"><span class="cap">《我们将登上月亮》· 封面</span></div>
+  <div class="card"><img src="../assets/kimi-p02.jpg"><span class="cap">Kimi 自荐信 · 内页</span></div>
+  <div class="card"><img src="../assets/kimi-p03.jpg"><span class="cap">Kimi 自荐信 · 内页</span></div>
+  <div class="card txt"><span class="k">另一篇</span>
+    <div class="t">《VibeCoding 经验总结——衣LOG》</div>
+    <div class="d">84 次提交、约 8,000 行代码背后的真实方法：选模型、给约束、管上下文——一个人用 AI 做完整产品的完整复盘。</div></div>
+</div>
+</body></html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>p28 · 结语</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1600px; height: 900px; overflow: hidden; }
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* blue night radial gradient (same as cover) */
+    background: radial-gradient(ellipse 80% 70% at 50% 50%, #1E4B8F 0%, #153A75 45%, #0E2A5A 100%);
+    color: #F2F0E8;
+  }
+
+  /* Very faint ripple arc (blue night rule: only on blue pages, extremely subtle) */
+  body::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(242,240,232,0.06);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  body::after {
+    content: '';
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    border-radius: 50%;
+    border: 1px solid rgba(242,240,232,0.03);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  /* ── Center content ── */
+  .center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    z-index: 2;
+    position: relative;
+  }
+
+  .thanks-label {
+    font-size: 13.5px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(242,240,232,0.45);
+    margin-bottom: 32px;
+  }
+
+  .motto {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 30px;
+    color: #F2F0E8;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  .signature {
+    margin-top: 40px;
+    width: 150px;
+    opacity: 0.7;
+    /* white signature on blue background: no blend needed */
+  }
+
+  /* ── Bottom facts ── */
+  .bottom-facts {
+    position: absolute;
+    bottom: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12.5px;
+    letter-spacing: 0.2em;
+    color: rgba(242,240,232,0.55);
+    z-index: 2;
+    white-space: nowrap;
+  }
+</style>
+<style>@page{size:1600px 1000px;margin:0;}html,body{margin:0!important;}</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body>
+
+  <!-- Center content -->
+  <div class="center">
+    <div class="motto">Think, Passion, Brave and Love.</div>
+    <img class="signature" src="../assets/signature-white.png" alt="Victor 签名">
+  </div>
+
+  <!-- Bottom facts -->
+  <div class="bottom-facts">张浩哲 Victor ｜ 2974898105@qq.com ｜ +86 18329189845 ｜ github.com/victorzhang016-code</div>
+
+</body>
+</html>

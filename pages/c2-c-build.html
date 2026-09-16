@@ -1,0 +1,51 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>Bonjour · BUiLD 2026</title>
+<style>
+:root{--blue:#2563EB;--paper:#F2F0EA;--ink:#0c0d10;--warm:#E0B75B;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--ink);color:var(--paper);
+ font-family:"Noto Sans CJK SC",sans-serif;-webkit-font-smoothing:antialiased;}
+.stage{position:absolute;inset:0;padding:22px;background:var(--ink);
+ display:grid;grid-template-columns:1.55fr 1fr 1.05fr;grid-template-rows:auto 1.1fr 1fr;gap:14px;}
+/* 顶部标题条，跨左两列 */
+.head{grid-column:1 / span 2;grid-row:1;display:flex;align-items:center;gap:20px;padding:6px 6px 8px;}
+.head .bd{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.head .bd img{width:32px;height:32px;border-radius:8px;}
+.head .bd b{font-size:15px;color:var(--paper);}
+.head .bd b i{font-style:normal;color:var(--blue);}
+.head h1 i.bl{font-style:normal;color:var(--blue);}
+.head h1{font-family:"Arial Black","Noto Sans CJK SC",sans-serif;font-weight:900;font-size:44px;line-height:1;letter-spacing:-.01em;}
+.head h1 .i{color:var(--blue);}
+.head h1 sup{font-size:18px;vertical-align:super;font-weight:700;}
+.head .note{font-size:13px;line-height:1.5;color:rgba(242,240,234,.7);max-width:280px;margin-left:auto;}
+.head .note b{color:#fff;}
+/* 图片单元 */
+.cell{position:relative;overflow:hidden;border-radius:14px;border:1px solid rgba(242,240,234,.14);box-shadow:0 14px 34px rgba(0,0,0,.4);}
+.cell img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.1) contrast(1.03);}
+.cell .tag{position:absolute;left:0;right:0;bottom:0;padding:14px 13px 10px;font-size:11.5px;letter-spacing:.05em;color:#fff;
+ background:linear-gradient(transparent,rgba(0,0,0,.72));}
+.cell .quote{position:absolute;left:0;right:0;bottom:0;padding:20px 16px 14px;font-size:13.5px;line-height:1.5;color:#fff;font-weight:500;
+ background:linear-gradient(transparent,rgba(0,0,0,.4),rgba(0,0,0,.82));letter-spacing:.02em;}
+/* 布局：大主图跨两行 */
+.big{grid-column:1;grid-row:2 / span 2;}
+.c2{grid-column:2;grid-row:2;}
+.c3{grid-column:2;grid-row:3;}
+.c4{grid-column:3;grid-row:1 / span 2;}
+.c5{grid-column:3;grid-row:3;}
+/* 底部宣言条，占 c3 右侧其实用独立 */
+.banner{grid-column:1 / span 3;grid-row:4;}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body><div class="stage">
+  <div class="head">
+    <div class="bd"><img src="../assets/icon-bonjour-hd.png"><b>Bonjour<i>!</i></b></div>
+    <h1>BU<span class="i">i</span>LD<sup>©</sup>2026</h1>
+    <div class="note">我的职责：<b>策划 / 设计 / 现场全程 carry</b>。<b>300+ 顶尖 builder 在岛屿夜谈</b>。</div>
+  </div>
+
+  <div class="cell big"><img src="../assets/bj/build-poster.jpg"><div class="quote">“当艺术家聚在一起，他们在谈论哪里可以买到便宜的松节油。”</div></div>
+  <div class="cell c2"><img src="../assets/bj/build-card.jpg"></div>
+  <div class="cell c3"><img src="../assets/bj/build-laptop.jpg"></div>
+  <div class="cell c4"><img src="../assets/bj/build-passport.jpg"></div>
+  <div class="cell c5"><img src="../assets/bj/build-tote.jpg"></div>
+</div>
+</body></html>

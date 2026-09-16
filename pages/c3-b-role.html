@@ -1,0 +1,77 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>Wearlog · 我如何和 AI 协作</title>
+<style>
+:root{--ink:#1c1c1a;--paper:#d2ccbe;--card:#faf8f3;--accent:#c2410c;--sub:#6b6456;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--paper);color:var(--ink);
+ font-family:"Inter","Noto Sans CJK SC",ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+.stage{position:absolute;inset:0;padding:4.2% 5.4%;display:flex;flex-direction:column;}
+.top{display:flex;justify-content:space-between;align-items:center;flex:0 0 auto;
+ font-size:14px;letter-spacing:.1em;color:var(--sub);}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand img{width:38px;height:38px;border-radius:9px;}
+.brand b{font-size:16.5px;font-weight:700;}
+.cno{font-family:"Playfair Display","Noto Serif CJK SC",serif;font-weight:900;letter-spacing:.28em;color:rgba(28,28,26,.4);}
+.hero{flex:0 0 auto;margin-top:18px;}
+.eyebrow{font-size:15px;letter-spacing:.22em;color:var(--accent);font-weight:700;}
+h1{margin-top:12px;font-family:"Playfair Display","Noto Serif CJK SC",serif;font-weight:900;font-size:46px;line-height:1.08;}
+h1 em{font-style:italic;color:var(--accent);}
+.body{flex:1 1 auto;display:grid;grid-template-columns:1.25fr 1fr;gap:48px;margin-top:26px;min-height:0;align-items:center;}
+/* 左：心得流程 */
+.methods{display:flex;flex-direction:column;}
+.m{display:flex;gap:18px;padding:17px 0;border-bottom:1px solid rgba(28,28,26,.16);}
+.m:first-child{padding-top:0;}
+.m:last-child{border-bottom:none;padding-bottom:0;}
+.m .no{font-family:"Playfair Display",serif;font-style:italic;font-weight:700;font-size:26px;color:var(--accent);width:44px;flex-shrink:0;line-height:1.1;}
+.m .tx b{font-size:18px;font-weight:700;display:block;}
+.m .tx p{margin-top:6px;font-size:15px;line-height:1.65;color:rgba(28,28,26,.78);}
+.m .tx p b2{font-weight:700;color:var(--ink);}
+/* 右：截图 + 数字 */
+.right{display:flex;flex-direction:column;gap:14px;height:100%;justify-content:center;}
+.shot{position:relative;border-radius:6px;overflow:hidden;background:var(--card);flex:1 1 0;min-height:0;
+ box-shadow:0 18px 44px rgba(60,50,30,.24),0 4px 12px rgba(60,50,30,.10);border:1px solid rgba(255,255,255,.7);}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+.tagchip{position:absolute;left:10px;bottom:10px;background:rgba(28,28,26,.78);color:#faf8f3;
+ font-size:11px;letter-spacing:.1em;padding:4px 10px;border-radius:999px;backdrop-filter:blur(4px);}
+.stats{display:flex;gap:12px;flex:0 0 auto;}
+.st{flex:1 1 0;background:var(--card);border-radius:8px;padding:14px 16px;border:1px solid rgba(255,255,255,.7);
+ box-shadow:0 8px 22px rgba(60,50,30,.14);}
+.st .n{font-family:"Playfair Display",serif;font-weight:900;font-size:30px;line-height:1;color:var(--accent);}
+.st .n i{font-style:normal;font-size:15px;color:var(--sub);}
+.st .l{margin-top:5px;font-size:11.5px;color:var(--sub);letter-spacing:.03em;}
+.foot{position:absolute;left:5.4%;bottom:2.2%;font-size:11.5px;letter-spacing:.18em;color:rgba(28,28,26,.45);}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body><div class="stage">
+  <div class="top">
+    <div class="brand"><img src="../assets/icon-wearlog.png"><b>Wearlog 衣LOG</b></div>
+    <div class="cno">CASE 03 · 02</div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">一个人 + 三个 AI，怎么把产品做完</div>
+    <h1>审美不靠 AI 自由发挥，<em>一处处调出来</em></h1>
+  </div>
+
+  <div class="body">
+    <div class="methods">
+      <div class="m"><div class="no">01</div><div class="tx"><b>选模型</b><p><b2>Claude · Gemini · Kimi · GPT</b2> 四个模型加上 harness，按阶段分工、按能力组织——方案审查、代码执行、前端审美、长上下文各司其职，不搞固定映射。</p></div></div>
+      <div class="m"><div class="no">02</div><div class="tx"><b>给约束</b><p>「三不要」写进上下文：<b2>不要默认渐变、不要圆角卡片堆、不要假数据</b2>。审美是约束出来的。</p></div></div>
+      <div class="m"><div class="no">03</div><div class="tx"><b>给参考</b><p>Figma 灵感版 + Pinterest 实拍，<b2>让 AI 看见「好」长什么样</b2>——它见过好的，才做得出好的。</p></div></div>
+      <div class="m"><div class="no">04</div><div class="tx"><b>设计系统收口</b><p>先定 <b2>design.md</b2>（色板 / 字级 / 组件），再长页面。本地、预览、生产三端同构。</p></div></div>
+      <div class="m"><div class="no">05</div><div class="tx"><b>上下文即文档</b><p>CLAUDE.md、memory、索引的维护，<b2>后来超过了代码本身</b2>——这是一个人协作 AI 的真正杠杆。</p></div></div>
+    </div>
+
+    <div class="right">
+      <div class="shot"><img src="../assets/wl/item-detail.jpg"><div class="tagchip">单品档案 · 材质与色卡</div></div>
+      <div class="stats">
+        <div class="st"><div class="n">84<i>次</i></div><div class="l">Git 提交</div></div>
+        <div class="st"><div class="n">8000<i>行</i></div><div class="l">代码</div></div>
+        <div class="st"><div class="n">101<i>件</i></div><div class="l">衣物档案</div></div>
+        <div class="st"><div class="n">44<i>组</i></div><div class="l">Best Match</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">Wearlog 衣LOG · 我如何和 AI 协作 · 02 / 03</div>
+</div>
+</body></html>

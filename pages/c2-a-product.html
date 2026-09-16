@@ -1,0 +1,81 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>Bonjour · 产品</title>
+<style>
+:root{--blue:#2563EB;--ink:#14161a;--paper:#F5F4F0;--sub:#6b6a64;--line:rgba(20,22,26,.1);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--paper);color:var(--ink);
+ font-family:"Noto Sans CJK SC",sans-serif;-webkit-font-smoothing:antialiased;}
+.stage{position:absolute;inset:0;padding:4.2% 0 4.2% 5.4%;display:flex;flex-direction:column;
+ background:radial-gradient(1000px 620px at 88% 40%, rgba(37,99,235,.10), transparent 62%), var(--paper);}
+.top{display:flex;justify-content:space-between;align-items:center;flex:0 0 auto;padding-right:5.4%;
+ font-size:14px;letter-spacing:.12em;color:var(--sub);}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand img{width:38px;height:38px;border-radius:9px;}
+.brand b{font-size:16.5px;font-weight:700;color:var(--ink);}
+.role{font-size:15px;color:var(--sub);}
+.role b{color:var(--blue);font-weight:700;}
+.body{flex:1 1 auto;display:grid;grid-template-columns:1fr 1.04fr;gap:20px;margin-top:20px;min-height:0;align-items:center;}
+.left{display:flex;flex-direction:column;justify-content:center;padding-right:20px;}
+.eyebrow{font-size:16px;letter-spacing:.2em;color:var(--blue);font-weight:700;}
+h1{margin-top:14px;font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:56px;line-height:1.06;}
+h1 em{font-style:normal;color:var(--blue);}
+.en{margin-top:14px;font-family:"Noto Serif CJK SC",serif;font-style:italic;font-size:23px;color:var(--sub);}
+.desc{margin-top:18px;font-size:17px;line-height:1.75;color:rgba(20,22,26,.76);max-width:94%;}
+.desc b{color:var(--ink);font-weight:700;}
+.feats{margin-top:22px;display:flex;flex-direction:column;gap:13px;}
+.f{display:flex;align-items:center;gap:13px;}
+.f .ic{width:30px;height:30px;border-radius:8px;background:rgba(37,99,235,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.f .ic svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:1.8;}
+.f .t{font-size:16px;color:rgba(20,22,26,.82);}
+.f .t b{color:var(--ink);font-weight:700;}
+.tri{margin-top:24px;display:flex;gap:0;border-top:1px solid var(--line);padding-top:16px;}
+.tri .c{flex:1 1 0;padding-right:20px;}
+.tri .c .n{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:26px;color:var(--blue);}
+.tri .c .l{margin-top:3px;font-size:13px;color:var(--sub);}
+/* 右：手机产品图斜排 */
+.phones{position:relative;height:100%;}
+.ph{position:absolute;border-radius:26px;overflow:hidden;box-shadow:0 30px 70px rgba(20,30,60,.28);border:6px solid #fff;background:#fff;}
+.ph img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+.p1{width:270px;height:585px;left:8%;top:50%;transform:translateY(-50%) rotate(-6deg);z-index:2;}
+.p2{width:300px;height:648px;left:34%;top:50%;transform:translateY(-52%) rotate(0deg);z-index:4;}
+.p3{width:270px;height:585px;right:6%;top:50%;transform:translateY(-46%) rotate(6deg);z-index:3;}
+.foot{position:absolute;left:5.4%;bottom:2.2%;font-size:11.5px;letter-spacing:.18em;color:rgba(20,22,26,.4);}
+.hereconnect{position:absolute;right:5%;bottom:8%;z-index:6;background:var(--blue);color:#fff;
+ padding:11px 20px;border-radius:999px;font-size:15px;font-weight:700;box-shadow:0 12px 30px rgba(37,99,235,.4);letter-spacing:.02em;}
+.hereconnect i{font-style:normal;font-size:19px;}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head>
+<body><div class="stage">
+  <div class="top">
+    <div class="brand"><img src="../assets/icon-bonjour-hd.png"><b>Bonjour!</b></div>
+    <div class="role">我的角色 · <b>产品负责人</b></div>
+  </div>
+
+  <div class="body">
+    <div class="left">
+      <div class="eyebrow">AI 时代 BUILDER 的连接器</div>
+      <h1>Find the others,<br>build <em>together</em></h1>
+      <div class="en">Connection is everything.</div>
+      <div class="desc">一家明星 AI 初创，让 AI 时代的 builder <b>高质量地链接彼此</b>——实体 NFC 名片 + 数字名片 + 高质量科技社区，覆盖小程序 / iOS / Web 三端，受 GenZ builder 真实喜爱。</div>
+      <div class="feats">
+        <div class="f"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 10h6M7 14h4"/></svg></span><span class="t"><b>数字名片</b>　展示作品与 vibe，遇见同频创造者</span></div>
+        <div class="f"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M14 20c0-2 2-3.4 4-3.4"/></svg></span><span class="t"><b>科技社区</b>　撑起黑客松与酷科技活动</span></div>
+        <div class="f"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg></span><span class="t"><b>找工地图</b>　新锐 AI startup 与 Kimi、蚂蚁都在</span></div>
+      </div>
+      <div class="tri">
+        <div class="c"><div class="n">3 端</div><div class="l">小程序 / iOS / Web</div></div>
+        <div class="c"><div class="n">GenZ</div><div class="l">builder 真实喜爱</div></div>
+        <div class="c"><div class="n">连接</div><div class="l">是 Bonjour 的主题</div></div>
+      </div>
+    </div>
+
+    <div class="phones">
+      <div class="ph p1"><img src="../assets/bj/feed.jpg"></div>
+      <div class="ph p2"><img src="../assets/bj/card-victor2.jpg"></div>
+      <div class="ph p3"><img src="../assets/bj/jobs.jpg"></div>
+      <div class="hereconnect"><i>20w+</i> 用户在此链接</div>
+    </div>
+  </div>
+
+  <div class="foot">Bonjour! · AI 匹配社区 · 产品 · 01 / 03</div>
+</div>
+</body></html>

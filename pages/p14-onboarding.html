@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>P.14 Onboarding</title>
+<style>
+:root{--deep:#153A75;--cobalt:#2359D1;--paper:#F2F0E8;--ink:#202323;--warm:#DCCB80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1600px;height:900px;overflow:hidden;background:#0d0d0e;color:var(--paper);
+  font-family:"Noto Sans CJK SC",sans-serif;}
+/* meta 栏（4 列小字）y0→9% */
+.meta{position:absolute;left:0;right:0;top:0;height:9%;background:#17181a;display:flex;
+  align-items:center;padding:0 5%;font-size:12px;color:rgba(242,240,232,.75);}
+.meta .m1{width:26%;}.meta .m1 b{color:#fff;}
+.meta .m2{width:26%;}.meta .m3{width:24%;}.meta .m4{text-align:right;flex:1;color:rgba(242,240,232,.55);}
+.meta a{color:rgba(242,240,232,.75);text-decoration:underline;text-underline-offset:3px;}
+/* 副带：说明卡 y9%→25% */
+.sub{position:absolute;left:0;right:0;top:9%;height:16%;background:#1c1d20;display:flex;align-items:flex-start;padding:20px 5%;}
+.card{width:24%;font-size:12.5px;line-height:1.75;color:rgba(242,240,232,.8);}
+.card b{color:#fff;display:block;margin-bottom:6px;}
+.card .dt{position:absolute;left:5%;top:calc(25% - 34px);font-size:12px;color:rgba(242,240,232,.55);}
+/* 面包屑索引行 y25%→31% */
+.crumbs{position:absolute;left:0;right:0;top:25%;height:6%;display:flex;align-items:center;padding:0 5%;
+  font-size:12.5px;color:rgba(242,240,232,.7);background:#141518;}
+.crumbs .pi{color:rgba(242,240,232,.9);font-weight:600;margin-right:40px;}
+.crumbs span{margin-right:22px;color:rgba(242,240,232,.55);}
+.crumbs span b{color:var(--warm);font-weight:400;margin-right:6px;}
+/* 大视觉：左黑右白 y31%→底 */
+.vis{position:absolute;left:0;right:0;top:31%;bottom:0;display:flex;}
+.vl{width:56%;background:#0a0a0b;display:flex;flex-direction:column;justify-content:center;padding:0 5%;}
+.vl h1{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:46px;line-height:1.4;}
+.vl p{margin-top:22px;font-size:14.5px;line-height:1.9;color:rgba(242,240,232,.65);max-width:80%;}
+.vr{flex:1;background:var(--paper);color:var(--ink);padding:44px 42px;display:flex;flex-direction:column;justify-content:center;}
+.vr .cap{font-size:11.5px;letter-spacing:.24em;color:rgba(32,35,35,.5);margin-bottom:16px;}
+.mrow{display:grid;grid-template-columns:130px 26px 1fr auto;gap:12px;align-items:baseline;
+  padding:13px 0;border-bottom:1px solid rgba(32,35,35,.18);font-size:14px;}
+.mrow:first-of-type{border-top:1.5px solid rgba(32,35,35,.5);}
+.mrow .p{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:17px;}
+.mrow .a{color:var(--cobalt);font-weight:900;font-family:"Noto Serif CJK SC",serif;}
+.mrow .t{color:rgba(32,35,35,.75);font-size:13px;line-height:1.5;}
+.mrow .pr{font-size:12px;color:var(--cobalt);font-weight:700;}
+</style><link rel="stylesheet" href="../assets/fonts/fonts.css">
+</head><body>
+<div class="meta">
+  <div class="m1"><b>Bonjour!</b><br>Onboarding · 社媒一键导入</div>
+  <div class="m2">builder 的简历，<br>散落在四个平台</div>
+  <div class="m3"><a>GitHub</a> <a>LinkedIn</a><br><a>即刻</a> <a>小红书</a></div>
+  <div class="m4">2026 · 已上线机制</div>
+</div>
+<div class="sub">
+  <div class="card"><b>15 秒拿不到，就优雅地放手</b>每个平台独立超时与降级：解析失败不阻塞注册，已拿到的字段先入档——完成率优先于完整率。</div>
+  <div class="dt">2026.03</div>
+</div>
+<div class="crumbs"><span class="pi">平台映射 +</span>
+  <span><b>[1]</b>GitHub</span><span><b>[2]</b>LinkedIn</span><span><b>[3]</b>即刻</span><span><b>[4]</b>小红书</span><span><b>[5]</b>任意 URL</span></div>
+<div class="vis">
+  <div class="vl">
+    <h1>注册不填表：<br>贴一个链接，<br>聚成一张有证据的 Profile</h1>
+    <p>Onboarding 的核心不是「收集信息」，是把用户散落在各平台的公开作品与经历，聚成一张可被匹配理解的身份。</p>
+  </div>
+  <div class="vr">
+    <div class="cap">字段映射 · 优先级</div>
+    <div class="mrow"><span class="p">GitHub</span><span class="a">→</span><span class="t">仓库与置顶项目 →「Creation 作品」自动归类</span><span class="pr">P0</span></div>
+    <div class="mrow"><span class="p">LinkedIn</span><span class="a">→</span><span class="t">任职与教育 →「经历」骨架</span><span class="pr">P1</span></div>
+    <div class="mrow"><span class="p">即刻</span><span class="a">→</span><span class="t">动态与简介 →「正在做什么」活状态</span><span class="pr">P2</span></div>
+    <div class="mrow"><span class="p">小红书</span><span class="a">→</span><span class="t">笔记与互动 → 内容型 builder 作品证据</span><span class="pr">P2</span></div>
+    <div class="mrow"><span class="p">任意 URL</span><span class="a">→</span><span class="t">个人站点 / 作品集 → AI 兜底抽取</span><span class="pr">P3</span></div>
+  </div>
+</div>
+</body></html>
