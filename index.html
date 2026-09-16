@@ -2,6 +2,11 @@
 <html lang="zh">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+/* 手机端使用独立移动壳；?desktop=1 可保留桌面版 */
+(function(){try{var narrow=matchMedia('(max-width:767px)').matches;var phoneLandscape=matchMedia('(pointer:coarse)').matches&&Math.min(screen.width,screen.height)<768;var desktop=/(?:^|[?&])desktop=1(?:&|$)/.test(location.search);if((narrow||phoneLandscape)&&!desktop)location.replace('./mobile.html');}catch(e){}})();
+</script>
 <title>张浩哲 Victor · 作品集 OS</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-user-select:none;user-select:none;}
