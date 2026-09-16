@@ -637,14 +637,16 @@ function openPage(id,title,file,caseId,pageIdx,opts){
       if(k!==id&&(k==='about'||k==='p25'||k==='index')){openWins[k].remove();delete openWins[k];}
     });
   }
-  let ww=1000, hh=610, xx, yy;
-  if(id==='about'){
-    ww=Math.min(1150,innerWidth-140); hh=Math.min(720,innerHeight-110);
-    xx=(innerWidth-ww)/2; yy=Math.max(40,(innerHeight-hh)/2);
-  }else{
-    ww=Math.min(opts&&opts.w||1200,innerWidth-100); hh=Math.min(opts&&opts.h||760,innerHeight-70);
-    xx=(innerWidth-ww)/2; yy=Math.max(34,(innerHeight-hh)/2);
-  }
+  // 所有内容页都是 1600×900（16:9）：窗口高度严格等于缩放后画布高度 + 25px 标题栏，杜绝底部空白
+  const titleH=25;
+  const preferredW=id==='about'?1150:(opts&&opts.w||1200);
+  const sideGap=id==='about'?140:100;
+  const verticalGap=id==='about'?110:70;
+  const maxBodyH=Math.max(360,innerHeight-verticalGap-titleH);
+  let ww=Math.min(preferredW,innerWidth-sideGap,maxBodyH*16/9);
+  let hh=ww*9/16+titleH;
+  let xx=(innerWidth-ww)/2;
+  let yy=Math.max(34,(innerHeight-hh)/2);
   const w$=makeWin(id,title,ww,hh,xx,yy);
   const body=w$.querySelector('.wbody');
   const f=document.createElement('iframe');
