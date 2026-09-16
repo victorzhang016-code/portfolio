@@ -780,9 +780,17 @@ function stopBootBgm(){
   bootBgmOn=false;
 }
 window.addEventListener('message',e=>{if(e.data&&e.data.type==='boot-bgm-toggle')toggleBootBgm();});
+/* 首次任意点击进入全屏（浏览器禁止无手势全屏，这是最接近"打开即全屏"的方案） */
+(function(){
+  let armed=true;
+  document.addEventListener('click',()=>{
+    if(!armed)return;
+    armed=false;
+    if(!document.fullscreenElement)document.documentElement.requestFullscreen().catch(()=>{});
+  },{capture:true});
+})();
 function enterOS(){
   stopBootBgm();
-  document.documentElement.requestFullscreen().catch(()=>{});
   try{$('#boot iframe')[0].contentWindow.postMessage({type:'boot-bgm-off'},'*');}catch(e){}
   sfx('Boot');
   const b=$('#boot');
