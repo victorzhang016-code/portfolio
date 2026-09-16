@@ -63,7 +63,9 @@
   .year{position:fixed;right:104px;bottom:92px;z-index:5;font-size:13.5px;letter-spacing:.3em;color:rgba(242,240,232,.6);}
   /* ── 唱针探针（配合白色唱片）：静置抬起 · 点击落针播放 ── */
   .tonearm{position:fixed;right:52px;top:250px;z-index:6;cursor:pointer;}
-  .tonearm::before{content:'';position:absolute;right:-16px;top:-16px;left:-16px;bottom:-16px;}
+  .tonearm .hitzone{position:absolute;right:-24px;top:-18px;width:250px;height:36px;border-radius:18px;}
+  .tonearm .piv::before{content:'';position:absolute;inset:-10px;border-radius:50%;}
+  .tonearm:hover .armGrp, .tonearm:hover .piv{filter:brightness(1.35) drop-shadow(0 0 10px rgba(242,240,232,.65));}
   .tonearm .armGrp{position:absolute;right:0;top:0;transform-origin:100% 0;transform:rotate(55deg);
     transition:transform 1.05s cubic-bezier(.32,.78,.24,1);}
   .tonearm .rod{position:absolute;right:0;top:-2px;width:205px;height:4px;border-radius:2px;
@@ -76,8 +78,6 @@
     background:radial-gradient(circle at 38% 32%,#fdfdfb,#c9cdd4 55%,#8f959e);
     box-shadow:0 3px 8px rgba(0,0,0,.45),inset 0 1px 2px rgba(255,255,255,.7);}
   .tonearm.on .armGrp{transform:rotate(-22deg);}
-  .tonearm:hover .armGrp{transform:rotate(2deg);}
-  .tonearm:hover.on .armGrp{transform:rotate(-27deg);}
   .tonearm.lure .piv{animation:lureGlow 1.8s ease-in-out infinite;}
   .tonearm.lure .rod{animation:lureShine 1.8s ease-in-out infinite;}
   .tonearm.lure .head{animation:lureShine 1.8s ease-in-out infinite;}
@@ -94,7 +94,7 @@
     <div class="disc-spin"><div class="grooves"></div><div class="mark"></div></div>
     <div class="reflect"></div>
     <div class="label"><div class="photo"><img src="../assets/gloves.jpg" alt=""></div><div class="hole"></div></div></div>
-  <div class="tonearm" id="tonearm" title="Aruarian Dance · Nujabes"><div class="armGrp"><div class="wt"></div><div class="rod"><i class="head"></i></div></div><div class="piv"></div></div>
+  <div class="tonearm" id="tonearm" title="Aruarian Dance · Nujabes"><div class="armGrp"><div class="hitzone"></div><div class="wt"></div><div class="rod"><i class="head"></i></div></div><div class="piv"></div></div>
   <div class="meta-top">Cowork with AI</div>
   <div class="dotted">PORTFOLIO</div>
   <div class="meta-sub"><span class="name">张浩哲</span><span class="en">Victor</span><span class="role">AI 产品经理 · Builder</span></div>
