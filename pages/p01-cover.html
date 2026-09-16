@@ -63,6 +63,7 @@
   .year{position:fixed;right:104px;bottom:92px;z-index:5;font-size:13.5px;letter-spacing:.3em;color:rgba(242,240,232,.6);}
   /* ── 唱针探针（配合白色唱片）：静置抬起 · 点击落针播放 ── */
   .tonearm{position:fixed;right:52px;top:250px;z-index:6;cursor:pointer;}
+  .tonearm::before{content:'';position:absolute;right:-16px;top:-16px;left:-16px;bottom:-16px;}
   .tonearm .armGrp{position:absolute;right:0;top:0;transform-origin:100% 0;transform:rotate(55deg);
     transition:transform 1.05s cubic-bezier(.32,.78,.24,1);}
   .tonearm .rod{position:absolute;right:0;top:-2px;width:205px;height:4px;border-radius:2px;
@@ -75,16 +76,15 @@
     background:radial-gradient(circle at 38% 32%,#fdfdfb,#c9cdd4 55%,#8f959e);
     box-shadow:0 3px 8px rgba(0,0,0,.45),inset 0 1px 2px rgba(255,255,255,.7);}
   .tonearm.on .armGrp{transform:rotate(-22deg);}
+  .tonearm:hover .armGrp{transform:rotate(2deg);}
+  .tonearm:hover.on .armGrp{transform:rotate(-27deg);}
   .tonearm.lure .piv{animation:lureGlow 1.8s ease-in-out infinite;}
   .tonearm.lure .rod{animation:lureShine 1.8s ease-in-out infinite;}
-  .tonearm.lure::after{content:'♪ 点我播放';position:absolute;right:-8px;top:-34px;padding:6px 12px;border-radius:999px;
-    background:rgba(242,240,232,.92);color:#173872;font-size:12px;letter-spacing:.12em;white-space:nowrap;
-    box-shadow:0 4px 16px rgba(0,0,0,.35);animation:lurePop 1.8s ease-in-out infinite;}
+  .tonearm.lure .head{animation:lureShine 1.8s ease-in-out infinite;}
   @keyframes lureGlow{0%,100%{box-shadow:0 3px 8px rgba(0,0,0,.45),inset 0 1px 2px rgba(255,255,255,.7),0 0 0 0 rgba(242,240,232,.55);}
     50%{box-shadow:0 3px 8px rgba(0,0,0,.45),inset 0 1px 2px rgba(255,255,255,.7),0 0 0 12px rgba(242,240,232,0);}}
   @keyframes lureShine{0%,100%{filter:brightness(1);}50%{filter:brightness(1.45);}}
-  @keyframes lurePop{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
-  .tonearm .piv::after{content:'';position:absolute;left:50%;top:50%;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:#5e646d;}
+    .tonearm .piv::after{content:'';position:absolute;left:50%;top:50%;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:#5e646d;}
 </style><link rel="stylesheet" href="../assets/fonts/fonts.css">
 </head>
 <body>
