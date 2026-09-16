@@ -153,9 +153,8 @@ html,body{width:100vw;height:100vh;overflow:hidden;
  pointer-events:none;transition:transform .45s cubic-bezier(.22,1.1,.36,1),opacity .3s;z-index:400;
  width:min(36vh,20vw);height:min(72vh,40vw);border-radius:2.4vh;z-index:100;}
 #ipodDevice.open{transform:translate(-50%,-50%) scale(1);opacity:1;pointer-events:auto;}
-#ipodDevice.open.zoomed{transform:translate(-50%,-50%) scale(1.25);}
 #ipodDevice iframe{width:100%;height:100%;border:none;border-radius:inherit;background:transparent;}
-/* iPod 上方的迷你红绿灯（红=关闭收起） */
+/* iPod 上方迷你控制灯：红=关闭停播，黄=最小化 */
 #ipodLights{position:absolute;top:-30px;left:10px;z-index:402;display:flex;gap:6px;padding:4px 8px;
  background:rgba(30,30,32,.55);backdrop-filter:blur(8px);border-radius:999px;opacity:.35;transition:opacity .2s;}
 #ipodDevice:hover #ipodLights{opacity:1;}
@@ -166,7 +165,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;
 #ipodLights .lt{width:11px;height:11px;border-radius:50%;cursor:pointer;border:1px solid rgba(0,0,0,.3);}
 #ipodLights .lt-red{background:#ff5f57;}
 #ipodLights .lt-yel{background:#febc2e;}
-#ipodLights .lt-grn{background:#28c840;}
 </style>
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="icon" href="assets/icon-power.png">
@@ -225,7 +223,6 @@ html,body{width:100vw;height:100vh;overflow:hidden;
     <div id="ipodLights">
       <span class="lt lt-red" title="关闭（停止播放）" onclick="closeIpod(true)"></span>
       <span class="lt lt-yel" title="最小化" onclick="closeIpod(false)"></span>
-      <span class="lt lt-grn" title="放大 / 还原" onclick="toggleIpodSize()"></span>
     </div>
     <iframe src="pages/ipod.html"></iframe>
   </div>
@@ -300,7 +297,6 @@ function closeIpod(stopMusic){
   d.classList.remove('open');
   d.style.left='';d.style.right='';d.style.top='';d.style.bottom='';
   d.style.transform='';
-  d.classList.remove('zoomed');
   sfx('WindowClose');
   if(stopMusic){
     // 红灯：停止播放
@@ -309,11 +305,6 @@ function closeIpod(stopMusic){
       ifr.contentWindow.postMessage({type:'ipod-stop'},'*');
     }catch(err){}
   }
-}
-function toggleIpodSize(){
-  const d=document.getElementById('ipodDevice');
-  d.classList.toggle('zoomed');
-  sfx('Click');
 }
 (function ipodDrag(){
   const d=document.getElementById('ipodDevice');
@@ -431,7 +422,7 @@ function buildSysMenus(){
     +`<div class="smi" onclick="openItem('index');closeSysMenus()">→ 作品集（全部案例）</div>`;
   const view=document.getElementById('smView');
   view.innerHTML=
-    `<div class="smi" onclick="toggleIpodSize();closeSysMenus()">放大 / 还原 iPod</div>`
+
     +'<div class="sep"></div>'
     +`<div class="smi" onclick="closeSysMenus()">更换桌面与主题…</div>`;
   const help=document.getElementById('smHelp');
