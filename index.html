@@ -107,6 +107,9 @@ html,body{width:100vw;height:100vh;overflow:hidden;
 .wbar .t{position:absolute;left:50%;transform:translateX(-50%);font-size:13px;font-weight:600;pointer-events:none;}
 .wbody{flex:1;overflow:hidden;position:relative;background:#fff;}
 .wbody iframe{scrolling:no;pointer-events:auto;position:absolute;left:0;top:0;border:none;transform-origin:top left;}
+.page-loadbar{position:absolute;left:0;right:0;top:0;height:2px;z-index:30;overflow:hidden;background:rgba(28,88,190,.08);}
+.page-loadbar::after{content:"";display:block;width:34%;height:100%;background:linear-gradient(90deg,transparent,#4d8cff,transparent);animation:pageLoad 1s ease-in-out infinite;}
+@keyframes pageLoad{from{transform:translateX(-110%)}to{transform:translateX(360%)}}
 
 /* Finder 列表 */
 .flist{padding:8px 10px;overflow-y:auto;height:100%;background:#fff;-webkit-user-select:none;}
@@ -509,11 +512,47 @@ function fitIframe(w$,f){
   body.style.overflow='hidden';
 }
 
+/* ── 页面资源预热：HTML + 页面图片异步缓存/解码 ── */
+const __warmPages=new Map();
+function warmPage(slug,priority='low'){
+  if(!slug)return Promise.resolve();
+  if(__warmPages.has(slug))return __warmPages.get(slug);
+  const url=new URL('pages/'+slug+'.html',location.href);
+  const job=fetch(url,{cache:'force-cache'}).then(r=>r.text()).then(html=>{
+    const doc=new DOMParser().parseFromString(html,'text/html');
+    const urls=new Set();
+    doc.querySelectorAll('img[src]').forEach(el=>urls.add(el.getAttribute('src')));
+    for(const m of html.matchAll(/url\(["']?([^"')]+)["']?\)/g))urls.add(m[1]);
+    urls.forEach(src=>{
+      if(!src||src.startsWith('data:')||!(/\.(?:webp|png|jpe?g|gif)(?:\?|$)/i.test(src)))return;
+      const img=new Image();
+      img.decoding='async';
+      try{img.fetchPriority=priority;}catch(e){}
+      img.src=new URL(src,url).href;
+      img.onload=()=>{try{img.decode&&img.decode();}catch(e){}};
+    });
+  }).catch(()=>{});
+  __warmPages.set(slug,job);
+  return job;
+}
+function warmCase(id){
+  const c=CASES.find(x=>x.id===id);if(!c||!c.pages.length)return;
+  warmPage(c.pages[0][0],'high');
+  const rest=()=>c.pages.slice(1).forEach((p,i)=>setTimeout(()=>warmPage(p[0],'low'),i*120));
+  if('requestIdleCallback' in window)requestIdleCallback(rest,{timeout:900});else setTimeout(rest,260);
+}
+function showPageLoader(body){
+  let bar=body.querySelector('.page-loadbar');
+  if(!bar){bar=document.createElement('div');bar.className='page-loadbar';body.appendChild(bar);}
+}
+function hidePageLoader(body){body.querySelector('.page-loadbar')?.remove();}
+
 /* ── 打开项 ── */
 let casX=220,casY=120;
 function openItem(id){
   sfx('Click');
   if(openWins[id]){const w=openWins[id]; w.style.display='flex'; bringFront(w); return;}
+  if(CASES.some(c=>c.id===id))warmCase(id);
   casX=(casX+40)%500+160; casY=(casY+36)%300+90;
   if(id==='ipod'){
     const d=document.getElementById('ipodDevice');
@@ -603,7 +642,7 @@ function openItem(id){
     </div>`;
     }
     const icn=p[4]||null;
-    return `<div class="frow" onclick="openPage('${p[0]}','${p[1]} · ${p[2]}','${p[0]}','${id}',${i})">
+    return `<div class="frow" onmouseenter="warmPage('${p[0]}','high')" onpointerdown="warmPage('${p[0]}','high')" onclick="openPage('${p[0]}','${p[1]} · ${p[2]}','${p[0]}','${id}',${i})">
       <img src="${icn?('assets/'+icn+'.png'):('renders/'+p[0]+'.jpg')}" style="${icn?'width:46px;height:46px;object-fit:contain;border-radius:9px;':''}" onerror="this.style.visibility='hidden'">
       <div><div class="nm">${p[1]}</div><div class="ds">${c.name}</div></div>
       <div class="pg">${p[2]}</div>
@@ -640,9 +679,12 @@ function openPage(id,title,file,caseId,pageIdx,opts){
   let yy=Math.max(34,(innerHeight-hh)/2);
   const w$=makeWin(id,title,ww,hh,xx,yy);
   const body=w$.querySelector('.wbody');
+  showPageLoader(body);
+  warmPage(file,'high');
   const f=document.createElement('iframe');
+  f.style.opacity='0';
   f.src='pages/'+file+'.html';
-  f.onload=()=>{fitIframe(w$,f);
+  f.onload=()=>{fitIframe(w$,f);f.style.opacity='1';hidePageLoader(body);
     // 转发 iframe 内键盘事件到父页，保证翻页灵敏
     try{
       f.contentDocument.addEventListener('keydown',e=>{
@@ -679,12 +721,15 @@ function openPage(id,title,file,caseId,pageIdx,opts){
         if(n<0||n>=pages.length)return;
         cur=n;
         f.style.opacity='0';
+        showPageLoader(body);
+        warmPage(pages[n][0],'high');
         setTimeout(()=>{
           f.src='pages/'+pages[n][0]+'.html';
           tspan.textContent=pages[n][1]+' · '+pages[n][2];
           f.onload=()=>{
             fitIframe(w$,f);
             f.style.opacity='1';
+            hidePageLoader(body);
             try{
               f.contentDocument.addEventListener('keydown',e=>{
                 if(e.key==='ArrowLeft')e.preventDefault(),w$._nav&&w$._nav(-1);
@@ -790,6 +835,12 @@ function enterOS(){
   b.style.transition='opacity .8s'; b.style.opacity='0';
   setTimeout(()=>{b.style.display='none';},820);
   $('#desktop').style.display='block';
+  // 桌面进入后优先预热四个案例首屏，避免第一次点开详情时等待大图下载/解码
+  setTimeout(()=>{
+    ['c1','c2','c3','c4'].forEach((id,i)=>setTimeout(()=>{
+      const c=CASES.find(x=>x.id===id);if(c&&c.pages[0])warmPage(c.pages[0][0],i===0?'high':'low');
+    },i*260));
+  },500);
   setTimeout(()=>openItem('about'),900);
 }
 function openExt(u){sfx('Click'); window.open(u,'_blank');}

@@ -14,7 +14,7 @@
   }
   body::before{
     content:"";position:absolute;inset:0;pointer-events:none;opacity:.2;
-    background-image:url("../assets/grain-fine.png");background-size:300px 300px;mix-blend-mode:overlay;
+    background-image:url("../assets/grain-fine.webp");background-size:300px 300px;mix-blend-mode:overlay;
   }
   .page{position:relative;z-index:1;width:1180px;margin:0 auto;padding-top:48px;}
   .eyebrow{font-size:12px;letter-spacing:.32em;color:rgba(242,240,232,.48);margin-bottom:18px;}
@@ -23,7 +23,9 @@
   .letter{font-family:"Noto Serif CJK SC","Songti SC",serif;font-size:18.5px;line-height:1.62;letter-spacing:.018em;color:rgba(242,240,232,.9);}
   .letter p{margin-bottom:10px;}
   .letter strong{font-weight:700;color:#fff;}
-  .closing{margin-top:12px;padding-top:12px;border-top:1px solid rgba(242,240,232,.18);display:flex;align-items:flex-end;justify-content:space-between;}
+  .letter .easter{margin-top:17px;margin-bottom:0;color:rgba(242,240,232,.76);}
+  .letter .easter strong{color:#fff;font-weight:700;}
+  .closing{margin-top:10px;padding-top:10px;border-top:1px solid rgba(242,240,232,.18);display:flex;align-items:flex-end;justify-content:space-between;}
   .belief{font-family:Georgia,"Noto Serif CJK SC",serif;font-size:18px;font-style:italic;color:rgba(242,240,232,.72);}
   .signature{width:126px;opacity:.82;}
 </style>
@@ -46,12 +48,14 @@
 
       <p>我想加入的，是一支<strong>高水平、踏实、有目标</strong>的团队。大家愿意把问题想清楚，也愿意把事情做扎实；尊重用户、尊重事实，能把判断落成产品，把承诺变成结果。它不必有某种特定的公司形态，成员也不必相似，但彼此可靠，对共同目标坦诚负责。团队里可以有热情而风格强烈的人，也应该有愿意长期做难事的人。我想和这样一群人一起，持续做出有价值、经得起时间检验的产品。</p>
 
-      <p>AGI 的终点永远都是关于人。经历了许多痛苦之后，我仍然坚守自己为人的信念：<strong>思考，热情，真诚，勇气和爱。</strong>我想和这样的团队一起，推动这场科技时代的文艺复兴。哦对了，可能你会说 OK COMPUTER 是 Radiohead 最伟大的专辑；如果让我夹带私货，我会选 In Rainbows。</p>
+      <p>AGI 的终点永远都是关于人。经历了许多痛苦之后，我仍然坚守自己为人的信念：<strong>思考，热情，真诚，勇气和爱。</strong>我想和这样的团队一起，推动这场科技时代的文艺复兴。</p>
+
+      <p class="easter">哦对了，可能你会说 OK COMPUTER 是 Radiohead 最伟大的专辑；<strong>我毫无疑问会选 In Rainbows。</strong></p>
     </article>
 
     <div class="closing">
       <div class="belief">Think, Passion, Brave and Love.</div>
-      <img class="signature" src="../assets/signature-white.png" alt="Victor 签名">
+      <img loading="lazy" decoding="async" class="signature" src="../assets/signature-white.png" alt="Victor 签名">
     </div>
   </main>
 </body>
