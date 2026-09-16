@@ -58,6 +58,21 @@
   .credo{position:fixed;left:104px;bottom:92px;z-index:5;font-family:"Noto Serif CJK SC",serif;font-style:italic;
     font-size:19px;letter-spacing:.05em;color:rgba(242,240,232,.78);}
   .year{position:fixed;right:104px;bottom:92px;z-index:5;font-size:13.5px;letter-spacing:.3em;color:rgba(242,240,232,.6);}
+  /* ── 唱针探针（配合白色唱片）：静置抬起 · 点击落针播放 ── */
+  .tonearm{position:fixed;right:52px;top:250px;z-index:6;cursor:pointer;}
+  .tonearm .armGrp{position:absolute;right:0;top:0;transform-origin:100% 0;transform:rotate(55deg);
+    transition:transform 1.05s cubic-bezier(.32,.78,.24,1);}
+  .tonearm .rod{position:absolute;right:0;top:-2px;width:205px;height:4px;border-radius:2px;
+    background:linear-gradient(#f7f8f6,#b9bdc4 60%,#83888f);box-shadow:0 2px 6px rgba(0,0,0,.42);}
+  .tonearm .head{position:absolute;left:-5px;top:-3px;width:14px;height:10px;border-radius:2.5px;
+    background:linear-gradient(#43464d,#1d2025);box-shadow:0 1px 4px rgba(0,0,0,.55);}
+  .tonearm .wt{position:absolute;right:-24px;top:-5.5px;width:26px;height:11px;border-radius:5px;
+    background:linear-gradient(#e9ebee,#9aa0a8);box-shadow:0 2px 5px rgba(0,0,0,.4);}
+  .tonearm .piv{position:absolute;right:-11px;top:-11px;width:22px;height:22px;border-radius:50%;
+    background:radial-gradient(circle at 38% 32%,#fdfdfb,#c9cdd4 55%,#8f959e);
+    box-shadow:0 3px 8px rgba(0,0,0,.45),inset 0 1px 2px rgba(255,255,255,.7);}
+  .tonearm.on .armGrp{transform:rotate(-22deg);}
+  .tonearm .piv::after{content:'';position:absolute;left:50%;top:50%;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:#5e646d;}
 </style><link rel="stylesheet" href="../assets/fonts/fonts.css">
 </head>
 <body>
@@ -67,6 +82,7 @@
     <div class="disc-spin"><div class="grooves"></div><div class="mark"></div></div>
     <div class="reflect"></div>
     <div class="label"><div class="photo"><img src="../assets/gloves.jpg" alt=""></div><div class="hole"></div></div></div>
+  <div class="tonearm" id="tonearm" title="Aruarian Dance · Nujabes"><div class="armGrp"><div class="wt"></div><div class="rod"><i class="head"></i></div></div><div class="piv"></div></div>
   <div class="meta-top">Cowork with AI</div>
   <div class="dotted">PORTFOLIO</div>
   <div class="meta-sub"><span class="name">张浩哲</span><span class="en">Victor</span><span class="role">AI 产品经理 · Builder</span></div>
@@ -74,4 +90,20 @@
   <div class="credo">Think, Passion, Brave and Love.</div>
   <div class="year">2026</div>
   <div class="fiber"></div>
+
+<script>
+(function(){
+  const t=document.getElementById('tonearm');
+  if(!t)return;
+  t.addEventListener('click',e=>{
+    e.stopPropagation();
+    t.classList.toggle('on');
+    try{parent.postMessage({type:'boot-bgm-toggle'},'*');}catch(err){}
+  });
+  window.addEventListener('message',e=>{
+    if(e.data&&e.data.type==='boot-bgm-off')t.classList.remove('on');
+  });
+})();
+</script>
+
 </body></html>
