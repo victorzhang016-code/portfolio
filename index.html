@@ -814,7 +814,7 @@ function toggleBootBgm(){
       let v=0;bootBgmFade=setInterval(()=>{v+=.04;if(v>=.55){v=.55;a.volume=v;clearInterval(bootBgmFade);bootBgmFade=null;}else a.volume=v;},60);
     }).catch(()=>{});
   }else{
-    let v=a.volume;bootBgmFade=setInterval(()=>{v-=.07;if(v<=0){a.pause();a.currentTime=0;clearInterval(bootBgmFade);bootBgmFade=null;}else a.volume=v;},50);
+    let v=a.volume;bootBgmFade=setInterval(()=>{v-=.07;if(v<=0){a.pause();clearInterval(bootBgmFade);bootBgmFade=null;}else a.volume=v;},50);
     bootBgmOn=false;
   }
 }
@@ -822,7 +822,7 @@ function stopBootBgm(){
   if(!bootBgmOn)return;
   const a=document.getElementById('bootBgm');
   if(bootBgmFade){clearInterval(bootBgmFade);bootBgmFade=null;}
-  let v=a.volume;bootBgmFade=setInterval(()=>{v-=.08;if(v<=0){a.pause();a.currentTime=0;clearInterval(bootBgmFade);bootBgmFade=null;}else a.volume=v;},40);
+  let v=a.volume;bootBgmFade=setInterval(()=>{v-=.08;if(v<=0){a.pause();clearInterval(bootBgmFade);bootBgmFade=null;}else a.volume=v;},40);
   bootBgmOn=false;
 }
 window.addEventListener('message',e=>{if(e.data&&e.data.type==='boot-bgm-toggle')toggleBootBgm();});
