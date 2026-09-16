@@ -189,9 +189,8 @@ button{font:inherit;border:none;background:none;color:inherit;touch-action:manip
 .contact-wrap{padding:22px 18px 40px;max-width:520px;margin:0 auto;}
 .contact-card{display:flex;flex-direction:column;align-items:center;padding:26px 20px;border-radius:16px;
   background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.06);margin-bottom:16px;}
-.contact-card .qr{width:168px;height:168px;object-fit:contain;border-radius:10px;}
+.contact-card .qr{width:168px;height:168px;object-fit:contain;border-radius:10px;-webkit-touch-callout:default;user-select:auto;touch-action:auto;}
 .contact-card .c-label{margin-top:12px;font-size:13.5px;color:rgba(0,0,0,.55);letter-spacing:.04em;}
-.qr-save{margin-top:14px;min-height:44px;padding:0 18px;border-radius:11px;background:var(--cobalt);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;text-decoration:none;}
 .contact-row{display:flex;align-items:center;gap:12px;padding:16px;border-radius:14px;background:#fff;
   box-shadow:0 4px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.06);margin-bottom:12px;}
 .c-ic{font-size:22px;width:38px;text-align:center;flex:none;}
@@ -244,8 +243,15 @@ button{font:inherit;border:none;background:none;color:inherit;touch-action:manip
   .dock-wrap{padding-top:4px;}
   .dock{padding:5px 12px;}
   .dock-ico,.dock-ico img{width:40px;height:40px;}
-  .art{max-width:720px;}
-  .art-gallery{grid-template-columns:repeat(3,1fr);}
+  /* 横屏变成原版 16:9 展示模式；竖屏仍是可读文章 */
+  .sheet-body:not(.grid-body):not(.ipod-body):not(.contact-body) .art:has(>.art-hero){
+    width:100%;max-width:none;height:100%;padding:0;margin:0;display:flex;align-items:center;justify-content:center;background:#111;}
+  .sheet-body:not(.grid-body):not(.ipod-body):not(.contact-body) .art:has(>.art-hero)>.art-hero{
+    width:min(100vw,calc((100dvh - 56px) * 16 / 9));height:min(calc(100dvh - 56px),56.25vw);max-width:100%;max-height:100%;
+    margin:0;border-radius:0;box-shadow:none;aspect-ratio:16/9;background:#111;}
+  .sheet-body:not(.grid-body):not(.ipod-body):not(.contact-body) .art:has(>.art-hero)>.art-hero img{object-fit:contain;background:#111;}
+  .sheet-body:not(.grid-body):not(.ipod-body):not(.contact-body) .art:has(>.art-hero)>:not(.art-hero){display:none;}
+  .art-gallery{grid-template-columns:repeat(3,1fr);} 
 }
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;}
@@ -654,8 +660,7 @@ function openContactSheet(){
   body.innerHTML=`<div class="contact-wrap">
     <div class="contact-card">
       <img class="qr" src="assets/wechat-qr.png" loading="lazy" decoding="async" alt="微信二维码">
-      <div class="c-label">微信 · 扫码添加</div>
-      <a class="qr-save" href="assets/wechat-qr.png" download="Victor-微信二维码.png">保存二维码</a>
+      <div class="c-label">微信 · 长按二维码保存</div>
     </div>
     <div class="contact-row">
       <div class="c-ic">✉️</div>
