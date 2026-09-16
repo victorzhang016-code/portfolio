@@ -16,7 +16,7 @@
   --sab:env(safe-area-inset-bottom,0px);--sal:env(safe-area-inset-left,0px);
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-html,body{width:100%;height:100%;overflow:hidden;position:fixed;inset:0;
+html,body{width:var(--app-w,100%);height:var(--app-h,100dvh);overflow:hidden;position:fixed;left:0;top:0;
   font-family:"Lucida Grande","Hiragino Sans GB","PingFang SC","Noto Sans CJK SC",sans-serif;color:var(--ink);
   background:#0E2350;-webkit-user-select:none;user-select:none;}
 img,button,a{-webkit-touch-callout:none;}
@@ -253,6 +253,30 @@ button{font:inherit;border:none;background:none;color:inherit;touch-action:manip
   .sheet-body:not(.grid-body):not(.ipod-body):not(.contact-body) .art:has(>.art-hero)>:not(.art-hero){display:none;}
   .art-gallery{grid-template-columns:repeat(3,1fr);} 
 }
+/* iOS Safari 旋转兜底：JS 基于 visualViewport 实际宽高切 class，不依赖 orientation media query 是否刷新 */
+html.is-phone-landscape .cover-content{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto auto auto auto;
+  align-content:center;align-items:center;padding:calc(var(--sat) + 8px) 28px calc(var(--sab) + 8px);gap:2px 28px;}
+html.is-phone-landscape .cover-kicker{grid-column:1;grid-row:1;}
+html.is-phone-landscape .cover-title{grid-column:1;grid-row:2;font-size:min(9vw,72px);}
+html.is-phone-landscape .cover-name{grid-column:1;grid-row:3;font-size:17px;}
+html.is-phone-landscape .cover-role{grid-column:1;grid-row:4;}
+html.is-phone-landscape .cover-credo{grid-column:1;grid-row:5;margin-top:8px;font-size:12px;}
+html.is-phone-landscape .enter-btn{grid-column:1;grid-row:6;margin-top:12px;justify-self:center;}
+html.is-phone-landscape .tt-wrap{grid-column:2;grid-row:1 / 7;width:min(42vh,220px);margin:0 auto;}
+html.is-phone-landscape .app-grid{grid-template-columns:repeat(8,1fr);gap:10px 4px;padding-top:14px;}
+html.is-phone-landscape .app-ico img{width:48px;height:48px;}
+html.is-phone-landscape .dock-wrap{padding-top:4px;}
+html.is-phone-landscape .dock{padding:5px 12px;}
+html.is-phone-landscape .dock-ico,html.is-phone-landscape .dock-ico img{width:40px;height:40px;}
+html.is-phone-landscape .sheet-body:not(.grid-body):not(.ipod-body):not(.contact-body) .art:has(>.art-hero){
+  width:100%;max-width:none;height:100%;padding:0;margin:0;display:flex;align-items:center;justify-content:center;background:#111;}
+html.is-phone-landscape .sheet-body:not(.grid-body):not(.ipod-body):not(.contact-body) .art:has(>.art-hero)>.art-hero{
+  width:min(100vw,calc((var(--app-h,100dvh) - 56px) * 16 / 9));height:min(calc(var(--app-h,100dvh) - 56px),56.25vw);max-width:100%;max-height:100%;
+  margin:0;border-radius:0;box-shadow:none;aspect-ratio:16/9;background:#111;}
+html.is-phone-landscape .sheet-body:not(.grid-body):not(.ipod-body):not(.contact-body) .art:has(>.art-hero)>.art-hero img{object-fit:contain;background:#111;}
+html.is-phone-landscape .sheet-body:not(.grid-body):not(.ipod-body):not(.contact-body) .art:has(>.art-hero)>:not(.art-hero){display:none;}
+html.is-phone-landscape .art-gallery{grid-template-columns:repeat(3,1fr);}
+
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;}
 }
@@ -305,6 +329,25 @@ button{font:inherit;border:none;background:none;color:inherit;touch-action:manip
 <div id="toast"></div>
 
 <script>
+/* iOS/Android 横竖屏：用 visualViewport 实际尺寸驱动，避免 fixed+100% 缓存旧布局 */
+function syncMobileViewport(){
+  const vv=window.visualViewport;
+  const w=Math.round(vv?.width||window.innerWidth||document.documentElement.clientWidth);
+  const h=Math.round(vv?.height||window.innerHeight||document.documentElement.clientHeight);
+  const root=document.documentElement;
+  root.style.setProperty('--app-w',w+'px');
+  root.style.setProperty('--app-h',h+'px');
+  root.classList.toggle('is-phone-landscape',w>h&&h<600);
+  root.classList.toggle('is-phone-portrait',h>=w);
+}
+let viewportSyncTimer=null;
+function queueViewportSync(){clearTimeout(viewportSyncTimer);syncMobileViewport();viewportSyncTimer=setTimeout(syncMobileViewport,120);setTimeout(syncMobileViewport,420);}
+window.addEventListener('resize',queueViewportSync,{passive:true});
+window.addEventListener('orientationchange',queueViewportSync,{passive:true});
+try{screen.orientation?.addEventListener('change',queueViewportSync);}catch(e){}
+try{visualViewport?.addEventListener('resize',queueViewportSync,{passive:true});}catch(e){}
+syncMobileViewport();
+
 /* ═══════════════════════ 数据 ═══════════════════════ */
 const APPS=[
   {id:'about',  name:'关于我',            icon:'mac-contacts',      kind:'article', slug:'p02-about'},
@@ -370,7 +413,6 @@ function sfx(n){
     }
   });
   document.getElementById('enterBtn').addEventListener('click',()=>{
-    try{document.documentElement.requestFullscreen?.().catch(()=>{});}catch(e){}
     sfx('Boot');
     try{audio.pause();}catch(e){}
     cover.classList.add('leaving');
