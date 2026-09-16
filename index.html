@@ -201,7 +201,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;
     <div class="sep"></div>
     <div class="ai" onclick="openWpFromMenu(event)">更换桌面与主题…</div>
     <div class="sep"></div>
-    <div class="ai" onclick="closeApple();toggleFullscreen()">进入全屏 ⌃⌘F</div>
+    <div class="ai" id="fsMenuItem" onclick="closeApple();toggleFullscreen()">进入全屏 ⌃⌘F</div>
     <div class="sep"></div>
     <div class="ai" onclick="closeApple();shutdown()">关机…</div>
   </div>
@@ -438,7 +438,7 @@ function buildSysMenus(){
   help.innerHTML=
     `<div class="smi" onclick="openItem('about');closeSysMenus()">关于这台作品集</div>`
     +'<div class="sep"></div>'
-    +`<div class="smi" onclick="closeSysMenus()" style="color:rgba(0,0,0,.45)">操作提示：方向键翻页 · 空格播放 · 触控板横滑翻页</div>`;
+    +`<div class="smi" onclick="closeSysMenus()" style="color:rgba(0,0,0,.45)">操作提示：←→ 键翻页 · 触控板横滑 · 点击窗口两侧翻页 · 空格播放</div>`;
 }
 function toggleSysMenu(kind,e){
   if(e)e.stopPropagation();
@@ -458,6 +458,12 @@ function toggleFullscreen(){
   else{document.documentElement.requestFullscreen().catch(()=>{});}
   sfx('Click');
 }
+function syncFsMenu(){
+  const el=document.getElementById('fsMenuItem');
+  if(el)el.textContent=(document.fullscreenElement?'退出全屏':'进入全屏')+' ⌃⌘F';
+}
+document.addEventListener('fullscreenchange',syncFsMenu);
+setInterval(syncFsMenu,800);
 buildSysMenus();
 
 function makeWin(id,title,w,h,x,y){
@@ -733,14 +739,14 @@ function openPage(id,title,file,caseId,pageIdx,opts){
       document.addEventListener('wheel',onEvt,{passive:false,capture:true});
       // 点击窗口任意处即视为激活（视觉提示）
       w$.addEventListener('mousedown',()=>bringFront(w$));
-      // 左右滑动区
+            // 左右翻页区：点击或悬停均可翻页
       const mkNav=(dir)=>{
         const z=document.createElement('div');
-        z.style.cssText='position:absolute;'+(dir<0?'left:0;':'right:0;')+'top:25px;bottom:0;width:56px;z-index:10;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;background:linear-gradient('+(dir<0?'90deg':'270deg')+',rgba(0,0,0,.12),transparent);';
+        z.style.cssText='position:absolute;'+(dir<0?'left:0;':'right:0;')+'top:25px;bottom:0;width:56px;z-index:10;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;background:linear-gradient('+(dir<0?'90deg':'270deg')+',rgba(0,0,0,.12),transparent);'
         z.innerHTML='<span style="font-size:26px;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.4);">'+(dir<0?'‹':'›')+'</span>';
+        z.onclick=ev=>{ev.stopPropagation();nav(dir);};
         z.onmouseenter=()=>z.style.opacity='1';
         z.onmouseleave=()=>z.style.opacity='0';
-        z.onclick=()=>nav(dir);
         w$.appendChild(z);
       };
       mkNav(-1);mkNav(1);
@@ -776,6 +782,7 @@ function stopBootBgm(){
 window.addEventListener('message',e=>{if(e.data&&e.data.type==='boot-bgm-toggle')toggleBootBgm();});
 function enterOS(){
   stopBootBgm();
+  document.documentElement.requestFullscreen().catch(()=>{});
   try{$('#boot iframe')[0].contentWindow.postMessage({type:'boot-bgm-off'},'*');}catch(e){}
   sfx('Boot');
   const b=$('#boot');
