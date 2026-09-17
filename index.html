@@ -86,6 +86,8 @@ html,body{width:100vw;height:100vh;overflow:hidden;
 #menubar .right{margin-left:auto;display:flex;gap:14px;align-items:center;font-size:12px;color:rgba(0,0,0,.72);}
 
 #dicons{position:absolute;right:20px;top:52px;display:flex;flex-direction:column;gap:22px;align-items:flex-end;z-index:10;}
+#resumeDesktop{position:absolute;right:150px;top:52px;z-index:10;} 
+#resumeDesktop .dicon{width:96px;}
 .dicon{display:flex;flex-direction:column;align-items:center;width:96px;cursor:pointer;}
 .dicon img{width:52px;height:52px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35));transition:transform .1s;}
 .dicon:hover img{transform:scale(1.06);}
@@ -225,6 +227,7 @@ html,body{width:100vw;height:100vh;overflow:hidden;
   </div>
 
   <div id="dicons"></div>
+  <div id="resumeDesktop"><div class="dicon" onclick="openResume()"><img src="assets/icon-resume.png"><span>简历 · AI 产品经理</span></div></div>
   <div id="wins"></div>
   <div class="sysmenu" id="smApp"></div>
   <div class="sysmenu" id="smGo"></div>
@@ -852,6 +855,7 @@ function enterOS(){
   setTimeout(()=>openItem('about'),900);
 }
 function openExt(u){sfx('Click'); const w=window.open(u,'_blank','noopener,noreferrer');if(w)try{w.focus();}catch(e){}}
+function openResume(){sfx('Click');const w=window.open('assets/resume.pdf','_blank');if(w)try{w.focus();}catch(e){}}
 function openGitHub(){sfx('Click'); window.open('https://github.com/victorzhang016-code','_blank');}
 function reboot(){sfx('Boot'); location.reload();}
 
