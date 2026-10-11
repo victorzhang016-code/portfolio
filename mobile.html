@@ -396,10 +396,8 @@ async function enterMobileFullscreen(){
 /* ═══════════════════════ 数据 ═══════════════════════ */
 const APPS=[
   {id:'about',  name:'关于我',            icon:'mac-contacts',      kind:'article', slug:'p02-about'},
-  {id:'c1',     name:'小红书 Builder Hub', icon:'icon-xhs-hd',       kind:'case',
-    pages:[['c1-a-product','产品概览'],['c1-b-role','我的角色'],['c1-e-business-api','业务 API · 作者回流'],['c1-c-frontier','开发者基础设施'],['c1-d-prdmaster','AI API · 能力开放']],
-    link:{url:'https://www.xiaohongshu.com/discovery/item/6a84129400000000050319d8?source=webshare&xhsshare=pc_web&xsec_token=AB_lSd4KpTAToE65HupQ39P31GTDz5gy5BkJ_Gq_PyuMg=&xsec_source=pc_share',label:'官方帖子'}},
-  {id:'sampler', name:'灵感采样器',       icon:'icon-sampler.svg',   kind:'webapp', slug:'sampler-app'},
+  {id:'c1', name:'小红书 Builder Hub', icon:'icon-xhs-hd', kind:'webapp', slug:'xhs-answer-deck'},
+  {id:'sampler', name:'灵感采样器',       icon:'ryos-textedit',      kind:'webapp', slug:'sampler-app'},
   {id:'c2',     name:'Bonjour!',          icon:'icon-bonjour-hd',   kind:'case',
     pages:[['c2-a-product','产品'],['c2-b-role','我的成果'],['c2-c-build','BUiLD 2026']],
     link:{url:'https://bonjour.bio/victor',label:'访问 Bonjour!'}},
@@ -481,16 +479,15 @@ function tickClock(){
 /* ═══════════════════════ 首屏渲染（应用网格 + Dock） ═══════════════════════ */
 function renderHome(){
   const grid=document.getElementById('appGrid');
-  const iconPath=a=>'assets/'+(a.icon.endsWith('.svg')?a.icon:a.icon+'.png');
   grid.innerHTML=APPS.map(a=>
-    `<button class="app-ico" data-id="${a.id}"><img src="${iconPath(a)}" alt=""><span>${a.name}</span></button>`
+    `<button class="app-ico" data-id="${a.id}"><img src="assets/${a.icon}.png" alt=""><span>${a.name}</span></button>`
   ).join('');
   grid.querySelectorAll('.app-ico').forEach(btn=>{
     btn.addEventListener('click',()=>openApp(btn.dataset.id));
   });
   const dock=document.getElementById('dockApps');
   dock.innerHTML=APPS.map(a=>
-    `<button class="dock-ico" data-id="${a.id}"><img src="${iconPath(a)}" alt=""></button>`
+    `<button class="dock-ico" data-id="${a.id}"><img src="assets/${a.icon}.png" alt=""></button>`
   ).join('')+`<button class="dock-ico" id="dockTheme"><img src="assets/icon-theme.png" alt=""></button>`;
   dock.querySelectorAll('.dock-ico[data-id]').forEach(btn=>{
     btn.addEventListener('click',()=>openApp(btn.dataset.id));
@@ -501,7 +498,7 @@ function openWebApp(app){
   sfx('WindowOpen');
   const sheet=openSheetShell();
   sheet.querySelector('.hd-title').textContent=app.name;
-  sheet.querySelector('.hd-page').textContent='独立应用';
+  sheet.querySelector('.hd-page').textContent=app.id==='sampler'?'独立应用':'项目答辩版';
   const close=()=>{sfx('WindowClose');closeSheet(sheet);};
   sheet.querySelector('.close').addEventListener('click',close);
   sheet.querySelector('.back').addEventListener('click',close);

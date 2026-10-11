@@ -262,9 +262,8 @@ function menuClick(el){sfx('MenuItemClick');}
 
 /* ── 数据 ── */
 const CASES=[
- {id:'c1',no:'01',name:'小红书 · 小工具 / RedSkill',desc:'开发者侧开放生态：业务 API、基础设施与 AI 能力',icon:'mac-folder',dicon:'icon-xhs-hd',pages:[
-   ['c1-a-product','产品概览','01'],['c1-b-role','我的角色','02'],['c1-e-business-api','业务 API · 作者回流','03'],['c1-c-frontier','开发者基础设施','04'],['c1-d-prdmaster','AI API · 能力开放','05'],
-   ['link-xhs','全网首发！小红书小工具已全量上线','官方帖子','https://www.xiaohongshu.com/discovery/item/6a84129400000000050319d8?source=webshare&xhsshare=pc_web&xsec_token=AB_lSd4KpTAToE65HupQ39P31GTDz5gy5BkJ_Gq_PyuMg=&xsec_source=pc_share']]},
+ {id:'c1',no:'01',name:'小红书 · 小工具 / RedSkill',desc:'B 端 AI 创作生态：供给、审核与开放能力',icon:'mac-folder',dicon:'icon-xhs-hd',pages:[
+   ['xhs-answer-deck','答辩版 · 项目经历','P.03–P.12 / P.17',null,'ryos-textedit']]},
  {id:'c2',no:'02',name:'Bonjour!',desc:'AI 匹配与 builder 社区',icon:'mac-folder',dicon:'icon-bonjour-hd',pages:[
    ['c2-a-product','产品','01'],['c2-b-role','我的成果','02'],['c2-c-build','BUiLD 2026','03'],
    ['link-bonjour','访问 Bonjour!','直达','https://bonjour.bio/victor']]},
@@ -287,11 +286,11 @@ const dicons=$('#dicons');
 dicons.innerHTML=
  `<div class="dicon" onclick="openItem('about')"><img src="assets/mac-contacts.png"><span>关于我</span></div>`+
  CASES.map(c=>`<div class="dicon" onclick="openItem('${c.id}')"><img src="assets/${c.dicon}.png" style="border-radius:10px;"><span>${c.no} ${c.name.split(' ')[0]}</span></div>`).join('')+
- `<div class="dicon" onclick="openItem('sampler')"><img src="assets/icon-sampler.svg"><span>灵感采样器</span></div>`+
+ `<div class="dicon" onclick="openItem('sampler')"><img src="assets/ryos-textedit.png"><span>灵感采样器</span></div>`+
  `<div class="dicon" onclick="openItem('ipod')"><img src="assets/icon-ipod.png" style="border-radius:12px;"><span>iPod</span></div>`;
 $('#dapps').innerHTML=
  `<div class="di" data-app="index" onclick="openItem('index')"><img src="assets/mac-folder.png"><span class="lbl">作品集 · 全部案例</span><span class="dot"></span></div>`+
- `<div class="di" data-app="sampler" onclick="openItem('sampler')"><img src="assets/icon-sampler.svg"><span class="lbl">灵感采样器</span><span class="dot"></span></div>`;
+ `<div class="di" data-app="sampler" onclick="openItem('sampler')"><img src="assets/ryos-textedit.png"><span class="lbl">灵感采样器</span><span class="dot"></span></div>`;
 
 /* ── 窗口管理 ── */
 let zTop=100, winSeq=0;
@@ -417,7 +416,7 @@ function closeIpod(stopMusic){
 const APP_LIST=[
  ['about','关于我','mac-contacts',''],
  ['c1','小红书 Builder Hub','icon-xhs-hd','案例'],
- ['sampler','灵感采样器','icon-sampler.svg','应用'],
+ ['sampler','灵感采样器','ryos-textedit','应用'],
  ['c2','Bonjour!','icon-bonjour-hd','案例'],
  ['c3','Wearlog 衣LOG','icon-wearlog','案例'],
  ['c4','Other Work','icon-otherwork-hd','作品集'],
@@ -426,10 +425,9 @@ const APP_LIST=[
  ['p25','结语','mac-textedit',''],
 ];
 function buildSysMenus(){
-  const appIconSrc=name=>'assets/'+(name.endsWith('.svg')?name:name+'.png');
   const app=document.getElementById('smApp');
   app.innerHTML=APP_LIST.map(a=>
-    `<div class="smi" onclick="openItem('${a[0]}');closeSysMenus()"><img src="${appIconSrc(a[2])}">${a[1]}<span class="sc">${a[3]}</span></div>`).join('')
+    `<div class="smi" onclick="openItem('${a[0]}');closeSysMenus()"><img src="assets/${a[2]}.png">${a[1]}<span class="sc">${a[3]}</span></div>`).join('')
     +'<div class="sep"></div>'
     +`<div class="smi" onclick="openGitHub();closeSysMenus()"><img src="assets/icon-github-white.png" style="border-radius:4px;">GitHub<span class="sc">↗</span></div>`;
   const go=document.getElementById('smGo');
@@ -607,7 +605,7 @@ function openItem(id){
           <div style="font-size:10.5px;color:rgba(0,0,0,.4);padding:2px 10px 5px;letter-spacing:.08em;font-weight:700;">应用程序</div>
           <div onclick="openItem('sampler')" style="display:flex;align-items:center;gap:8px;padding:5px 10px;border-radius:6px;cursor:pointer;font-size:13px;"
             onmouseover="this.style.background='rgba(58,115,214,.12)'" onmouseout="this.style.background=''">
-            <img src="assets/icon-sampler.svg" style="width:20px;height:20px;border-radius:4px;">灵感采样器</div>
+            <img src="assets/ryos-textedit.png" style="width:20px;height:20px;border-radius:4px;">灵感采样器</div>
           <div onclick="openItem('ipod')" style="display:flex;align-items:center;gap:8px;padding:5px 10px;border-radius:6px;cursor:pointer;font-size:13px;"
             onmouseover="this.style.background='rgba(58,115,214,.12)'" onmouseout="this.style.background=''">
             <img src="assets/icon-ipod.png" style="width:20px;height:20px;border-radius:4px;">iPod</div>
@@ -635,7 +633,7 @@ function openItem(id){
           </div>
           <div onclick="openItem('sampler')" style="display:flex;flex-direction:column;align-items:center;gap:9px;cursor:pointer;padding:12px 8px;border-radius:10px;"
             onmouseover="this.style.background='rgba(58,115,214,.09)'" onmouseout="this.style.background=''">
-            <img src="assets/icon-sampler.svg" style="width:68px;height:68px;">
+            <img src="assets/ryos-textedit.png" style="width:68px;height:68px;">
             <div style="font-size:13px;font-weight:600;color:#1c1c1e;">灵感采样器</div>
             <div style="font-size:10.5px;color:rgba(0,0,0,.4);">应用</div>
           </div>
