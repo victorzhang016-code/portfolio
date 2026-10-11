@@ -108,6 +108,7 @@ assets/icon-otherwork-hd.png
 assets/icon-otherwork.png
 assets/icon-phone.png
 assets/icon-power.png
+assets/icon-sampler.svg
 assets/icon-theme.png
 assets/icon-wearlog.png
 assets/icon-wearlog.webp

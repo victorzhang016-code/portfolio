@@ -10,13 +10,13 @@ html,body{width:1600px;height:900px;overflow:hidden;background:#fff;color:var(--
 .nav .word{font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:17px;}
 .nav .menu{display:flex;gap:34px;color:rgba(32,35,35,.75);font-size:13.5px;}
 h1{position:absolute;left:12.2%;top:14%;font-family:"Noto Serif CJK SC",serif;font-weight:900;font-size:52px;line-height:1.15;}
-.desc{position:absolute;left:12.2%;top:24.5%;width:40%;font-size:15px;line-height:1.75;color:rgba(32,35,35,.75);}
+.desc{position:absolute;left:12.2%;top:29%;width:40%;font-size:15px;line-height:1.75;color:rgba(32,35,35,.75);}
 .desc b{color:var(--deep);}
-.tags{position:absolute;left:12.2%;top:32%;display:flex;gap:10px;}
+.tags{position:absolute;left:12.2%;top:36%;display:flex;gap:10px;}
 .tags span{font-size:12.5px;padding:6px 14px;border:1px solid rgba(32,35,35,.28);border-radius:999px;color:rgba(32,35,35,.7);}
-.about{position:absolute;right:13.5%;top:32%;font-size:13px;font-weight:600;
-  border:1px solid rgba(32,35,35,.3);padding:8px 18px;border-radius:3px;color:var(--ink);}
-.hero{position:absolute;left:12.2%;right:12.2%;top:38%;bottom:0;overflow:hidden;background:#0E2350;}
+.about{position:absolute;right:13.5%;top:36%;font-size:13px;font-weight:600;
+  border:1px solid rgba(32,35,35,.3);padding:8px 18px;border-radius:3px;color:var(--ink);cursor:pointer;background:transparent;}
+.hero{position:absolute;left:12.2%;right:12.2%;top:42%;bottom:0;overflow:hidden;background:#0E2350;}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;
   filter:grayscale(1) contrast(1.2) brightness(1.0);}
 .hero .ink{position:absolute;inset:0;background:#1D4B96;mix-blend-mode:color;}
@@ -26,18 +26,18 @@ h1{position:absolute;left:12.2%;top:14%;font-family:"Noto Serif CJK SC",serif;fo
 .hero .v2{font-size:12.5px;letter-spacing:.14em;color:rgba(242,240,232,.75);text-align:right;line-height:1.9;}
 </style><link rel="stylesheet" href="../assets/fonts/fonts.css">
 </head><body>
-<div class="nav"><div class="word">商业化调研</div>
-  <div class="menu"><span>Skill 变现</span><span>站外规律</span><span>判断</span></div></div>
-<h1>Skill 是名片，<br>小工具是容器</h1>
-<div class="desc">头部 Skill 作者（匿名访谈）变现靠人工代跑交付，收入约 5 万，交付即泄露；外部创作者案例的共同规律是<b>收入都在站外</b>。判断：Skill 是能力证明与获客入口，小工具才是变现容器。</div>
-<div class="tags"><span>访谈 × 公开案例交叉验证</span><span>调研口径</span></div>
-<div class="about">关于这个项目 +</div>
+<div class="nav"><div class="word">小红书 · Builder Hub</div>
+  <div class="menu"><span>内容发布</span><span>开发者基建</span><span>AI 能力</span></div></div>
+<h1>从作品发布<br>到 AI 能力接入</h1>
+<div class="desc">我负责的三块开放能力覆盖作品发布、作者回流、开发者基础设施与 AI 接入，完善从作品发布到持续创作的产品支持。</div>
+<div class="tags"><span>业务 API</span><span>开发者基础设施</span><span>AI API</span></div>
+<div class="about" role="button" tabindex="0" onclick="if(window.parent&&window.parent.openItem)window.parent.openItem('sampler');else window.open('../pages/sampler-app.html','_blank')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}">打开灵感采样器 →</div>
 <div class="hero">
-  <img loading="lazy" decoding="async" src="../assets/retro-mac.jpg" alt="">
+  <img loading="lazy" decoding="async" src="../assets/xhs/launch.jpg" alt="小工具内容发布入口">
   <div class="ink"></div>
   <div class="verdict">
-    <div class="v1">能力证明 → <i>Skill</i> ｜ 交付容器 → <i>小工具</i></div>
-    <div class="v2">访谈：收入约 5 万（代跑交付）<br>站外案例：240 万 / 120 万·年（调研口径）</div>
+    <div class="v1">工具内创作 → <i>社区内容</i> → 作者连接</div>
+    <div class="v2">AI API 已上线并供开发者使用<br>作品发布与管理能力同步落地</div>
   </div>
 </div>
 </body></html>

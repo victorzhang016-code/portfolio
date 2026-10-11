@@ -139,7 +139,8 @@ button{font:inherit;border:none;background:none;color:inherit;touch-action:manip
 .article-cta:active{opacity:.78;}
 .sheet-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y;
   position:relative;background:#F5F4EF;}
-.sheet-body.grid-body,.sheet-body.ipod-body,.sheet-body.contact-body{padding:0;}
+.sheet-body.grid-body,.sheet-body.ipod-body,.sheet-body.contact-body,.sheet-body.webapp-body{padding:0;overflow:hidden;touch-action:auto;}
+.sampler-frame{display:block;width:100%;height:100%;border:0;background:#F2F0E8;}
 .navf{position:absolute;bottom:calc(18px + var(--sab));width:48px;height:48px;border-radius:50%;z-index:15;
   background:rgba(20,20,22,.42);color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;
   backdrop-filter:blur(6px);}
@@ -396,8 +397,9 @@ async function enterMobileFullscreen(){
 const APPS=[
   {id:'about',  name:'关于我',            icon:'mac-contacts',      kind:'article', slug:'p02-about'},
   {id:'c1',     name:'小红书 Builder Hub', icon:'icon-xhs-hd',       kind:'case',
-    pages:[['c1-a-product','产品'],['c1-b-role','我的成果'],['c1-c-frontier','商业化开拓'],['c1-d-prdmaster','延伸 · PRD 大师']],
+    pages:[['c1-a-product','产品概览'],['c1-b-role','我的角色'],['c1-e-business-api','业务 API · 作者回流'],['c1-c-frontier','开发者基础设施'],['c1-d-prdmaster','AI API · 能力开放']],
     link:{url:'https://www.xiaohongshu.com/discovery/item/6a84129400000000050319d8?source=webshare&xhsshare=pc_web&xsec_token=AB_lSd4KpTAToE65HupQ39P31GTDz5gy5BkJ_Gq_PyuMg=&xsec_source=pc_share',label:'官方帖子'}},
+  {id:'sampler', name:'灵感采样器',       icon:'icon-sampler.svg',   kind:'webapp', slug:'sampler-app'},
   {id:'c2',     name:'Bonjour!',          icon:'icon-bonjour-hd',   kind:'case',
     pages:[['c2-a-product','产品'],['c2-b-role','我的成果'],['c2-c-build','BUiLD 2026']],
     link:{url:'https://bonjour.bio/victor',label:'访问 Bonjour!'}},
@@ -479,26 +481,40 @@ function tickClock(){
 /* ═══════════════════════ 首屏渲染（应用网格 + Dock） ═══════════════════════ */
 function renderHome(){
   const grid=document.getElementById('appGrid');
+  const iconPath=a=>'assets/'+(a.icon.endsWith('.svg')?a.icon:a.icon+'.png');
   grid.innerHTML=APPS.map(a=>
-    `<button class="app-ico" data-id="${a.id}"><img src="assets/${a.icon}.png" alt=""><span>${a.name}</span></button>`
+    `<button class="app-ico" data-id="${a.id}"><img src="${iconPath(a)}" alt=""><span>${a.name}</span></button>`
   ).join('');
   grid.querySelectorAll('.app-ico').forEach(btn=>{
     btn.addEventListener('click',()=>openApp(btn.dataset.id));
   });
   const dock=document.getElementById('dockApps');
   dock.innerHTML=APPS.map(a=>
-    `<button class="dock-ico" data-id="${a.id}"><img src="assets/${a.icon}.png" alt=""></button>`
+    `<button class="dock-ico" data-id="${a.id}"><img src="${iconPath(a)}" alt=""></button>`
   ).join('')+`<button class="dock-ico" id="dockTheme"><img src="assets/icon-theme.png" alt=""></button>`;
   dock.querySelectorAll('.dock-ico[data-id]').forEach(btn=>{
     btn.addEventListener('click',()=>openApp(btn.dataset.id));
   });
   document.getElementById('dockTheme').addEventListener('click',openThemeSheet);
 }
+function openWebApp(app){
+  sfx('WindowOpen');
+  const sheet=openSheetShell();
+  sheet.querySelector('.hd-title').textContent=app.name;
+  sheet.querySelector('.hd-page').textContent='独立应用';
+  const close=()=>{sfx('WindowClose');closeSheet(sheet);};
+  sheet.querySelector('.close').addEventListener('click',close);
+  sheet.querySelector('.back').addEventListener('click',close);
+  const body=sheet.querySelector('.sheet-body');
+  body.classList.add('webapp-body');
+  body.innerHTML=`<iframe class="sampler-frame" title="${app.name}" src="pages/${app.slug}.html"></iframe>`;
+}
 function openApp(id){
   sfx('Click');
   const app=APPS.find(a=>a.id===id);
   if(!app)return;
   if(app.kind==='ipod')return openIpodSheet();
+  if(app.kind==='webapp')return openWebApp(app);
   if(app.kind==='contact')return openContactSheet();
   if(app.kind==='gallery')return openGallery();
   if(app.kind==='case')return openReader({title:app.name,pages:app.pages.map(p=>({slug:p[0],label:p[1]})),index:0,extLink:app.link});
